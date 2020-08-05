@@ -16,5 +16,10 @@ namespace StockLib
         {
             InitializeComponent();
         }
+
+        private void SubForm_Load(object sender, EventArgs e)
+        {
+            bs_sub.Filter = "issuppose='true'";
+        }
     }
 }
