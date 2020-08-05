@@ -83,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubForm.resx">
+      <DependentUpon>SubForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ds_main.xsc">
       <DependentUpon>ds_main.xsd</DependentUpon>
     </None>

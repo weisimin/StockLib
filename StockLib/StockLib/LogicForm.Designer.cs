@@ -36,6 +36,12 @@
             this.Download_History = new System.Windows.Forms.ToolStripMenuItem();
             this.Download_Now = new System.Windows.Forms.ToolStripMenuItem();
             this.Download_AllCode = new System.Windows.Forms.ToolStripMenuItem();
+            this.Save_Data = new System.Windows.Forms.ToolStripMenuItem();
+            this.codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max10growmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).BeginInit();
             this.Menu_Main.SuspendLayout();
@@ -43,10 +49,23 @@
             // 
             // gv_list
             // 
+            this.gv_list.AllowUserToAddRows = false;
+            this.gv_list.AllowUserToDeleteRows = false;
+            this.gv_list.AllowUserToOrderColumns = true;
+            this.gv_list.AutoGenerateColumns = false;
             this.gv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gv_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codevalue,
+            this.stockname,
+            this.nowprice,
+            this.max10growmin,
+            this.max20growday});
+            this.gv_list.DataSource = this.bs_main;
             this.gv_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gv_list.Location = new System.Drawing.Point(0, 28);
             this.gv_list.Name = "gv_list";
+            this.gv_list.ReadOnly = true;
+            this.gv_list.RowHeadersVisible = false;
             this.gv_list.RowTemplate.Height = 27;
             this.gv_list.Size = new System.Drawing.Size(1262, 405);
             this.gv_list.TabIndex = 0;
@@ -67,7 +86,8 @@
             this.MI_System.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Download_History,
             this.Download_Now,
-            this.Download_AllCode});
+            this.Download_AllCode,
+            this.Save_Data});
             this.MI_System.Name = "MI_System";
             this.MI_System.Size = new System.Drawing.Size(100, 24);
             this.MI_System.Text = "MI_System";
@@ -93,6 +113,54 @@
             this.Download_AllCode.Text = "Download_AllCode";
             this.Download_AllCode.Click += new System.EventHandler(this.Download_AllCode_Click);
             // 
+            // Save_Data
+            // 
+            this.Save_Data.Name = "Save_Data";
+            this.Save_Data.Size = new System.Drawing.Size(223, 26);
+            this.Save_Data.Text = "Save_Data";
+            this.Save_Data.Click += new System.EventHandler(this.Save_Data_Click);
+            // 
+            // codevalue
+            // 
+            this.codevalue.DataPropertyName = "codevalue";
+            this.codevalue.Frozen = true;
+            this.codevalue.HeaderText = "代码";
+            this.codevalue.Name = "codevalue";
+            this.codevalue.ReadOnly = true;
+            // 
+            // stockname
+            // 
+            this.stockname.DataPropertyName = "stockname";
+            this.stockname.Frozen = true;
+            this.stockname.HeaderText = "名称";
+            this.stockname.Name = "stockname";
+            this.stockname.ReadOnly = true;
+            // 
+            // nowprice
+            // 
+            this.nowprice.DataPropertyName = "nowprice";
+            this.nowprice.Frozen = true;
+            this.nowprice.HeaderText = "价格";
+            this.nowprice.Name = "nowprice";
+            this.nowprice.ReadOnly = true;
+            this.nowprice.Width = 75;
+            // 
+            // max10growmin
+            // 
+            this.max10growmin.DataPropertyName = "max10growmin";
+            this.max10growmin.HeaderText = "大10分";
+            this.max10growmin.Name = "max10growmin";
+            this.max10growmin.ReadOnly = true;
+            this.max10growmin.Width = 80;
+            // 
+            // max20growday
+            // 
+            this.max20growday.DataPropertyName = "max20growday";
+            this.max20growday.HeaderText = "大20天";
+            this.max20growday.Name = "max20growday";
+            this.max20growday.ReadOnly = true;
+            this.max20growday.Width = 80;
+            // 
             // LogicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -104,6 +172,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogicForm";
             this.Text = "最新行情";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogicForm_FormClosing);
             this.Load += new System.EventHandler(this.LogicForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).EndInit();
@@ -123,6 +192,12 @@
         private System.Windows.Forms.ToolStripMenuItem Download_History;
         private System.Windows.Forms.ToolStripMenuItem Download_Now;
         private System.Windows.Forms.ToolStripMenuItem Download_AllCode;
+        private System.Windows.Forms.ToolStripMenuItem Save_Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codevalue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nowprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn max10growmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn max20growday;
     }
 }
 
