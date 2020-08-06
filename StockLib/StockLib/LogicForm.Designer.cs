@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bs_main = new System.Windows.Forms.BindingSource(this.components);
             this.gv_list = new System.Windows.Forms.DataGridView();
             this.Menu_Main = new System.Windows.Forms.MenuStrip();
@@ -38,17 +39,26 @@
             this.Download_AllCode = new System.Windows.Forms.ToolStripMenuItem();
             this.Save_Data = new System.Windows.Forms.ToolStripMenuItem();
             this.Download_DeleteAndReDown = new System.Windows.Forms.ToolStripMenuItem();
+            this.Set_DayNoTrans = new System.Windows.Forms.ToolStripMenuItem();
             this.ss_main = new System.Windows.Forms.StatusStrip();
             this.ss_mian_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.time_refresh = new System.Windows.Forms.Timer(this.components);
             this.codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nowprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.max10growmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nowtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Set_DayNoTrans = new System.Windows.Forms.ToolStripMenuItem();
+            this.lmin01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lmin02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lmin03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday01_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday01_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday02_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday02_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday03_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday03_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).BeginInit();
             this.Menu_Main.SuspendLayout();
@@ -61,15 +71,24 @@
             this.gv_list.AllowUserToDeleteRows = false;
             this.gv_list.AllowUserToOrderColumns = true;
             this.gv_list.AutoGenerateColumns = false;
-            this.gv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gv_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codevalue,
             this.stockname,
             this.nowprice,
+            this.minprice,
             this.max10growmin,
             this.max20growday,
             this.nowtime,
-            this.minprice});
+            this.lmin01,
+            this.lmin02,
+            this.lmin03,
+            this.lday01_min,
+            this.lday01_end,
+            this.lday02_min,
+            this.lday02_end,
+            this.lday03_min,
+            this.lday03_end});
             this.gv_list.DataSource = this.bs_main;
             this.gv_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gv_list.Location = new System.Drawing.Point(0, 28);
@@ -77,7 +96,8 @@
             this.gv_list.ReadOnly = true;
             this.gv_list.RowHeadersVisible = false;
             this.gv_list.RowTemplate.Height = 27;
-            this.gv_list.Size = new System.Drawing.Size(802, 405);
+            this.gv_list.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.gv_list.Size = new System.Drawing.Size(1299, 405);
             this.gv_list.TabIndex = 0;
             // 
             // Menu_Main
@@ -87,7 +107,7 @@
             this.MI_System});
             this.Menu_Main.Location = new System.Drawing.Point(0, 0);
             this.Menu_Main.Name = "Menu_Main";
-            this.Menu_Main.Size = new System.Drawing.Size(802, 28);
+            this.Menu_Main.Size = new System.Drawing.Size(1299, 28);
             this.Menu_Main.TabIndex = 1;
             this.Menu_Main.Text = "menuStrip1";
             // 
@@ -139,6 +159,13 @@
             this.Download_DeleteAndReDown.Text = "Download_DeleteAndReDown";
             this.Download_DeleteAndReDown.Click += new System.EventHandler(this.Download_DeleteAndReDown_Click);
             // 
+            // Set_DayNoTrans
+            // 
+            this.Set_DayNoTrans.Name = "Set_DayNoTrans";
+            this.Set_DayNoTrans.Size = new System.Drawing.Size(304, 26);
+            this.Set_DayNoTrans.Text = "Set_DayNoTrans";
+            this.Set_DayNoTrans.Click += new System.EventHandler(this.Set_DayNoTrans_Click);
+            // 
             // ss_main
             // 
             this.ss_main.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -146,7 +173,7 @@
             this.ss_mian_label});
             this.ss_main.Location = new System.Drawing.Point(0, 408);
             this.ss_main.Name = "ss_main";
-            this.ss_main.Size = new System.Drawing.Size(802, 25);
+            this.ss_main.Size = new System.Drawing.Size(1299, 25);
             this.ss_main.TabIndex = 2;
             this.ss_main.Text = "statusStrip1";
             // 
@@ -188,7 +215,16 @@
             this.nowprice.HeaderText = "价格";
             this.nowprice.Name = "nowprice";
             this.nowprice.ReadOnly = true;
-            this.nowprice.Width = 75;
+            this.nowprice.Width = 60;
+            // 
+            // minprice
+            // 
+            this.minprice.DataPropertyName = "minprice";
+            this.minprice.Frozen = true;
+            this.minprice.HeaderText = "最低";
+            this.minprice.Name = "minprice";
+            this.minprice.ReadOnly = true;
+            this.minprice.Width = 60;
             // 
             // max10growmin
             // 
@@ -196,6 +232,7 @@
             this.max10growmin.HeaderText = "最大10分";
             this.max10growmin.Name = "max10growmin";
             this.max10growmin.ReadOnly = true;
+            this.max10growmin.Width = 70;
             // 
             // max20growday
             // 
@@ -203,33 +240,95 @@
             this.max20growday.HeaderText = "最大20天";
             this.max20growday.Name = "max20growday";
             this.max20growday.ReadOnly = true;
+            this.max20growday.Width = 70;
             // 
             // nowtime
             // 
             this.nowtime.DataPropertyName = "nowtime";
-            this.nowtime.HeaderText = "nowtime";
+            dataGridViewCellStyle1.Format = "HH:mm";
+            this.nowtime.DefaultCellStyle = dataGridViewCellStyle1;
+            this.nowtime.HeaderText = "时间";
             this.nowtime.Name = "nowtime";
             this.nowtime.ReadOnly = true;
+            this.nowtime.Width = 50;
             // 
-            // minprice
+            // lmin01
             // 
-            this.minprice.DataPropertyName = "minprice";
-            this.minprice.HeaderText = "minprice";
-            this.minprice.Name = "minprice";
-            this.minprice.ReadOnly = true;
+            this.lmin01.DataPropertyName = "lmin01";
+            this.lmin01.HeaderText = "分1";
+            this.lmin01.Name = "lmin01";
+            this.lmin01.ReadOnly = true;
+            this.lmin01.Width = 60;
             // 
-            // Set_DayNoTrans
+            // lmin02
             // 
-            this.Set_DayNoTrans.Name = "Set_DayNoTrans";
-            this.Set_DayNoTrans.Size = new System.Drawing.Size(304, 26);
-            this.Set_DayNoTrans.Text = "Set_DayNoTrans";
-            this.Set_DayNoTrans.Click += new System.EventHandler(this.Set_DayNoTrans_Click);
+            this.lmin02.DataPropertyName = "lmin02";
+            this.lmin02.HeaderText = "分2";
+            this.lmin02.Name = "lmin02";
+            this.lmin02.ReadOnly = true;
+            this.lmin02.Width = 60;
+            // 
+            // lmin03
+            // 
+            this.lmin03.DataPropertyName = "lmin03";
+            this.lmin03.HeaderText = "分3";
+            this.lmin03.Name = "lmin03";
+            this.lmin03.ReadOnly = true;
+            this.lmin03.Width = 60;
+            // 
+            // lday01_min
+            // 
+            this.lday01_min.DataPropertyName = "lday01_min";
+            this.lday01_min.HeaderText = "日1小";
+            this.lday01_min.Name = "lday01_min";
+            this.lday01_min.ReadOnly = true;
+            this.lday01_min.Width = 80;
+            // 
+            // lday01_end
+            // 
+            this.lday01_end.DataPropertyName = "lday01_end";
+            this.lday01_end.HeaderText = "日1终";
+            this.lday01_end.Name = "lday01_end";
+            this.lday01_end.ReadOnly = true;
+            this.lday01_end.Width = 80;
+            // 
+            // lday02_min
+            // 
+            this.lday02_min.DataPropertyName = "lday02_min";
+            this.lday02_min.HeaderText = "日2小";
+            this.lday02_min.Name = "lday02_min";
+            this.lday02_min.ReadOnly = true;
+            this.lday02_min.Width = 80;
+            // 
+            // lday02_end
+            // 
+            this.lday02_end.DataPropertyName = "lday02_end";
+            this.lday02_end.HeaderText = "日2终";
+            this.lday02_end.Name = "lday02_end";
+            this.lday02_end.ReadOnly = true;
+            this.lday02_end.Width = 80;
+            // 
+            // lday03_min
+            // 
+            this.lday03_min.DataPropertyName = "lday03_min";
+            this.lday03_min.HeaderText = "日3小";
+            this.lday03_min.Name = "lday03_min";
+            this.lday03_min.ReadOnly = true;
+            this.lday03_min.Width = 80;
+            // 
+            // lday03_end
+            // 
+            this.lday03_end.DataPropertyName = "lday03_end";
+            this.lday03_end.HeaderText = "日3终";
+            this.lday03_end.Name = "lday03_end";
+            this.lday03_end.ReadOnly = true;
+            this.lday03_end.Width = 80;
             // 
             // LogicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 433);
+            this.ClientSize = new System.Drawing.Size(1299, 433);
             this.Controls.Add(this.ss_main);
             this.Controls.Add(this.gv_list);
             this.Controls.Add(this.Menu_Main);
@@ -264,14 +363,23 @@
         private System.Windows.Forms.ToolStripStatusLabel ss_mian_label;
         private System.Windows.Forms.ToolStripMenuItem Download_DeleteAndReDown;
         private System.Windows.Forms.Timer time_refresh;
+        private System.Windows.Forms.ToolStripMenuItem Set_DayNoTrans;
         private System.Windows.Forms.DataGridViewTextBoxColumn codevalue;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockname;
         private System.Windows.Forms.DataGridViewTextBoxColumn nowprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn max10growmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn max20growday;
         private System.Windows.Forms.DataGridViewTextBoxColumn nowtime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minprice;
-        private System.Windows.Forms.ToolStripMenuItem Set_DayNoTrans;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lmin01;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lmin02;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lmin03;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday01_min;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday01_end;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday02_min;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday02_end;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday03_min;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lday03_end;
     }
 }
 
