@@ -18,14 +18,17 @@ namespace StockLib
             InitializeComponent();
         }
 
+        DataTable listsource = new ds_main.dt_newsDataTable();
         private void LogicForm_Load(object sender, EventArgs e)
         {
-            bs_main.DataSource = new ds_main.dt_newsDataTable();
-            LoadDatas();
+            //gv_list.AutoGenerateColumns = true;
 
+
+            LoadDatas();
+            bs_main.DataSource = listsource.AsDataView();
             SubForm sf = new SubForm();
             sf.Show();
-            sf.bs_sub.DataSource = ((DataTable)bs_main.DataSource).AsDataView();
+            sf.bs_sub.DataSource = listsource.AsDataView();
         }
 
         #region 事件代码
@@ -34,7 +37,7 @@ namespace StockLib
             int runcount = 0;
             string Dats = "";
             int indexcount = 0;
-            foreach (DataRow item in ((DataTable)bs_main.DataSource).Rows)
+            foreach (DataRow item in listsource.Rows)
             {
                 runcount += 1;
                 if (runcount == 1)
@@ -45,7 +48,12 @@ namespace StockLib
                 {
                     Dats += "," + item.Field<String>("codetype") + item.Field<String>("codevalue");
                 }
-
+                #region
+                if (DateTime.Now.Hour == 9 && DateTime.Now.Minute < 30 && DateTime.Now.Minute >= 20)
+                {
+                    item.SetField<Boolean>("issuppose", false);
+                }
+                #endregion
                 if (runcount == 100)
                 {
                     ss_mian_label.Text = "正在刷新" + Dats;
@@ -54,7 +62,7 @@ namespace StockLib
                     runcount = 0;
                     Dats = "";
                 }
-                if (indexcount == ((DataTable)bs_main.DataSource).Rows.Count - 1)
+                if (indexcount == listsource.Rows.Count - 1)
                 {
                     ss_mian_label.Text = "正在刷新" + Dats;
                     DownloadSinaData(Dats);
@@ -65,6 +73,7 @@ namespace StockLib
             }
             ss_mian_label.Text = "刷新完成";
         }
+
         private void DownloadSinaData(string Codes)
         {
             String URL = "http://hq.sinajs.cn/list=" + Codes;
@@ -76,11 +85,16 @@ namespace StockLib
                 string[] infs = lineitem.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 string codetype = infs[0].Substring(11, 2);
                 string codevalue = infs[0].Substring(13, 6); ;
-                DataRow[] rows = ((DataTable)bs_main.DataSource).Select("codetype='" + codetype + "' and codevalue='" + codevalue + "'");
+                DataRow[] rows = listsource.Select("codetype='" + codetype + "' and codevalue='" + codevalue + "'");
                 if (rows.Count() > 0)
                 {
-                    rows[0].SetField<Decimal>("minprice", Convert.ToDecimal(infs[5]));
-                    rows[0].SetField<Decimal>("nowprice", Convert.ToDecimal(infs[3]));
+                    rows[0].SetField<Decimal?>("minprice", Convert.ToDecimal(infs[5]));
+                    rows[0].SetField<Decimal?>("nowprice", Convert.ToDecimal(infs[3]));
+                    rows[0].SetField<Decimal?>("ytdprice", Convert.ToDecimal(infs[2]));
+
+
+                    rows[0].SetField<Decimal?>("growtoday", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("ytdprice")));
+
                     DateTime lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
 
@@ -105,52 +119,52 @@ namespace StockLib
                         rows[0].SetField<decimal?>("lmin01", Convert.ToDecimal(infs[3]));
 
                         decimal? max10growmin = null;
-                        decimal? testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin01")) - 1.0M) * 100.0M;
-                        if (testgrow>max10growmin|| max10growmin==null)
+                        decimal? testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin01"));
+                        if (testgrow > max10growmin || max10growmin == null)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin02")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin02"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin03")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin03"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin04")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin04"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin05")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin05"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin06")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin06"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin07")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin07"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin08")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin08"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin09")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin09"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
                         }
-                        testgrow = ((rows[0].Field<decimal?>("nowprice") / rows[0].Field<decimal?>("lmin10")) - 1.0M) * 100.0M;
+                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin10"));
                         if (testgrow > max10growmin)
                         {
                             max10growmin = testgrow;
@@ -204,41 +218,40 @@ namespace StockLib
                             rows[0].SetField<decimal?>("lday01_end", rows[0].Field<decimal?>("nowprice"));
 
 
-                            rows[0].SetField<decimal?>("growday01", ((rows[0].Field<decimal?>("lday01_end") / rows[0].Field<decimal?>("lday01_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday02", ((rows[0].Field<decimal?>("lday02_end") / rows[0].Field<decimal?>("lday02_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday03", ((rows[0].Field<decimal?>("lday03_end") / rows[0].Field<decimal?>("lday03_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday04", ((rows[0].Field<decimal?>("lday04_end") / rows[0].Field<decimal?>("lday04_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday05", ((rows[0].Field<decimal?>("lday05_end") / rows[0].Field<decimal?>("lday05_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday06", ((rows[0].Field<decimal?>("lday06_end") / rows[0].Field<decimal?>("lday06_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday07", ((rows[0].Field<decimal?>("lday07_end") / rows[0].Field<decimal?>("lday07_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday08", ((rows[0].Field<decimal?>("lday08_end") / rows[0].Field<decimal?>("lday08_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday09", ((rows[0].Field<decimal?>("lday09_end") / rows[0].Field<decimal?>("lday09_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday10", ((rows[0].Field<decimal?>("lday10_end") / rows[0].Field<decimal?>("lday10_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday11", ((rows[0].Field<decimal?>("lday11_end") / rows[0].Field<decimal?>("lday11_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday12", ((rows[0].Field<decimal?>("lday12_end") / rows[0].Field<decimal?>("lday12_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday13", ((rows[0].Field<decimal?>("lday13_end") / rows[0].Field<decimal?>("lday13_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday14", ((rows[0].Field<decimal?>("lday14_end") / rows[0].Field<decimal?>("lday14_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday15", ((rows[0].Field<decimal?>("lday15_end") / rows[0].Field<decimal?>("lday15_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday16", ((rows[0].Field<decimal?>("lday16_end") / rows[0].Field<decimal?>("lday16_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday17", ((rows[0].Field<decimal?>("lday17_end") / rows[0].Field<decimal?>("lday17_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday18", ((rows[0].Field<decimal?>("lday18_end") / rows[0].Field<decimal?>("lday18_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday19", ((rows[0].Field<decimal?>("lday19_end") / rows[0].Field<decimal?>("lday19_min")) - 1.0M) * 100.0M);
-                            rows[0].SetField<decimal?>("growday20", ((rows[0].Field<decimal?>("lday20_end") / rows[0].Field<decimal?>("lday20_min")) - 1.0M) * 100.0M);
+                            rows[0].SetField<decimal?>("growday01", CaculateGrowUp(rows[0].Field<decimal?>("lday01_end"), rows[0].Field<decimal?>("lday01_min")));
+                            rows[0].SetField<decimal?>("growday02", CaculateGrowUp(rows[0].Field<decimal?>("lday02_end"), rows[0].Field<decimal?>("lday02_min")));
+                            rows[0].SetField<decimal?>("growday03", CaculateGrowUp(rows[0].Field<decimal?>("lday03_end"), rows[0].Field<decimal?>("lday03_min")));
+                            rows[0].SetField<decimal?>("growday04", CaculateGrowUp(rows[0].Field<decimal?>("lday04_end"), rows[0].Field<decimal?>("lday04_min")));
+                            rows[0].SetField<decimal?>("growday05", CaculateGrowUp(rows[0].Field<decimal?>("lday05_end"), rows[0].Field<decimal?>("lday05_min")));
+                            rows[0].SetField<decimal?>("growday06", CaculateGrowUp(rows[0].Field<decimal?>("lday06_end"), rows[0].Field<decimal?>("lday06_min")));
+                            rows[0].SetField<decimal?>("growday07", CaculateGrowUp(rows[0].Field<decimal?>("lday07_end"), rows[0].Field<decimal?>("lday07_min")));
+                            rows[0].SetField<decimal?>("growday08", CaculateGrowUp(rows[0].Field<decimal?>("lday08_end"), rows[0].Field<decimal?>("lday08_min")));
+                            rows[0].SetField<decimal?>("growday09", CaculateGrowUp(rows[0].Field<decimal?>("lday09_end"), rows[0].Field<decimal?>("lday09_min")));
+                            rows[0].SetField<decimal?>("growday10", CaculateGrowUp(rows[0].Field<decimal?>("lday10_end"), rows[0].Field<decimal?>("lday10_min")));
+                            rows[0].SetField<decimal?>("growday11", CaculateGrowUp(rows[0].Field<decimal?>("lday11_end"), rows[0].Field<decimal?>("lday11_min")));
+                            rows[0].SetField<decimal?>("growday12", CaculateGrowUp(rows[0].Field<decimal?>("lday12_end"), rows[0].Field<decimal?>("lday12_min")));
+                            rows[0].SetField<decimal?>("growday13", CaculateGrowUp(rows[0].Field<decimal?>("lday13_end"), rows[0].Field<decimal?>("lday13_min")));
+                            rows[0].SetField<decimal?>("growday14", CaculateGrowUp(rows[0].Field<decimal?>("lday14_end"), rows[0].Field<decimal?>("lday14_min")));
+                            rows[0].SetField<decimal?>("growday15", CaculateGrowUp(rows[0].Field<decimal?>("lday15_end"), rows[0].Field<decimal?>("lday15_min")));
+                            rows[0].SetField<decimal?>("growday16", CaculateGrowUp(rows[0].Field<decimal?>("lday16_end"), rows[0].Field<decimal?>("lday16_min")));
+                            rows[0].SetField<decimal?>("growday17", CaculateGrowUp(rows[0].Field<decimal?>("lday17_end"), rows[0].Field<decimal?>("lday17_min")));
+                            rows[0].SetField<decimal?>("growday18", CaculateGrowUp(rows[0].Field<decimal?>("lday18_end"), rows[0].Field<decimal?>("lday18_min")));
+                            rows[0].SetField<decimal?>("growday19", CaculateGrowUp(rows[0].Field<decimal?>("lday19_end"), rows[0].Field<decimal?>("lday19_min")));
+                            rows[0].SetField<decimal?>("growday20", CaculateGrowUp(rows[0].Field<decimal?>("lday20_end"), rows[0].Field<decimal?>("lday20_min")));
 
-
-
+                            rows[0].SetField<DateTime?>("lday_time", lasttime);
 
 
 
                             decimal? max20growday = null;
-                            decimal? test20growday=  rows[0].Field<decimal?>("growday01");
-                            if (test20growday> max20growday|| max20growday==null)
+                            decimal? test20growday = rows[0].Field<decimal?>("growday01");
+                            if (test20growday > max20growday || max20growday == null)
                             {
                                 max20growday = test20growday;
                             }
 
                             test20growday = rows[0].Field<decimal?>("growday02");
-                            if (test20growday > max20growday )
+                            if (test20growday > max20growday)
                             {
                                 max20growday = test20growday;
                             }
@@ -335,15 +348,22 @@ namespace StockLib
 
                             rows[0].SetField<decimal?>("max20growday", max20growday);
 
-                            if (max20growday<5.0M&&max10growmin>4.5M)
+                            if (max20growday < 5.0M && max10growmin > 4.5M)
                             {
                                 rows[0].SetField<bool?>("issuppose", true);
+                                string access = msg.AccessToken;
+                                msg.SendTextMsg(rows[0].Field<String>("stockname")
+                                    + "[" + rows[0].Field<String>("codevalue") + "] "
+                                    + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
+                                    );
+
                             }
                         }//下午3点处理结束
 
                     }//下载的分钟时间与之前记录的部一样
 
                     #region
+
                     #endregion
                     rows[0].SetField<DateTime>("nowtime", lasttime);
 
@@ -353,6 +373,24 @@ namespace StockLib
             }
         }
 
+
+
+        private void SendWechatEnterpriseText(string Content, String Token)
+        {
+
+        }
+
+        private decimal? CaculateGrowUp(decimal? Now, Decimal? minprice)
+        {
+            if (minprice == 0 || minprice == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (Now / minprice - 1.0M);
+            }
+        }
 
         private void Download_History_Click(object sender, EventArgs e)
         {
@@ -385,7 +423,7 @@ namespace StockLib
                 this.Refresh();
                 String Saves = NetFramework.Util_File.ReadToEnd(Application.StartupPath + "\\data.txt", Encoding.GetEncoding("GB2312"));
                 DataTable loads = NetFramework.Util_DataTable.DeserializeDataTableXml(Saves);
-                (bs_main.DataSource) = loads;
+                listsource = loads;
                 ss_mian_label.Text = "读取数据完毕";
                 this.Refresh();
             }
@@ -396,7 +434,7 @@ namespace StockLib
         {
             ss_mian_label.Text = "正在保存数据";
             this.Refresh();
-            String ToSave = NetFramework.Util_DataTable.SerializeDataTableXml(((DataTable)bs_main.DataSource));
+            String ToSave = NetFramework.Util_DataTable.SerializeDataTableXml(listsource);
             NetFramework.Util_File.SaveToFile(ToSave, Application.StartupPath + "\\data.txt", Encoding.GetEncoding("GB2312"));
             ss_mian_label.Text = "保存数据完毕";
             this.Refresh();
@@ -432,14 +470,14 @@ namespace StockLib
 
 
 
-                DataRow[] find = ((DataTable)bs_main.DataSource).Select("codetype='" + ct.ToString() + "' and codevalue='" + Code + "'");
+                DataRow[] find = listsource.Select("codetype='" + ct.ToString() + "' and codevalue='" + Code + "'");
                 if (find.Count() == 0)
                 {
-                    DataRow newr = ((DataTable)bs_main.DataSource).NewRow();
+                    DataRow newr = listsource.NewRow();
                     newr.SetField<String>("codetype", ct.ToString());
                     newr.SetField<String>("codevalue", Code);
                     newr.SetField<String>("stockname", Name);
-                    ((DataTable)bs_main.DataSource).Rows.Add(newr);
+                    listsource.Rows.Add(newr);
                 }
                 Application.DoEvents();
 
@@ -454,20 +492,45 @@ namespace StockLib
 
         private void Download_DeleteAndReDown_Click(object sender, EventArgs e)
         {
-            (bs_main.DataSource) = new ds_main.dt_newsDataTable();
+            listsource = new ds_main.dt_newsDataTable();
             Download_AllCode_Click(sender, e);
         }
 
         private void time_refresh_Tick(object sender, EventArgs e)
         {
             time_refresh.Enabled = false;
-            Download_Now_Click(sender, e);
+            if (DateTime.Now.Hour >= 9 && DateTime.Now.Hour <= 15)
+            {
+                Download_Now_Click(sender, e);
+            }
+
             time_refresh.Enabled = true;
         }
 
         private void Set_DayNoTrans_Click(object sender, EventArgs e)
         {
 
+        }
+
+        NetFramework.Util_WeChatEnterpriseMsg msg = new NetFramework.Util_WeChatEnterpriseMsg("wx48e213f50ad641c8", "RysOH8IiVWHvi5kWyyheee7YAlvE6Z4q9uDRvHrYxqI", "1000005");
+        private void Test_SetSuppose_Click(object sender, EventArgs e)
+        {
+            listsource.Rows[0].SetField<bool?>("issuppose", true);
+            listsource.Rows[1].SetField<bool?>("issuppose", true);
+
+            string access = msg.AccessToken;
+            msg.SendTextMsg(listsource.Rows[0].Field<String>("stockname")
+                + "[" + listsource.Rows[0].Field<String>("codevalue") + "]"
+                 + listsource.Rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
+                );
+        }
+
+        private void Set_DatyOpen_Click(object sender, EventArgs e)
+        {
+            foreach (DataRow item in listsource.Rows)
+            {
+                item.SetField<Boolean>("issuppose", false);
+            }
         }
     }
 }

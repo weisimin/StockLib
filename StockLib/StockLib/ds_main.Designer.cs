@@ -305,8 +305,6 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnlmin10;
             
-            private global::System.Data.DataColumn columnlmintime;
-            
             private global::System.Data.DataColumn columnlday01_min;
             
             private global::System.Data.DataColumn columnlday02_min;
@@ -440,6 +438,10 @@ namespace StockLib {
             private global::System.Data.DataColumn columnminprice;
             
             private global::System.Data.DataColumn columnnowtime;
+            
+            private global::System.Data.DataColumn columnytdprice;
+            
+            private global::System.Data.DataColumn columngrowtoday;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -575,14 +577,6 @@ namespace StockLib {
             public global::System.Data.DataColumn lmin10Column {
                 get {
                     return this.columnlmin10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn lmintimeColumn {
-                get {
-                    return this.columnlmintime;
                 }
             }
             
@@ -1124,6 +1118,22 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ytdpriceColumn {
+                get {
+                    return this.columnytdprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn growtodayColumn {
+                get {
+                    return this.columngrowtoday;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1173,7 +1183,6 @@ namespace StockLib {
                         decimal lmin08, 
                         decimal lmin09, 
                         decimal lmin10, 
-                        System.DateTime lmintime, 
                         decimal lday01_min, 
                         decimal lday02_min, 
                         decimal lday03_min, 
@@ -1240,7 +1249,9 @@ namespace StockLib {
                         decimal max10growmin, 
                         bool issuppose, 
                         decimal minprice, 
-                        System.DateTime nowtime) {
+                        System.DateTime nowtime, 
+                        decimal ytdprice, 
+                        decimal growtoday) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1256,7 +1267,6 @@ namespace StockLib {
                         lmin08,
                         lmin09,
                         lmin10,
-                        lmintime,
                         lday01_min,
                         lday02_min,
                         lday03_min,
@@ -1323,7 +1333,9 @@ namespace StockLib {
                         max10growmin,
                         issuppose,
                         minprice,
-                        nowtime};
+                        nowtime,
+                        ytdprice,
+                        growtoday};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -1367,7 +1379,6 @@ namespace StockLib {
                 this.columnlmin08 = base.Columns["lmin08"];
                 this.columnlmin09 = base.Columns["lmin09"];
                 this.columnlmin10 = base.Columns["lmin10"];
-                this.columnlmintime = base.Columns["lmintime"];
                 this.columnlday01_min = base.Columns["lday01_min"];
                 this.columnlday02_min = base.Columns["lday02_min"];
                 this.columnlday03_min = base.Columns["lday03_min"];
@@ -1435,6 +1446,8 @@ namespace StockLib {
                 this.columnissuppose = base.Columns["issuppose"];
                 this.columnminprice = base.Columns["minprice"];
                 this.columnnowtime = base.Columns["nowtime"];
+                this.columnytdprice = base.Columns["ytdprice"];
+                this.columngrowtoday = base.Columns["growtoday"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1466,8 +1479,6 @@ namespace StockLib {
                 base.Columns.Add(this.columnlmin09);
                 this.columnlmin10 = new global::System.Data.DataColumn("lmin10", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlmin10);
-                this.columnlmintime = new global::System.Data.DataColumn("lmintime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlmintime);
                 this.columnlday01_min = new global::System.Data.DataColumn("lday01_min", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlday01_min);
                 this.columnlday02_min = new global::System.Data.DataColumn("lday02_min", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1602,6 +1613,10 @@ namespace StockLib {
                 base.Columns.Add(this.columnminprice);
                 this.columnnowtime = new global::System.Data.DataColumn("nowtime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnowtime);
+                this.columnytdprice = new global::System.Data.DataColumn("ytdprice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnytdprice);
+                this.columngrowtoday = new global::System.Data.DataColumn("growtoday", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrowtoday);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -1942,22 +1957,6 @@ namespace StockLib {
                 }
                 set {
                     this[this.tabledt_news.lmin10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime lmintime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tabledt_news.lmintimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lmintime”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabledt_news.lmintimeColumn] = value;
                 }
             }
             
@@ -3035,6 +3034,38 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ytdprice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.ytdpriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“ytdprice”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.ytdpriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal growtoday {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.growtodayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“growtoday”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.growtodayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -3163,18 +3194,6 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setlmin10Null() {
                 this[this.tabledt_news.lmin10Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IslmintimeNull() {
-                return this.IsNull(this.tabledt_news.lmintimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetlmintimeNull() {
-                this[this.tabledt_news.lmintimeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3979,6 +3998,30 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnowtimeNull() {
                 this[this.tabledt_news.nowtimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsytdpriceNull() {
+                return this.IsNull(this.tabledt_news.ytdpriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetytdpriceNull() {
+                this[this.tabledt_news.ytdpriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrowtodayNull() {
+                return this.IsNull(this.tabledt_news.growtodayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrowtodayNull() {
+                this[this.tabledt_news.growtodayColumn] = global::System.Convert.DBNull;
             }
         }
         
