@@ -21,7 +21,7 @@ namespace StockLib
         DataTable listsource = new ds_main.dt_newsDataTable();
         private void LogicForm_Load(object sender, EventArgs e)
         {
-            gv_list.AutoGenerateColumns = true;
+            //gv_list.AutoGenerateColumns = true;
 
 
             LoadDatas();
@@ -261,6 +261,7 @@ namespace StockLib
 
 
                             CaculateDayGrow(rows[0]);
+                            SaveData();
 
                         }//下午3点处理结束
 
@@ -708,6 +709,8 @@ namespace StockLib
         private void Download_DeleteAndReDown_Click(object sender, EventArgs e)
         {
             listsource = new ds_main.dt_newsDataTable();
+            bs_main.DataSource = listsource.AsDataView();
+            sf.bs_sub.DataSource = listsource.AsDataView();
             Download_AllCode_Click(sender, e);
         }
 
