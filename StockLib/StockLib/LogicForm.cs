@@ -19,6 +19,7 @@ namespace StockLib
         }
 
         DataTable listsource = new ds_main.dt_newsDataTable();
+         SubForm sf = new SubForm();
         private void LogicForm_Load(object sender, EventArgs e)
         {
             //gv_list.AutoGenerateColumns = true;
@@ -26,7 +27,7 @@ namespace StockLib
 
             LoadDatas();
             bs_main.DataSource = listsource.AsDataView();
-            SubForm sf = new SubForm();
+           
             sf.Show();
             sf.bs_sub.DataSource = listsource.AsDataView();
         }
