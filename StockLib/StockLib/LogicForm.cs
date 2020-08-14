@@ -19,7 +19,7 @@ namespace StockLib
         }
 
         DataTable listsource = new ds_main.dt_newsDataTable();
-         SubForm sf = new SubForm();
+        SubForm sf = new SubForm();
         private void LogicForm_Load(object sender, EventArgs e)
         {
             //gv_list.AutoGenerateColumns = true;
@@ -27,7 +27,7 @@ namespace StockLib
 
             LoadDatas();
             bs_main.DataSource = listsource.AsDataView();
-           
+
             sf.Show();
             sf.bs_sub.DataSource = listsource.AsDataView();
         }
@@ -88,8 +88,11 @@ namespace StockLib
             string Result = NetFramework.Util_WEB.OpenUrl(URL, "", "", "GET", cookie, Encoding.GetEncoding("GB2312"));
             String[] Lines = Result.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-            String SendText = "";
-            Int32 SendCount = 0;
+
+            List<string> SendText = new List<string>();
+
+            DateTime lasttime = DateTime.Now;
+            DateTime nowtime = DateTime.Now;
             foreach (var lineitem in Lines)
             {
                 string[] infs = lineitem.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
@@ -105,10 +108,10 @@ namespace StockLib
 
                     rows[0].SetField<Decimal?>("growtoday", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("ytdprice")));
 
-                    DateTime lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
+                    lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
 
-
+                    nowtime = rows[0].Field<DateTime>("nowtime");
 
                     if (rows[0].Field<Object>("nowtime") == null)
                     {
@@ -262,7 +265,7 @@ namespace StockLib
 
 
                             CaculateDayGrow(rows[0]);
-                            SaveData();
+
 
                         }//下午3点处理结束
 
@@ -272,20 +275,15 @@ namespace StockLib
                             )
                         {
                             rows[0].SetField<bool?>("issuppose", true);
-                            SendCount += 1;
-                            string access = msg.AccessToken;
 
 
-                            SendText += (rows[0].Field<String>("stockname")
+
+
+                            SendText.Add(rows[0].Field<String>("stockname")
                                 + "[" + rows[0].Field<String>("codevalue") + "] "
-                                + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%") + Environment.NewLine
+                                + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
                                 );
-                            if (SendCount >= 10)
-                            {
-                                msg.SendTextMsg(SendText);
-                                SendCount = 0;
-                                SendText = "";
-                            }
+
 
                         }
                     }//下载的分钟时间与之前记录的部一样
@@ -298,12 +296,32 @@ namespace StockLib
 
                 }//找到数据库有行
                 Application.DoEvents();
+                if (lasttime.ToString("HH:mm") == "15:00" && nowtime.ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
+                {
+                    SaveData();
+                }
             }//循环结束
-            if (SendText != "")
+            if (SendText.Count != 0)
             {
-                msg.SendTextMsg(SendText);
-                SendCount = 0;
-                SendText = "";
+                String SendMsg = "";
+                Int32 SendCount = 0;
+                foreach (var stritem in SendText)
+                {
+                    SendCount += 1;
+                    SendMsg += stritem + Environment.NewLine;
+                    if (SendCount >= 20)
+                    {
+                        msg.SendTextMsg(SendMsg);
+                        SendCount = 0;
+                        SendMsg = "";
+                    }
+                }
+                if (SendMsg!="")
+                {
+                    msg.SendTextMsg(SendMsg); SendCount = 0;
+                    SendMsg = "";
+                }
+
             }
         }
 
@@ -359,7 +377,7 @@ namespace StockLib
                 //跳过最后一天，不要当天
                 //假设4个K线，从，2，1，0开始
                 Int32 containday = 2;
-                if (DateTime.Now.Hour>=15|| DateTime.Now.Hour<=8)
+                if (DateTime.Now.Hour >= 15 || DateTime.Now.Hour <= 8)
                 {
                     containday = 1;
                 }
