@@ -92,7 +92,7 @@ namespace StockLib
             List<string> SendText = new List<string>();
 
             DateTime lasttime = DateTime.Now;
-            DateTime nowtime = DateTime.Now;
+            DateTime? rowtime = null;
             foreach (var lineitem in Lines)
             {
                 string[] infs = lineitem.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
@@ -111,13 +111,13 @@ namespace StockLib
                     lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
 
-                    nowtime = rows[0].Field<DateTime>("nowtime");
+                    rowtime = rows[0].Field<DateTime?>("nowtime");
 
-                    if (rows[0].Field<Object>("nowtime") == null)
+                    if (rowtime == null)
                     {
                         rows[0].SetField<DateTime>("nowtime", Convert.ToDateTime(infs[30] + " " + infs[31]));
                     }
-                    else if (rows[0].Field<DateTime>("nowtime").ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
+                    else if (rowtime.Value.ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
                     {
 
                         rows[0].SetField<decimal?>("lmin10", rows[0].Field<decimal?>("lmin09"));
@@ -296,11 +296,12 @@ namespace StockLib
 
                 }//找到数据库有行
                 Application.DoEvents();
-                if (lasttime.ToString("HH:mm") == "15:00" && nowtime.ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
-                {
-                    SaveData();
-                }
+
             }//循环结束
+            if (lasttime.ToString("HH:mm") == "15:00" && rowtime.Value.ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
+            {
+                SaveData();
+            }
             if (SendText.Count != 0)
             {
                 String SendMsg = "";
@@ -316,7 +317,7 @@ namespace StockLib
                         SendMsg = "";
                     }
                 }
-                if (SendMsg!="")
+                if (SendMsg != "")
                 {
                     msg.SendTextMsg(SendMsg); SendCount = 0;
                     SendMsg = "";
@@ -736,10 +737,21 @@ namespace StockLib
         private void time_refresh_Tick(object sender, EventArgs e)
         {
             time_refresh.Enabled = false;
-            if (DateTime.Now.Hour >= 9 && DateTime.Now.Hour <= 15)
+            try
             {
-                Download_Now_Click(sender, e);
+                if (DateTime.Now.Hour >= 9 && DateTime.Now.Hour <= 15)
+                {
+                    Download_Now_Click(sender, e);
+                }
             }
+            catch (Exception AnyError)
+            {
+                NetFramework.Console.Write(AnyError.Message);
+                NetFramework.Console.Write(AnyError.StackTrace);
+
+            }
+
+
 
             time_refresh.Enabled = true;
         }
