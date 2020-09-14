@@ -30,6 +30,8 @@ namespace StockLib
 
             sf.Show();
             sf.bs_sub.DataSource = listsource.AsDataView();
+
+            
         }
 
         #region 事件代码
@@ -269,8 +271,8 @@ namespace StockLib
 
                         }//下午3点处理结束
 
-                        if (max20growday * 100.0M < 5.0M
-                            && max10growmin * 100.0M > 3.5M
+                        if (max20growday * 100.0M < 4.5M
+                            && max10growmin * 100.0M > 4.5M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
                         {
@@ -302,7 +304,11 @@ namespace StockLib
             {
                 SaveData();
             }
-            if (SendText.Count != 0)
+            bool SendWechat = false;
+            this.Invoke(new Action(()=> {
+                SendWechat = con_cb_wechat.Checked;
+            }));
+            if (SendText.Count != 0&& SendWechat==true)
             {
                 String SendMsg = "";
                 Int32 SendCount = 0;
@@ -782,5 +788,66 @@ namespace StockLib
                 CaculateDayGrow(item);
             }
         }
+
+        private void ReloadFilter()
+        {
+            bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
+                + " and stockname like '%" +  fil_tb_name.Text + "%' "
+                 +(fil_cb_focus.Checked==true ?" and isfocus =1 ":" ")
+                ;
+
+
+        }
+
+      
+
+        private void pop_m_grid_setisfoucus_Click(object sender, EventArgs e)
+        {
+            ((ToolStripMenuItem)(sender)).Checked = !((ToolStripMenuItem)(sender)).Checked;
+            (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem)).Row["isfocus"] = ((ToolStripMenuItem)(sender)).Checked;
+        }
+
+     
+
+        private void fil_tbcode_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void fil_tb_name_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void fil_cb_focus_CheckedChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void gv_list_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    gv_list.ClearSelection();
+                    gv_list.Rows[e.RowIndex].Selected = true;
+                    gv_list.CurrentCell = gv_list.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    pop_m_grid.Tag = gv_list.Rows[e.RowIndex];
+                    pop_m_grid.Show(MousePosition.X, MousePosition.Y);
+
+                }
+            }
+        }
+
+        private void pop_m_grid_Opening(object sender, CancelEventArgs e)
+        {
+            pop_m_grid_setisfoucus.Checked = Convert.ToBoolean(
+                (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem))["isfocus"]==DBNull.Value?false:
+                (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem))["isfocus"]
+                );
+
+        }
+
     }
 }
