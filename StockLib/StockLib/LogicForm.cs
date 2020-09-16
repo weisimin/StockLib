@@ -27,11 +27,11 @@ namespace StockLib
 
             LoadDatas();
             bs_main.DataSource = listsource.AsDataView();
+            bs_sub.Filter = "issuppose='true'";
 
-            sf.Show();
-            sf.bs_sub.DataSource = listsource.AsDataView();
+            bs_sub.DataSource = listsource.AsDataView();
 
-            
+
         }
 
         #region 事件代码
@@ -305,10 +305,11 @@ namespace StockLib
                 SaveData();
             }
             bool SendWechat = false;
-            this.Invoke(new Action(()=> {
+            this.Invoke(new Action(() =>
+            {
                 SendWechat = con_cb_wechat.Checked;
             }));
-            if (SendText.Count != 0&& SendWechat==true)
+            if (SendText.Count != 0 && SendWechat == true)
             {
                 String SendMsg = "";
                 Int32 SendCount = 0;
@@ -745,7 +746,8 @@ namespace StockLib
             time_refresh.Enabled = false;
             try
             {
-                if (DateTime.Now.Hour >= 9 && DateTime.Now.Hour <= 15)
+                if ((DateTime.Now.Hour * 60 + DateTime.Now.Minute >= 9 * 60 + 30)
+                  && (DateTime.Now.Hour * 60 + DateTime.Now.Minute <= 15 * 60))
                 {
                     Download_Now_Click(sender, e);
                 }
@@ -792,14 +794,14 @@ namespace StockLib
         private void ReloadFilter()
         {
             bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
-                + " and stockname like '%" +  fil_tb_name.Text + "%' "
-                 +(fil_cb_focus.Checked==true ?" and isfocus =1 ":" ")
+                + " and stockname like '%" + fil_tb_name.Text + "%' "
+                 + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
                 ;
 
 
         }
 
-      
+
 
         private void pop_m_grid_setisfoucus_Click(object sender, EventArgs e)
         {
@@ -807,7 +809,7 @@ namespace StockLib
             (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem)).Row["isfocus"] = ((ToolStripMenuItem)(sender)).Checked;
         }
 
-     
+
 
         private void fil_tbcode_TextChanged(object sender, EventArgs e)
         {
@@ -826,7 +828,7 @@ namespace StockLib
 
         private void gv_list_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 if (e.RowIndex >= 0)
                 {
@@ -843,11 +845,16 @@ namespace StockLib
         private void pop_m_grid_Opening(object sender, CancelEventArgs e)
         {
             pop_m_grid_setisfoucus.Checked = Convert.ToBoolean(
-                (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem))["isfocus"]==DBNull.Value?false:
+                (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem))["isfocus"] == DBNull.Value ? false :
                 (((DataRowView)((DataGridViewRow)pop_m_grid.Tag).DataBoundItem))["isfocus"]
                 );
 
         }
 
+        private void LogicForm_Move(object sender, EventArgs e)
+        {
+            sf.Left = this.Left + this.Width - 16;
+            sf.Top = this.Top;
+        }
     }
 }
