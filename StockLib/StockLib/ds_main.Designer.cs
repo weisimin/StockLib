@@ -445,6 +445,8 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnisfocus;
             
+            private global::System.Data.DataColumn columnMaxHighQty;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_newsDataTable() {
@@ -1144,6 +1146,14 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaxHighQtyColumn {
+                get {
+                    return this.columnMaxHighQty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1262,7 +1272,8 @@ namespace StockLib {
                         System.DateTime nowtime, 
                         decimal ytdprice, 
                         decimal growtoday, 
-                        bool isfocus) {
+                        bool isfocus, 
+                        decimal MaxHighQty) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1347,7 +1358,8 @@ namespace StockLib {
                         nowtime,
                         ytdprice,
                         growtoday,
-                        isfocus};
+                        isfocus,
+                        MaxHighQty};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -1461,6 +1473,7 @@ namespace StockLib {
                 this.columnytdprice = base.Columns["ytdprice"];
                 this.columngrowtoday = base.Columns["growtoday"];
                 this.columnisfocus = base.Columns["isfocus"];
+                this.columnMaxHighQty = base.Columns["MaxHighQty"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1632,6 +1645,8 @@ namespace StockLib {
                 base.Columns.Add(this.columngrowtoday);
                 this.columnisfocus = new global::System.Data.DataColumn("isfocus", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisfocus);
+                this.columnMaxHighQty = new global::System.Data.DataColumn("MaxHighQty", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxHighQty);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -3097,6 +3112,22 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal MaxHighQty {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.MaxHighQtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“MaxHighQty”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.MaxHighQtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -4065,6 +4096,18 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetisfocusNull() {
                 this[this.tabledt_news.isfocusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMaxHighQtyNull() {
+                return this.IsNull(this.tabledt_news.MaxHighQtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMaxHighQtyNull() {
+                this[this.tabledt_news.MaxHighQtyColumn] = global::System.Convert.DBNull;
             }
         }
         

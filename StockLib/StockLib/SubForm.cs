@@ -19,7 +19,8 @@ namespace StockLib
 
         private void SubForm_Load(object sender, EventArgs e)
         {
-            bs_sub.Filter = "issuppose='true'";
+            // bs_sub.Filter = "issuppose='true'";
+            gv_main.AutoGenerateColumns = true;
         }
     }
 }

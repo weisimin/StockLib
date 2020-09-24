@@ -28,9 +28,10 @@ namespace StockLib
             LoadDatas();
             bs_main.DataSource = listsource.AsDataView();
             bs_sub.Filter = "issuppose='true'";
-
             bs_sub.DataSource = listsource.AsDataView();
 
+            sf.Show();
+            sf.bs_sub.DataSource = listsource.AsDataView();
 
         }
 
@@ -52,17 +53,7 @@ namespace StockLib
                 {
                     Dats += "," + item.Field<String>("codetype") + item.Field<String>("codevalue");
                 }
-                #region
-                if (DateTime.Now.Hour == 9
-                    && DateTime.Now.Minute < 30
-                    && DateTime.Now.Minute >= 20
-                    && (LastIninday == null || LastIninday.Value.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
-                    )
-                {
-                    Set_DatyOpen_Click(sender, e);
-
-                }
-                #endregion
+                
                 if (runcount == 200)
                 {
                     ss_mian_label.Text = "正在刷新" + Dats;
@@ -751,6 +742,17 @@ namespace StockLib
                 {
                     Download_Now_Click(sender, e);
                 }
+                #region
+                if (DateTime.Now.Hour == 9
+                    && DateTime.Now.Minute < 30
+                    && DateTime.Now.Minute >= 20
+                    && (LastIninday == null || LastIninday.Value.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
+                    )
+                {
+                    Set_DatyOpen_Click(sender, e);
+
+                }
+                #endregion
             }
             catch (Exception AnyError)
             {
@@ -782,12 +784,17 @@ namespace StockLib
                 );
         }
 
+        DateTime? LastOpenDay = null;
         private void Set_DatyOpen_Click(object sender, EventArgs e)
         {
-            foreach (DataRow item in listsource.Rows)
+            if (LastOpenDay != DateTime.Today)
             {
-                item.SetField<Boolean>("issuppose", false);
-                CaculateDayGrow(item);
+                LastOpenDay = DateTime.Today;
+                foreach (DataRow item in listsource.Rows)
+                {
+                    item.SetField<Boolean>("issuppose", false);
+                    CaculateDayGrow(item);
+                }
             }
         }
 
@@ -797,7 +804,7 @@ namespace StockLib
                 + " and stockname like '%" + fil_tb_name.Text + "%' "
                  + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
                 ;
-
+            sf.bs_sub.Filter = bs_main.Filter;
 
         }
 
@@ -853,8 +860,18 @@ namespace StockLib
 
         private void LogicForm_Move(object sender, EventArgs e)
         {
-            sf.Left = this.Left + this.Width - 16;
-            sf.Top = this.Top;
+            sf.Left = this.Left ;
+            sf.Top = this.Top+this.Height-8;
+        }
+
+        private void Menu_Main_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void LogicForm_Shown(object sender, EventArgs e)
+        {
+            LogicForm_Move(sender, e);
         }
     }
 }
