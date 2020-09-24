@@ -497,6 +497,7 @@
             this.高次.HeaderText = "高次";
             this.高次.Name = "高次";
             this.高次.ReadOnly = true;
+            this.高次.Width = 50;
             // 
             // max10growmin
             // 

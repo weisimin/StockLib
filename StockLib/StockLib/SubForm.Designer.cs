@@ -44,7 +44,7 @@
             this.gv_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gv_main.DataSource = this.bs_sub;
             this.gv_main.Location = new System.Drawing.Point(0, 0);
-            this.gv_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gv_main.Margin = new System.Windows.Forms.Padding(2);
             this.gv_main.Name = "gv_main";
             this.gv_main.ReadOnly = true;
             this.gv_main.RowHeadersVisible = false;
@@ -58,9 +58,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 271);
             this.Controls.Add(this.gv_main);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SubForm";
-            this.Text = "推荐股";
+            this.Text = "数据跟踪";
             this.Load += new System.EventHandler(this.SubForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bs_sub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();

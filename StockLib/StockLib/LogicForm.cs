@@ -36,7 +36,7 @@ namespace StockLib
         }
 
         #region 事件代码
-        private DateTime? LastIninday = null;
+
         private void Download_Now_Click(object sender, EventArgs e)
         {
             int runcount = 0;
@@ -124,61 +124,10 @@ namespace StockLib
                         rows[0].SetField<decimal?>("lmin02", rows[0].Field<decimal?>("lmin01"));
                         rows[0].SetField<decimal?>("lmin01", Convert.ToDecimal(infs[3]));
 
-                        decimal? max10growmin = 0;
-                        decimal? testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin01"));
-                        if (testgrow > max10growmin || max10growmin == null)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin02"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin03"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin04"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin05"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin06"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin07"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin08"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin09"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        testgrow = CaculateGrowUp(rows[0].Field<decimal?>("nowprice"), rows[0].Field<decimal?>("lmin10"));
-                        if (testgrow > max10growmin)
-                        {
-                            max10growmin = testgrow;
-                        }
-                        rows[0].SetField<decimal?>("max10growmin", max10growmin);
+                        SetMinGrow(rows[0]);
 
                         decimal? max20growday = rows[0].Field<decimal?>("max20growday");
-
+                        decimal? max10growmin = rows[0].Field<decimal?>("max10growmin");
                         if (max20growday == null)
                         {
                             max20growday = 0;
@@ -257,13 +206,13 @@ namespace StockLib
 
 
 
-                            CaculateDayGrow(rows[0]);
+                            SetDayGrow(rows[0]);
 
 
                         }//下午3点处理结束
 
-                        if (max20growday * 100.0M < 4.5M
-                            && max10growmin * 100.0M > 4.5M
+                        if (max20growday * 100.0M < 5.5M
+                            && max10growmin * 100.0M > 5.5M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
                         {
@@ -518,12 +467,12 @@ namespace StockLib
                     }
 
                 }//日K线循环结束
-                CaculateDayGrow(item);
+                SetDayGrow(item);
                 Application.DoEvents();
             }//行循环结束
             ss_mian_label.Text = "下载完成";
         }
-        private void CaculateDayGrow(DataRow item)
+        private void SetDayGrow(DataRow item)
         {
             Decimal? max20growday = 0;
             decimal? test20growday = item.Field<decimal?>("growday01");
@@ -630,6 +579,62 @@ namespace StockLib
 
             item.SetField<decimal?>("max20growday", max20growday);
             ss_mian_label.Text = "正在更新" + item.Field<string>("stockname");
+        }
+
+        private void SetMinGrow(DataRow item) {
+
+            decimal? max10growmin = 0;
+            decimal? testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin01"));
+            if (testgrow > max10growmin || max10growmin == null)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin02"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin03"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin04"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin05"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin06"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin07"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin08"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin09"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin10"));
+            if (testgrow > max10growmin)
+            {
+                max10growmin = testgrow;
+            }
+            item.SetField<decimal?>("max10growmin", max10growmin);
         }
         private void Download_AllCode_Click(object sender, EventArgs e)
         {
@@ -745,12 +750,9 @@ namespace StockLib
                 #region
                 if (DateTime.Now.Hour == 9
                     && DateTime.Now.Minute < 30
-                    && DateTime.Now.Minute >= 20
-                    && (LastIninday == null || LastIninday.Value.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
-                    )
+                                       )
                 {
                     Set_DatyOpen_Click(sender, e);
-
                 }
                 #endregion
             }
@@ -787,13 +789,25 @@ namespace StockLib
         DateTime? LastOpenDay = null;
         private void Set_DatyOpen_Click(object sender, EventArgs e)
         {
-            if (LastOpenDay != DateTime.Today)
-            {
+            if (  (LastOpenDay == null || LastOpenDay != DateTime.Today))
+             { 
                 LastOpenDay = DateTime.Today;
                 foreach (DataRow item in listsource.Rows)
                 {
                     item.SetField<Boolean>("issuppose", false);
-                    CaculateDayGrow(item);
+                    item.SetField<decimal>("lmin01", 0);
+                    item.SetField<decimal>("lmin02", 0);
+                    item.SetField<decimal>("lmin03", 0);
+                    item.SetField<decimal>("lmin04", 0);
+                    item.SetField<decimal>("lmin05", 0);
+                    item.SetField<decimal>("lmin06", 0);
+                    item.SetField<decimal>("lmin07", 0);
+                    item.SetField<decimal>("lmin08", 0);
+                    item.SetField<decimal>("lmin09", 0);
+                    item.SetField<decimal>("lmin10", 0);
+                    SetMinGrow(item);
+                    SetDayGrow(item);
+
                 }
             }
         }
