@@ -36,12 +36,13 @@ namespace StockLib
         }
 
         #region 事件代码
-
+        DateTime? LastTime = null;
         private void Download_Now_Click(object sender, EventArgs e)
         {
             int runcount = 0;
             string Dats = "";
             int indexcount = 0;
+            List<DownLoadSinaResult> rels = new List<DownLoadSinaResult>();
             foreach (DataRow item in listsource.Rows)
             {
                 runcount += 1;
@@ -53,11 +54,11 @@ namespace StockLib
                 {
                     Dats += "," + item.Field<String>("codetype") + item.Field<String>("codevalue");
                 }
-                
+
                 if (runcount == 200)
                 {
                     ss_mian_label.Text = "正在刷新" + Dats;
-                    DownloadSinaData(Dats);
+                    rels.Add(DownloadSinaData(Dats));
                     this.Refresh();
                     runcount = 0;
                     Dats = "";
@@ -65,16 +66,57 @@ namespace StockLib
                 if (indexcount == listsource.Rows.Count - 1)
                 {
                     ss_mian_label.Text = "正在刷新" + Dats;
-                    DownloadSinaData(Dats);
+                    rels.Add(DownloadSinaData(Dats));
                     this.Refresh();
                 }
                 indexcount += 1;
                 Application.DoEvents();
             }
+            #region 发送和保存
+            if (rels.Count>0
+                &&rels.First().LastTime.Value.ToString("HH:mm") == "15:00" 
+                && (LastTime==null||LastTime.Value.ToString("yyyy-MM-dd HH:mm") != rels.First().LastTime.Value.ToString("yyyy-MM-dd HH:mm")))
+            {
+                SaveData();
+                LastTime = rels.First().LastTime;
+            }
+            bool SendWechat = false;
+            this.Invoke(new Action(() =>
+            {
+                SendWechat = con_cb_wechat.Checked;
+            }));
+            String SendMsg = "";
+            Int32 SendCount = 0;
+            foreach (var relsitem in rels)
+            {
+                if (relsitem.SendText.Count != 0 && SendWechat == true)
+                {
+
+                    foreach (var stritem in relsitem.SendText)
+                    {
+                        SendCount += 1;
+                        SendMsg += stritem + Environment.NewLine;
+                        if (SendCount >= 50)
+                        {
+                            msg.SendTextMsg(SendMsg);
+                            SendCount = 0;
+                            SendMsg = "";
+                        }
+                    }
+
+                }
+            }//循环叠加，有足够的数量就发出
+            if (SendMsg != "")
+            {
+                msg.SendTextMsg(SendMsg); SendCount = 0;
+                SendMsg = "";
+            }//剩下数量不够的发送
+
+            #endregion
             ss_mian_label.Text = "刷新完成";
         }
 
-        private void DownloadSinaData(string Codes)
+        private DownLoadSinaResult DownloadSinaData(string Codes)
         {
             String URL = "http://hq.sinajs.cn/list=" + Codes;
             System.Net.CookieCollection cookie = new System.Net.CookieCollection();
@@ -240,40 +282,19 @@ namespace StockLib
                 Application.DoEvents();
 
             }//循环结束
-            if (lasttime.ToString("HH:mm") == "15:00" && rowtime.Value.ToString("yyyy-MM-dd HH:mm") != lasttime.ToString("yyyy-MM-dd HH:mm"))
-            {
-                SaveData();
-            }
-            bool SendWechat = false;
-            this.Invoke(new Action(() =>
-            {
-                SendWechat = con_cb_wechat.Checked;
-            }));
-            if (SendText.Count != 0 && SendWechat == true)
-            {
-                String SendMsg = "";
-                Int32 SendCount = 0;
-                foreach (var stritem in SendText)
-                {
-                    SendCount += 1;
-                    SendMsg += stritem + Environment.NewLine;
-                    if (SendCount >= 20)
-                    {
-                        msg.SendTextMsg(SendMsg);
-                        SendCount = 0;
-                        SendMsg = "";
-                    }
-                }
-                if (SendMsg != "")
-                {
-                    msg.SendTextMsg(SendMsg); SendCount = 0;
-                    SendMsg = "";
-                }
 
-            }
+            DownLoadSinaResult RtnResult = new DownLoadSinaResult();
+            RtnResult.LastTime = lasttime;
+            RtnResult.SendText = SendText;
+            return RtnResult;
+
         }
 
-
+        public class DownLoadSinaResult
+        {
+            public DateTime? LastTime { get; set; }
+            public List<String> SendText { get; set; }
+        }
 
 
 
@@ -581,7 +602,8 @@ namespace StockLib
             ss_mian_label.Text = "正在更新" + item.Field<string>("stockname");
         }
 
-        private void SetMinGrow(DataRow item) {
+        private void SetMinGrow(DataRow item)
+        {
 
             decimal? max10growmin = 0;
             decimal? testgrow = CaculateGrowUp(item.Field<decimal?>("nowprice"), item.Field<decimal?>("lmin01"));
@@ -789,8 +811,8 @@ namespace StockLib
         DateTime? LastOpenDay = null;
         private void Set_DatyOpen_Click(object sender, EventArgs e)
         {
-            if (  (LastOpenDay == null || LastOpenDay != DateTime.Today))
-             { 
+            if ((LastOpenDay == null || LastOpenDay != DateTime.Today))
+            {
                 LastOpenDay = DateTime.Today;
                 foreach (DataRow item in listsource.Rows)
                 {
@@ -874,8 +896,8 @@ namespace StockLib
 
         private void LogicForm_Move(object sender, EventArgs e)
         {
-            sf.Left = this.Left ;
-            sf.Top = this.Top+this.Height-8;
+            sf.Left = this.Left;
+            sf.Top = this.Top + this.Height - 8;
         }
 
         private void Menu_Main_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
