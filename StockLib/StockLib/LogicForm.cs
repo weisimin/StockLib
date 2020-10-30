@@ -33,6 +33,7 @@ namespace StockLib
             sf.Show();
             sf.bs_sub.DataSource = listsource.AsDataView();
 
+            ReloadFilter();
         }
 
         #region 事件代码
@@ -144,6 +145,8 @@ namespace StockLib
                     rows[0].SetField<Decimal?>("growtoday", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("ytdprice")));
 
                     lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
+
+                    SetMax20Down(rows[0]);
 
 
                     rowtime = rows[0].Field<DateTime?>("nowtime");
@@ -272,7 +275,7 @@ namespace StockLib
                         }//下午3点处理结束
 
                         if (max20growday * 100.0M < 5.5M
-                            && growtoday * 100.0M > 5.5M
+                            && growtoday * 100.0M > 3.5M
                             && max20down * 100.0M < -5.5M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
@@ -618,6 +621,7 @@ namespace StockLib
                 max20growday = test20growday;
             }
 
+
             item.SetField<decimal?>("max20growday", max20growday);
             ss_mian_label.Text = "正在更新Max20growDay" + item.Field<string>("stockname");
             SetMax20Down(item);
@@ -818,6 +822,12 @@ namespace StockLib
                 LastEnd = TestMax20End;
             }
             TestMax20End = item.Field<decimal?>("lday20_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            TestMax20End = item.Field<decimal?>("nowprice");
             if (TestMax20End > Max20End)
             {
                 Max20End = TestMax20End;
@@ -1066,14 +1076,24 @@ namespace StockLib
 
         private void ReloadFilter()
         {
-            bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
-                + " and stockname like '%" + fil_tb_name.Text + "%' "
-                 + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
-                 + (tb_rerise.Text == "" ? "" : " and growtoday>= " + tb_rerise.Text + "/100 ")
-                 + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
-                   + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
-                ;
-            sf.bs_sub.Filter = bs_main.Filter;
+            try
+            {
+                bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
+                                + " and stockname like '%" + fil_tb_name.Text + "%' "
+                                 + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
+                                 + (tb_rerise.Text == "" ? "" : " and growtoday>= " + tb_rerise.Text + "/100.0 ")
+                                 + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
+                                   + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
+                                 + (tb_max20growup.Text == "" ? "" : " and max20growday <= " + tb_max20growup.Text + "/100.0 ")
+                            + (tb_max20down.Text == "" ? "" : " and max20down <= " + tb_max20down.Text + "/100.0 ");
+                sf.bs_sub.Filter = bs_main.Filter;
+            }
+            catch (Exception AnyError)
+            {
+
+
+            }
+
 
         }
 
@@ -1157,5 +1177,47 @@ namespace StockLib
         {
             ReloadFilter();
         }
-    }
-}
+
+        private void tb_max20growup_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void gv_list_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+
+        }
+
+        private void gv_list_SelectionChanged(object sender, EventArgs e)
+        {
+            if (gv_list.SelectedRows.Count > 0)
+            {
+                DataGridViewRow sr = gv_list.SelectedRows[0];
+                string Code = sr.Cells["codetype"].Value.ToString() + sr.Cells["codevalue"].Value.ToString();
+                try
+                {
+                    if (cb_showjpg.Checked == true)
+                    {
+                        pic_day.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/daily/n/" + Code + ".gif").GetResponse().GetResponseStream());
+                        pic_minute.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/min/n/" + Code + ".gif").GetResponse().GetResponseStream());
+
+                    }
+
+                }
+                catch (Exception anyerror)
+                {
+
+                    ss_mian_label.Text = anyerror.Message;
+                }
+            }//rowqty
+        }//function
+
+        private void tb_max20down_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+    }//class
+}//namespace
