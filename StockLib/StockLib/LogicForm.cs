@@ -181,6 +181,12 @@ namespace StockLib
                             max10growmin = 0;
                             rows[0].SetField<decimal?>("max10growmin", max10growmin);
                         }
+                        decimal? growtoday = rows[0].Field<decimal?>("growtoday");
+                        if (growtoday == null)
+                        {
+                            growtoday = 0;
+                            rows[0].SetField<decimal?>("growtoday", max10growmin);
+                        }
                         decimal? max20down = rows[0].Field<decimal?>("Max20Down");
                         if (max20down == null)
                         {
@@ -266,7 +272,7 @@ namespace StockLib
                         }//下午3点处理结束
 
                         if (max20growday * 100.0M < 5.5M
-                            && max10growmin * 100.0M > 5.5M
+                            && growtoday * 100.0M > 5.5M
                             && max20down * 100.0M < -5.5M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
