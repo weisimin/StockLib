@@ -12,7 +12,7 @@
   <xs:element name="ds_main" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_main" msprop:Generator_UserDSName="ds_main">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dt_news" msprop:Generator_TableClassName="dt_newsDataTable" msprop:Generator_TableVarName="tabledt_news" msprop:Generator_TablePropName="dt_news" msprop:Generator_RowDeletingName="dt_newsRowDeleting" msprop:Generator_RowChangingName="dt_newsRowChanging" msprop:Generator_RowEvHandlerName="dt_newsRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_newsRowDeleted" msprop:Generator_UserTableName="dt_news" msprop:Generator_RowChangedName="dt_newsRowChanged" msprop:Generator_RowEvArgName="dt_newsRowChangeEvent" msprop:Generator_RowClassName="dt_newsRow">
+        <xs:element name="dt_news" msprop:Generator_TableClassName="dt_newsDataTable" msprop:Generator_TableVarName="tabledt_news" msprop:Generator_RowChangedName="dt_newsRowChanged" msprop:Generator_TablePropName="dt_news" msprop:Generator_RowDeletingName="dt_newsRowDeleting" msprop:Generator_RowChangingName="dt_newsRowChanging" msprop:Generator_RowEvHandlerName="dt_newsRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_newsRowDeleted" msprop:Generator_RowClassName="dt_newsRow" msprop:Generator_UserTableName="dt_news" msprop:Generator_RowEvArgName="dt_newsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codetype" msprop:Generator_ColumnVarNameInTable="columncodetype" msprop:Generator_ColumnPropNameInRow="codetype" msprop:Generator_ColumnPropNameInTable="codetypeColumn" msprop:Generator_UserColumnName="codetype" type="xs:string" />
@@ -98,7 +98,7 @@
               <xs:element name="ytdprice" msprop:Generator_ColumnVarNameInTable="columnytdprice" msprop:Generator_ColumnPropNameInRow="ytdprice" msprop:Generator_ColumnPropNameInTable="ytdpriceColumn" msprop:Generator_UserColumnName="ytdprice" type="xs:decimal" minOccurs="0" />
               <xs:element name="growtoday" msprop:Generator_ColumnVarNameInTable="columngrowtoday" msprop:Generator_ColumnPropNameInRow="growtoday" msprop:Generator_ColumnPropNameInTable="growtodayColumn" msprop:Generator_UserColumnName="growtoday" type="xs:decimal" minOccurs="0" />
               <xs:element name="isfocus" msprop:Generator_ColumnVarNameInTable="columnisfocus" msprop:Generator_ColumnPropNameInRow="isfocus" msprop:Generator_ColumnPropNameInTable="isfocusColumn" msprop:Generator_UserColumnName="isfocus" type="xs:boolean" minOccurs="0" />
-              <xs:element name="MaxHighQty" msprop:Generator_ColumnVarNameInTable="columnMaxHighQty" msprop:Generator_ColumnPropNameInRow="MaxHighQty" msprop:Generator_ColumnPropNameInTable="MaxHighQtyColumn" msprop:Generator_UserColumnName="MaxHighQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Max20Down" msprop:Generator_ColumnVarNameInTable="columnMax20Down" msprop:Generator_ColumnPropNameInRow="Max20Down" msprop:Generator_ColumnPropNameInTable="Max20DownColumn" msprop:Generator_UserColumnName="Max20Down" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

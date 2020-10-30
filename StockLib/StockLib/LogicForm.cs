@@ -73,9 +73,9 @@ namespace StockLib
                 Application.DoEvents();
             }
             #region 发送和保存
-            if (rels.Count>0
-                &&rels.First().LastTime.Value.ToString("HH:mm") == "15:00" 
-                && (LastTime==null||LastTime.Value.ToString("yyyy-MM-dd HH:mm") != rels.First().LastTime.Value.ToString("yyyy-MM-dd HH:mm")))
+            if (rels.Count > 0
+                && rels.First().LastTime.Value.ToString("HH:mm") == "15:00"
+                && (LastTime == null || LastTime.Value.ToString("yyyy-MM-dd HH:mm") != rels.First().LastTime.Value.ToString("yyyy-MM-dd HH:mm")))
             {
                 SaveData();
                 LastTime = rels.First().LastTime;
@@ -147,7 +147,7 @@ namespace StockLib
 
 
                     rowtime = rows[0].Field<DateTime?>("nowtime");
-
+                    SetMinGrow(rows[0]);
                     if (rowtime == null)
                     {
                         rows[0].SetField<DateTime>("nowtime", Convert.ToDateTime(infs[30] + " " + infs[31]));
@@ -166,14 +166,26 @@ namespace StockLib
                         rows[0].SetField<decimal?>("lmin02", rows[0].Field<decimal?>("lmin01"));
                         rows[0].SetField<decimal?>("lmin01", Convert.ToDecimal(infs[3]));
 
-                        SetMinGrow(rows[0]);
+
 
                         decimal? max20growday = rows[0].Field<decimal?>("max20growday");
-                        decimal? max10growmin = rows[0].Field<decimal?>("max10growmin");
+
                         if (max20growday == null)
                         {
                             max20growday = 0;
                             rows[0].SetField<decimal?>("max20growday", max20growday);
+                        }
+                        decimal? max10growmin = rows[0].Field<decimal?>("max10growmin");
+                        if (max10growmin == null)
+                        {
+                            max10growmin = 0;
+                            rows[0].SetField<decimal?>("max10growmin", max10growmin);
+                        }
+                        decimal? max20down = rows[0].Field<decimal?>("Max20Down");
+                        if (max20down == null)
+                        {
+                            max20down = 0;
+                            rows[0].SetField<decimal?>("max20down", max20down);
                         }
 
                         if (lasttime.ToString("HH:mm") == "15:00")
@@ -255,6 +267,7 @@ namespace StockLib
 
                         if (max20growday * 100.0M < 5.5M
                             && max10growmin * 100.0M > 5.5M
+                            && max20down * 100.0M < -5.5M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
                         {
@@ -266,6 +279,7 @@ namespace StockLib
                             SendText.Add(rows[0].Field<String>("stockname")
                                 + "[" + rows[0].Field<String>("codevalue") + "] "
                                 + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
+                                  + "[" + rows[0].Field<decimal?>("Max20Down").Value.ToString("0.00%") + "] "
                                 );
 
 
@@ -599,7 +613,217 @@ namespace StockLib
             }
 
             item.SetField<decimal?>("max20growday", max20growday);
-            ss_mian_label.Text = "正在更新" + item.Field<string>("stockname");
+            ss_mian_label.Text = "正在更新Max20growDay" + item.Field<string>("stockname");
+            SetMax20Down(item);
+        }
+
+        private void SetMax20Down(DataRow item)
+        {
+            Decimal? Max20End = 0;
+            decimal? LastEnd = item.Field<decimal?>("lday01_end");
+            decimal? TestMax20End = item.Field<decimal?>("lday01_end");
+            if (TestMax20End > Max20End || Max20End == null)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday02_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday03_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday04_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday05_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday06_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday07_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday08_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday09_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday10_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday11_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday12_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday13_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday14_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday15_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday16_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday17_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday18_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday19_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+            TestMax20End = item.Field<decimal?>("lday20_end");
+            if (TestMax20End > Max20End)
+            {
+                Max20End = TestMax20End;
+
+            }
+            if (LastEnd == 0)
+            {
+                LastEnd = TestMax20End;
+            }
+
+            item.SetField<decimal?>("Max20Down", LastEnd == 0 ? 0 : (-(Max20End / LastEnd - 1)));
+            ss_mian_label.Text = "正在更新Max20Down" + item.Field<string>("stockname");
         }
 
         private void SetMinGrow(DataRow item)
@@ -839,6 +1063,9 @@ namespace StockLib
             bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
                 + " and stockname like '%" + fil_tb_name.Text + "%' "
                  + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
+                 + (tb_rerise.Text == "" ? "" : " and growtoday>= " + tb_rerise.Text + "/100 ")
+                 + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
+                   + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
                 ;
             sf.bs_sub.Filter = bs_main.Filter;
 
@@ -908,6 +1135,21 @@ namespace StockLib
         private void LogicForm_Shown(object sender, EventArgs e)
         {
             LogicForm_Move(sender, e);
+        }
+
+        private void tb_rerise_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void tb_PriceFrom_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void tb_PriceTo_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
         }
     }
 }
