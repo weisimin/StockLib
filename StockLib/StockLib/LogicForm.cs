@@ -274,9 +274,8 @@ namespace StockLib
 
                         }//下午3点处理结束
 
-                        if (max20growday * 100.0M < 5.5M
-                            && growtoday * 100.0M > 3.5M
-                            && max20down * 100.0M < -5.5M
+                        if (growtoday * 100.0M > 4.0M
+                            && max20down * 100.0M < -3.0M
                             && rows[0].Field<bool?>("issuppose") == false
                             )
                         {
@@ -827,16 +826,7 @@ namespace StockLib
                 Max20End = TestMax20End;
 
             }
-            TestMax20End = item.Field<decimal?>("nowprice");
-            if (TestMax20End > Max20End)
-            {
-                Max20End = TestMax20End;
 
-            }
-            if (LastEnd == 0)
-            {
-                LastEnd = TestMax20End;
-            }
 
             item.SetField<decimal?>("Max20Down", LastEnd == 0 ? 0 : (-(Max20End / LastEnd - 1)));
             ss_mian_label.Text = "正在更新Max20Down" + item.Field<string>("stockname");
@@ -1078,14 +1068,23 @@ namespace StockLib
         {
             try
             {
-                bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
-                                + " and stockname like '%" + fil_tb_name.Text + "%' "
-                                 + (fil_cb_focus.Checked == true ? " and isfocus =1 " : " ")
-                                 + (tb_rerise.Text == "" ? "" : " and growtoday>= " + tb_rerise.Text + "/100.0 ")
-                                 + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
-                                   + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
-                                 + (tb_max20growup.Text == "" ? "" : " and max20growday <= " + tb_max20growup.Text + "/100.0 ")
-                            + (tb_max20down.Text == "" ? "" : " and max20down <= " + tb_max20down.Text + "/100.0 ");
+                if (fil_cb_focus.Checked == true)
+                {
+                    bs_main.Filter = (fil_cb_focus.Checked == true ? "  isfocus =1 " : " ");
+
+                }
+                else
+                {
+                    bs_main.Filter = "codevalue like '%" + fil_tbcode.Text + "%' "
+                                   + " and stockname like '%" + fil_tb_name.Text + "%' "
+
+                                    + (tb_rerise.Text == "" ? "" : " and growtoday>= " + tb_rerise.Text + "/100.0 ")
+                                    + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
+                                      + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
+                                    + (tb_max20growup.Text == "" ? "" : " and max20growday <= " + tb_max20growup.Text + "/100.0 ")
+                               + (tb_max20down.Text == "" ? "" : " and max20down <= " + tb_max20down.Text + "/100.0 ");
+                }
+
                 sf.bs_sub.Filter = bs_main.Filter;
             }
             catch (Exception AnyError)
