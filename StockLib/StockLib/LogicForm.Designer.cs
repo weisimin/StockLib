@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bs_main = new System.Windows.Forms.BindingSource(this.components);
             this.gv_list = new System.Windows.Forms.DataGridView();
             this.codetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +76,9 @@
             this.ss_mian_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.time_refresh = new System.Windows.Forms.Timer(this.components);
             this.gb_filter = new System.Windows.Forms.GroupBox();
-            this.tb_max20down = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_max20downfrom = new System.Windows.Forms.TextBox();
+            this.tb_max20downto = new System.Windows.Forms.TextBox();
             this.lbl_max20down = new System.Windows.Forms.Label();
             this.tb_max20growup = new System.Windows.Forms.TextBox();
             this.lbl_max20growup = new System.Windows.Forms.Label();
@@ -97,15 +99,16 @@
             this.cb_showjpg = new System.Windows.Forms.CheckBox();
             this.con_cb_wechat = new System.Windows.Forms.CheckBox();
             this.gv_main = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.大20天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bs_sub = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_watch = new System.Windows.Forms.Label();
             this.pic_day = new System.Windows.Forms.PictureBox();
             this.pic_minute = new System.Windows.Forms.PictureBox();
+            this.codetype2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codevalue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.大20天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).BeginInit();
             this.Menu_Main.SuspendLayout();
@@ -211,8 +214,8 @@
             // growtoday
             // 
             this.growtoday.DataPropertyName = "growtoday";
-            dataGridViewCellStyle19.Format = "0.00%";
-            this.growtoday.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Format = "0.00%";
+            this.growtoday.DefaultCellStyle = dataGridViewCellStyle1;
             this.growtoday.HeaderText = "涨跌";
             this.growtoday.Name = "growtoday";
             this.growtoday.ReadOnly = true;
@@ -221,8 +224,8 @@
             // 跌20天
             // 
             this.跌20天.DataPropertyName = "Max20Down";
-            dataGridViewCellStyle20.Format = "0.00%";
-            this.跌20天.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Format = "0.00%";
+            this.跌20天.DefaultCellStyle = dataGridViewCellStyle2;
             this.跌20天.HeaderText = "跌20";
             this.跌20天.Name = "跌20天";
             this.跌20天.ReadOnly = true;
@@ -231,8 +234,8 @@
             // 反弹
             // 
             this.反弹.DataPropertyName = "growtoday";
-            dataGridViewCellStyle21.Format = "0.00%";
-            this.反弹.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Format = "0.00%";
+            this.反弹.DefaultCellStyle = dataGridViewCellStyle3;
             this.反弹.HeaderText = "反弹";
             this.反弹.Name = "反弹";
             this.反弹.ReadOnly = true;
@@ -241,8 +244,8 @@
             // max20growday
             // 
             this.max20growday.DataPropertyName = "max20growday";
-            dataGridViewCellStyle22.Format = "0.00%";
-            this.max20growday.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Format = "0.00%";
+            this.max20growday.DefaultCellStyle = dataGridViewCellStyle4;
             this.max20growday.HeaderText = "大20天";
             this.max20growday.Name = "max20growday";
             this.max20growday.ReadOnly = true;
@@ -251,8 +254,8 @@
             // max10growmin
             // 
             this.max10growmin.DataPropertyName = "max10growmin";
-            dataGridViewCellStyle23.Format = "0.00%";
-            this.max10growmin.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Format = "0.00%";
+            this.max10growmin.DefaultCellStyle = dataGridViewCellStyle5;
             this.max10growmin.HeaderText = "大10分";
             this.max10growmin.Name = "max10growmin";
             this.max10growmin.ReadOnly = true;
@@ -261,8 +264,8 @@
             // nowtime
             // 
             this.nowtime.DataPropertyName = "nowtime";
-            dataGridViewCellStyle24.Format = "HH:mm";
-            this.nowtime.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Format = "HH:mm";
+            this.nowtime.DefaultCellStyle = dataGridViewCellStyle6;
             this.nowtime.HeaderText = "时间";
             this.nowtime.Name = "nowtime";
             this.nowtime.ReadOnly = true;
@@ -429,15 +432,16 @@
             // Test_SetSuppose
             // 
             this.Test_SetSuppose.Name = "Test_SetSuppose";
-            this.Test_SetSuppose.Size = new System.Drawing.Size(174, 22);
+            this.Test_SetSuppose.Size = new System.Drawing.Size(180, 22);
             this.Test_SetSuppose.Text = "Test_SetSuppose";
             this.Test_SetSuppose.Click += new System.EventHandler(this.Test_SetSuppose_Click);
             // 
             // Test_Restore
             // 
             this.Test_Restore.Name = "Test_Restore";
-            this.Test_Restore.Size = new System.Drawing.Size(174, 22);
+            this.Test_Restore.Size = new System.Drawing.Size(180, 22);
             this.Test_Restore.Text = "Test_Restore";
+            this.Test_Restore.Click += new System.EventHandler(this.Test_Restore_Click);
             // 
             // ss_main
             // 
@@ -468,7 +472,9 @@
             // 
             // gb_filter
             // 
-            this.gb_filter.Controls.Add(this.tb_max20down);
+            this.gb_filter.Controls.Add(this.label1);
+            this.gb_filter.Controls.Add(this.tb_max20downfrom);
+            this.gb_filter.Controls.Add(this.tb_max20downto);
             this.gb_filter.Controls.Add(this.lbl_max20down);
             this.gb_filter.Controls.Add(this.tb_max20growup);
             this.gb_filter.Controls.Add(this.lbl_max20growup);
@@ -490,14 +496,32 @@
             this.gb_filter.TabStop = false;
             this.gb_filter.Text = "过滤条件";
             // 
-            // tb_max20down
+            // label1
             // 
-            this.tb_max20down.Location = new System.Drawing.Point(349, 32);
-            this.tb_max20down.Name = "tb_max20down";
-            this.tb_max20down.Size = new System.Drawing.Size(40, 21);
-            this.tb_max20down.TabIndex = 24;
-            this.tb_max20down.Text = "-3.0";
-            this.tb_max20down.TextChanged += new System.EventHandler(this.tb_max20down_TextChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(393, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 12);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "~";
+            // 
+            // tb_max20downfrom
+            // 
+            this.tb_max20downfrom.Location = new System.Drawing.Point(347, 31);
+            this.tb_max20downfrom.Name = "tb_max20downfrom";
+            this.tb_max20downfrom.Size = new System.Drawing.Size(40, 21);
+            this.tb_max20downfrom.TabIndex = 25;
+            this.tb_max20downfrom.Text = "-15.0";
+            this.tb_max20downfrom.TextChanged += new System.EventHandler(this.tb_max20downfrom_TextChanged);
+            // 
+            // tb_max20downto
+            // 
+            this.tb_max20downto.Location = new System.Drawing.Point(404, 32);
+            this.tb_max20downto.Name = "tb_max20downto";
+            this.tb_max20downto.Size = new System.Drawing.Size(40, 21);
+            this.tb_max20downto.TabIndex = 24;
+            this.tb_max20downto.Text = "-3.0";
+            this.tb_max20downto.TextChanged += new System.EventHandler(this.tb_max20down_TextChanged);
             // 
             // lbl_max20down
             // 
@@ -658,6 +682,7 @@
             this.cb_showjpg.TabIndex = 17;
             this.cb_showjpg.Text = "K线图片";
             this.cb_showjpg.UseVisualStyleBackColor = true;
+            this.cb_showjpg.CheckedChanged += new System.EventHandler(this.cb_showjpg_CheckedChanged);
             // 
             // con_cb_wechat
             // 
@@ -677,7 +702,8 @@
             this.gv_main.ColumnHeadersHeight = 25;
             this.gv_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gv_main.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.codetype2,
+            this.codevalue2,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -689,53 +715,10 @@
             this.gv_main.ReadOnly = true;
             this.gv_main.RowHeadersVisible = false;
             this.gv_main.RowTemplate.Height = 27;
+            this.gv_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gv_main.Size = new System.Drawing.Size(294, 399);
             this.gv_main.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "codevalue";
-            this.dataGridViewTextBoxColumn1.HeaderText = "代码";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "stockname";
-            this.dataGridViewTextBoxColumn2.HeaderText = "名称";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "growtoday";
-            dataGridViewCellStyle25.Format = "0.00%";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridViewTextBoxColumn4.HeaderText = "涨跌";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Max20Down";
-            dataGridViewCellStyle26.Format = "0.00%";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridViewTextBoxColumn5.HeaderText = "跌20天";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 60;
-            // 
-            // 大20天
-            // 
-            this.大20天.DataPropertyName = "max20growday";
-            dataGridViewCellStyle27.Format = "0.00%";
-            this.大20天.DefaultCellStyle = dataGridViewCellStyle27;
-            this.大20天.HeaderText = "大20天";
-            this.大20天.Name = "大20天";
-            this.大20天.ReadOnly = true;
+            this.gv_main.SelectionChanged += new System.EventHandler(this.gv_main_SelectionChanged);
             // 
             // lbl_watch
             // 
@@ -763,6 +746,59 @@
             this.pic_minute.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_minute.TabIndex = 16;
             this.pic_minute.TabStop = false;
+            // 
+            // codetype2
+            // 
+            this.codetype2.DataPropertyName = "codetype";
+            this.codetype2.HeaderText = "codetype2";
+            this.codetype2.Name = "codetype2";
+            this.codetype2.ReadOnly = true;
+            this.codetype2.Visible = false;
+            // 
+            // codevalue2
+            // 
+            this.codevalue2.DataPropertyName = "codevalue";
+            this.codevalue2.HeaderText = "代码";
+            this.codevalue2.Name = "codevalue2";
+            this.codevalue2.ReadOnly = true;
+            this.codevalue2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "stockname";
+            this.dataGridViewTextBoxColumn2.HeaderText = "名称";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "growtoday";
+            dataGridViewCellStyle7.Format = "0.00%";
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn4.HeaderText = "涨跌";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Max20Down";
+            dataGridViewCellStyle8.Format = "0.00%";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn5.HeaderText = "跌20天";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 60;
+            // 
+            // 大20天
+            // 
+            this.大20天.DataPropertyName = "max20growday";
+            dataGridViewCellStyle9.Format = "0.00%";
+            this.大20天.DefaultCellStyle = dataGridViewCellStyle9;
+            this.大20天.HeaderText = "大20天";
+            this.大20天.Name = "大20天";
+            this.大20天.ReadOnly = true;
             // 
             // LogicForm
             // 
@@ -843,11 +879,6 @@
         private System.Windows.Forms.Label lbl_PriceTo;
         private System.Windows.Forms.TextBox tb_PriceFrom;
         private System.Windows.Forms.Label lbl_PriceFrom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 大20天;
         private System.Windows.Forms.TextBox tb_max20growup;
         private System.Windows.Forms.Label lbl_max20growup;
         private System.Windows.Forms.DataGridViewTextBoxColumn codetype;
@@ -872,9 +903,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lday03_end;
         private System.Windows.Forms.PictureBox pic_day;
         private System.Windows.Forms.PictureBox pic_minute;
-        private System.Windows.Forms.TextBox tb_max20down;
+        private System.Windows.Forms.TextBox tb_max20downto;
         private System.Windows.Forms.Label lbl_max20down;
         private System.Windows.Forms.CheckBox cb_showjpg;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_max20downfrom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codetype2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codevalue2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 大20天;
     }
 }
 

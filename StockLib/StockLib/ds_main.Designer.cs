@@ -447,6 +447,48 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnMax20Down;
             
+            private global::System.Data.DataColumn columnday01_15avg;
+            
+            private global::System.Data.DataColumn columnday02_15avg;
+            
+            private global::System.Data.DataColumn columnday03_15avg;
+            
+            private global::System.Data.DataColumn columnday04_15avg;
+            
+            private global::System.Data.DataColumn columnday05_15avg;
+            
+            private global::System.Data.DataColumn columnday06_15avg;
+            
+            private global::System.Data.DataColumn columnday07_15avg;
+            
+            private global::System.Data.DataColumn columnday08_15avg;
+            
+            private global::System.Data.DataColumn columnday09_15avg;
+            
+            private global::System.Data.DataColumn columnday10_15avg;
+            
+            private global::System.Data.DataColumn columnday11_15avg;
+            
+            private global::System.Data.DataColumn columnday12_15avg;
+            
+            private global::System.Data.DataColumn columnday13_15avg;
+            
+            private global::System.Data.DataColumn columnday14_15avg;
+            
+            private global::System.Data.DataColumn columnday15_15avg;
+            
+            private global::System.Data.DataColumn columnday16_15avg;
+            
+            private global::System.Data.DataColumn columnday17_15avg;
+            
+            private global::System.Data.DataColumn columnday18_15avg;
+            
+            private global::System.Data.DataColumn columnday19_15avg;
+            
+            private global::System.Data.DataColumn columnday20_15avg;
+            
+            private global::System.Data.DataColumn columnmax20growday_avg15;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_newsDataTable() {
@@ -1154,6 +1196,174 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day01_15avgColumn {
+                get {
+                    return this.columnday01_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day02_15avgColumn {
+                get {
+                    return this.columnday02_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day03_15avgColumn {
+                get {
+                    return this.columnday03_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day04_15avgColumn {
+                get {
+                    return this.columnday04_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day05_15avgColumn {
+                get {
+                    return this.columnday05_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day06_15avgColumn {
+                get {
+                    return this.columnday06_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day07_15avgColumn {
+                get {
+                    return this.columnday07_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day08_15avgColumn {
+                get {
+                    return this.columnday08_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day09_15avgColumn {
+                get {
+                    return this.columnday09_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day10_15avgColumn {
+                get {
+                    return this.columnday10_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day11_15avgColumn {
+                get {
+                    return this.columnday11_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day12_15avgColumn {
+                get {
+                    return this.columnday12_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day13_15avgColumn {
+                get {
+                    return this.columnday13_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day14_15avgColumn {
+                get {
+                    return this.columnday14_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day15_15avgColumn {
+                get {
+                    return this.columnday15_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day16_15avgColumn {
+                get {
+                    return this.columnday16_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day17_15avgColumn {
+                get {
+                    return this.columnday17_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day18_15avgColumn {
+                get {
+                    return this.columnday18_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day19_15avgColumn {
+                get {
+                    return this.columnday19_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn day20_15avgColumn {
+                get {
+                    return this.columnday20_15avg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn max20growday_avg15Column {
+                get {
+                    return this.columnmax20growday_avg15;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1273,7 +1483,28 @@ namespace StockLib {
                         decimal ytdprice, 
                         decimal growtoday, 
                         bool isfocus, 
-                        decimal Max20Down) {
+                        decimal Max20Down, 
+                        decimal day01_15avg, 
+                        decimal day02_15avg, 
+                        decimal day03_15avg, 
+                        decimal day04_15avg, 
+                        decimal day05_15avg, 
+                        decimal day06_15avg, 
+                        decimal day07_15avg, 
+                        decimal day08_15avg, 
+                        decimal day09_15avg, 
+                        decimal day10_15avg, 
+                        decimal day11_15avg, 
+                        decimal day12_15avg, 
+                        decimal day13_15avg, 
+                        decimal day14_15avg, 
+                        decimal day15_15avg, 
+                        decimal day16_15avg, 
+                        decimal day17_15avg, 
+                        decimal day18_15avg, 
+                        decimal day19_15avg, 
+                        decimal day20_15avg, 
+                        decimal max20growday_avg15) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1359,7 +1590,28 @@ namespace StockLib {
                         ytdprice,
                         growtoday,
                         isfocus,
-                        Max20Down};
+                        Max20Down,
+                        day01_15avg,
+                        day02_15avg,
+                        day03_15avg,
+                        day04_15avg,
+                        day05_15avg,
+                        day06_15avg,
+                        day07_15avg,
+                        day08_15avg,
+                        day09_15avg,
+                        day10_15avg,
+                        day11_15avg,
+                        day12_15avg,
+                        day13_15avg,
+                        day14_15avg,
+                        day15_15avg,
+                        day16_15avg,
+                        day17_15avg,
+                        day18_15avg,
+                        day19_15avg,
+                        day20_15avg,
+                        max20growday_avg15};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -1474,6 +1726,27 @@ namespace StockLib {
                 this.columngrowtoday = base.Columns["growtoday"];
                 this.columnisfocus = base.Columns["isfocus"];
                 this.columnMax20Down = base.Columns["Max20Down"];
+                this.columnday01_15avg = base.Columns["day01_15avg"];
+                this.columnday02_15avg = base.Columns["day02_15avg"];
+                this.columnday03_15avg = base.Columns["day03_15avg"];
+                this.columnday04_15avg = base.Columns["day04_15avg"];
+                this.columnday05_15avg = base.Columns["day05_15avg"];
+                this.columnday06_15avg = base.Columns["day06_15avg"];
+                this.columnday07_15avg = base.Columns["day07_15avg"];
+                this.columnday08_15avg = base.Columns["day08_15avg"];
+                this.columnday09_15avg = base.Columns["day09_15avg"];
+                this.columnday10_15avg = base.Columns["day10_15avg"];
+                this.columnday11_15avg = base.Columns["day11_15avg"];
+                this.columnday12_15avg = base.Columns["day12_15avg"];
+                this.columnday13_15avg = base.Columns["day13_15avg"];
+                this.columnday14_15avg = base.Columns["day14_15avg"];
+                this.columnday15_15avg = base.Columns["day15_15avg"];
+                this.columnday16_15avg = base.Columns["day16_15avg"];
+                this.columnday17_15avg = base.Columns["day17_15avg"];
+                this.columnday18_15avg = base.Columns["day18_15avg"];
+                this.columnday19_15avg = base.Columns["day19_15avg"];
+                this.columnday20_15avg = base.Columns["day20_15avg"];
+                this.columnmax20growday_avg15 = base.Columns["max20growday_avg15"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1647,6 +1920,48 @@ namespace StockLib {
                 base.Columns.Add(this.columnisfocus);
                 this.columnMax20Down = new global::System.Data.DataColumn("Max20Down", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMax20Down);
+                this.columnday01_15avg = new global::System.Data.DataColumn("day01_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday01_15avg);
+                this.columnday02_15avg = new global::System.Data.DataColumn("day02_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday02_15avg);
+                this.columnday03_15avg = new global::System.Data.DataColumn("day03_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday03_15avg);
+                this.columnday04_15avg = new global::System.Data.DataColumn("day04_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday04_15avg);
+                this.columnday05_15avg = new global::System.Data.DataColumn("day05_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday05_15avg);
+                this.columnday06_15avg = new global::System.Data.DataColumn("day06_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday06_15avg);
+                this.columnday07_15avg = new global::System.Data.DataColumn("day07_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday07_15avg);
+                this.columnday08_15avg = new global::System.Data.DataColumn("day08_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday08_15avg);
+                this.columnday09_15avg = new global::System.Data.DataColumn("day09_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday09_15avg);
+                this.columnday10_15avg = new global::System.Data.DataColumn("day10_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday10_15avg);
+                this.columnday11_15avg = new global::System.Data.DataColumn("day11_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday11_15avg);
+                this.columnday12_15avg = new global::System.Data.DataColumn("day12_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday12_15avg);
+                this.columnday13_15avg = new global::System.Data.DataColumn("day13_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday13_15avg);
+                this.columnday14_15avg = new global::System.Data.DataColumn("day14_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday14_15avg);
+                this.columnday15_15avg = new global::System.Data.DataColumn("day15_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday15_15avg);
+                this.columnday16_15avg = new global::System.Data.DataColumn("day16_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday16_15avg);
+                this.columnday17_15avg = new global::System.Data.DataColumn("day17_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday17_15avg);
+                this.columnday18_15avg = new global::System.Data.DataColumn("day18_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday18_15avg);
+                this.columnday19_15avg = new global::System.Data.DataColumn("day19_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday19_15avg);
+                this.columnday20_15avg = new global::System.Data.DataColumn("day20_15avg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnday20_15avg);
+                this.columnmax20growday_avg15 = new global::System.Data.DataColumn("max20growday_avg15", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmax20growday_avg15);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -3128,6 +3443,342 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day01_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day01_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day01_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day01_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day02_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day02_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day02_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day02_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day03_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day03_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day03_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day03_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day04_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day04_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day04_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day04_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day05_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day05_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day05_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day05_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day06_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day06_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day06_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day06_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day07_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day07_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day07_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day07_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day08_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day08_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day08_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day08_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day09_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day09_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day09_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day09_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day10_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day10_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day10_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day10_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day11_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day11_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day11_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day11_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day12_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day12_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day12_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day12_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day13_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day13_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day13_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day13_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day14_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day14_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day14_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day14_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day15_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day15_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day15_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day15_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day16_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day16_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day16_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day16_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day17_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day17_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day17_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day17_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day18_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day18_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day18_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day18_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day19_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day19_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day19_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day19_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal day20_15avg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.day20_15avgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“day20_15avg”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.day20_15avgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal max20growday_avg15 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.max20growday_avg15Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“max20growday_avg15”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.max20growday_avg15Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -4108,6 +4759,258 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMax20DownNull() {
                 this[this.tabledt_news.Max20DownColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday01_15avgNull() {
+                return this.IsNull(this.tabledt_news.day01_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday01_15avgNull() {
+                this[this.tabledt_news.day01_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday02_15avgNull() {
+                return this.IsNull(this.tabledt_news.day02_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday02_15avgNull() {
+                this[this.tabledt_news.day02_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday03_15avgNull() {
+                return this.IsNull(this.tabledt_news.day03_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday03_15avgNull() {
+                this[this.tabledt_news.day03_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday04_15avgNull() {
+                return this.IsNull(this.tabledt_news.day04_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday04_15avgNull() {
+                this[this.tabledt_news.day04_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday05_15avgNull() {
+                return this.IsNull(this.tabledt_news.day05_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday05_15avgNull() {
+                this[this.tabledt_news.day05_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday06_15avgNull() {
+                return this.IsNull(this.tabledt_news.day06_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday06_15avgNull() {
+                this[this.tabledt_news.day06_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday07_15avgNull() {
+                return this.IsNull(this.tabledt_news.day07_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday07_15avgNull() {
+                this[this.tabledt_news.day07_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday08_15avgNull() {
+                return this.IsNull(this.tabledt_news.day08_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday08_15avgNull() {
+                this[this.tabledt_news.day08_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday09_15avgNull() {
+                return this.IsNull(this.tabledt_news.day09_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday09_15avgNull() {
+                this[this.tabledt_news.day09_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday10_15avgNull() {
+                return this.IsNull(this.tabledt_news.day10_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday10_15avgNull() {
+                this[this.tabledt_news.day10_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday11_15avgNull() {
+                return this.IsNull(this.tabledt_news.day11_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday11_15avgNull() {
+                this[this.tabledt_news.day11_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday12_15avgNull() {
+                return this.IsNull(this.tabledt_news.day12_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday12_15avgNull() {
+                this[this.tabledt_news.day12_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday13_15avgNull() {
+                return this.IsNull(this.tabledt_news.day13_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday13_15avgNull() {
+                this[this.tabledt_news.day13_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday14_15avgNull() {
+                return this.IsNull(this.tabledt_news.day14_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday14_15avgNull() {
+                this[this.tabledt_news.day14_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday15_15avgNull() {
+                return this.IsNull(this.tabledt_news.day15_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday15_15avgNull() {
+                this[this.tabledt_news.day15_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday16_15avgNull() {
+                return this.IsNull(this.tabledt_news.day16_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday16_15avgNull() {
+                this[this.tabledt_news.day16_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday17_15avgNull() {
+                return this.IsNull(this.tabledt_news.day17_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday17_15avgNull() {
+                this[this.tabledt_news.day17_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday18_15avgNull() {
+                return this.IsNull(this.tabledt_news.day18_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday18_15avgNull() {
+                this[this.tabledt_news.day18_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday19_15avgNull() {
+                return this.IsNull(this.tabledt_news.day19_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday19_15avgNull() {
+                this[this.tabledt_news.day19_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isday20_15avgNull() {
+                return this.IsNull(this.tabledt_news.day20_15avgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setday20_15avgNull() {
+                this[this.tabledt_news.day20_15avgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ismax20growday_avg15Null() {
+                return this.IsNull(this.tabledt_news.max20growday_avg15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setmax20growday_avg15Null() {
+                this[this.tabledt_news.max20growday_avg15Column] = global::System.Convert.DBNull;
             }
         }
         

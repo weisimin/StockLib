@@ -146,8 +146,13 @@ namespace StockLib
 
                     lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
-                    SetMax20Down(rows[0]);
-
+                    decimal? avg3min = (rows[0].Field<decimal?>("lday02_min") + rows[0].Field<decimal?>("lday01_min") + rows[0].Field<decimal?>("minprice")) / 3;
+                    decimal? avg3minytd = (rows[0].Field<decimal?>("lday01_min") + rows[0].Field<decimal?>("lday02_min") + rows[0].Field<decimal?>("lday03_min")) / 3;
+                    decimal? nowprice = rows[0].Field<decimal?>("nowprice");
+                    decimal? ytdprice = rows[0].Field<decimal?>("ytdprice");
+                    //SetMax20Down(rows[0]);
+                    rows[0].SetField<Decimal?>("avg3min", avg3min);
+                    rows[0].SetField<Decimal?>("avg3minytd", avg3minytd);
 
                     rowtime = rows[0].Field<DateTime?>("nowtime");
                     SetMinGrow(rows[0]);
@@ -242,6 +247,49 @@ namespace StockLib
                             rows[0].SetField<decimal?>("lday02_end", rows[0].Field<decimal?>("lday01_end"));
                             rows[0].SetField<decimal?>("lday01_end", rows[0].Field<decimal?>("nowprice"));
 
+                            decimal? totalend = 0; int totalqty = 0;
+                            if (rows[0].Field<decimal?>("lday01_end") > 0) { totalend += rows[0].Field<decimal?>("lday01_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday02_end") > 0) { totalend += rows[0].Field<decimal?>("lday02_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday03_end") > 0) { totalend += rows[0].Field<decimal?>("lday03_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday04_end") > 0) { totalend += rows[0].Field<decimal?>("lday04_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday05_end") > 0) { totalend += rows[0].Field<decimal?>("lday05_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday06_end") > 0) { totalend += rows[0].Field<decimal?>("lday06_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday07_end") > 0) { totalend += rows[0].Field<decimal?>("lday07_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday08_end") > 0) { totalend += rows[0].Field<decimal?>("lday08_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday09_end") > 0) { totalend += rows[0].Field<decimal?>("lday09_end"); totalqty += 1; }
+                            if (rows[0].Field<decimal?>("lday10_end") > 0) { totalend += rows[0].Field<decimal?>("lday10_end"); totalqty += 1; }
+                            //if (rows[0].Field<decimal?>("lday11_end") > 0) { totalend += rows[0].Field<decimal?>("lday11_end"); totalqty += 1; }
+                            //if (rows[0].Field<decimal?>("lday12_end") > 0) { totalend += rows[0].Field<decimal?>("lday12_end"); totalqty += 1; }
+                            //if (rows[0].Field<decimal?>("lday13_end") > 0) { totalend += rows[0].Field<decimal?>("lday13_end"); totalqty += 1; }
+                            //if (rows[0].Field<decimal?>("lday14_end") > 0) { totalend += rows[0].Field<decimal?>("lday14_end"); totalqty += 1; }
+                            //if (rows[0].Field<decimal?>("lday15_end") > 0) { totalend += rows[0].Field<decimal?>("lday15_end"); totalqty += 1; }
+
+
+
+                            rows[0].SetField<decimal?>("day20_15avg", rows[0].Field<decimal?>("day19_15avg"));
+                            rows[0].SetField<decimal?>("day19_15avg", rows[0].Field<decimal?>("day18_15avg"));
+                            rows[0].SetField<decimal?>("day18_15avg", rows[0].Field<decimal?>("day17_15avg"));
+                            rows[0].SetField<decimal?>("day17_15avg", rows[0].Field<decimal?>("day16_15avg"));
+                            rows[0].SetField<decimal?>("day16_15avg", rows[0].Field<decimal?>("day15_15avg"));
+                            rows[0].SetField<decimal?>("day15_15avg", rows[0].Field<decimal?>("day14_15avg"));
+                            rows[0].SetField<decimal?>("day14_15avg", rows[0].Field<decimal?>("day13_15avg"));
+                            rows[0].SetField<decimal?>("day13_15avg", rows[0].Field<decimal?>("day12_15avg"));
+                            rows[0].SetField<decimal?>("day12_15avg", rows[0].Field<decimal?>("day11_15avg"));
+                            rows[0].SetField<decimal?>("day11_15avg", rows[0].Field<decimal?>("day10_15avg"));
+                            rows[0].SetField<decimal?>("day10_15avg", rows[0].Field<decimal?>("day09_15avg"));
+                            rows[0].SetField<decimal?>("day09_15avg", rows[0].Field<decimal?>("day08_15avg"));
+                            rows[0].SetField<decimal?>("day08_15avg", rows[0].Field<decimal?>("day07_15avg"));
+                            rows[0].SetField<decimal?>("day07_15avg", rows[0].Field<decimal?>("day06_15avg"));
+                            rows[0].SetField<decimal?>("day06_15avg", rows[0].Field<decimal?>("day05_15avg"));
+                            rows[0].SetField<decimal?>("day05_15avg", rows[0].Field<decimal?>("day04_15avg"));
+                            rows[0].SetField<decimal?>("day04_15avg", rows[0].Field<decimal?>("day03_15avg"));
+                            rows[0].SetField<decimal?>("day03_15avg", rows[0].Field<decimal?>("day02_15avg"));
+                            rows[0].SetField<decimal?>("day02_15avg", rows[0].Field<decimal?>("day01_15avg"));
+                            rows[0].SetField<decimal?>("day01_15avg", totalend / totalqty);
+
+
+
+
 
                             rows[0].SetField<decimal?>("growday01", CaculateGrowUp(rows[0].Field<decimal?>("lday01_end"), rows[0].Field<decimal?>("lday01_min")));
                             rows[0].SetField<decimal?>("growday02", CaculateGrowUp(rows[0].Field<decimal?>("lday02_end"), rows[0].Field<decimal?>("lday02_min")));
@@ -274,28 +322,32 @@ namespace StockLib
 
                         }//下午3点处理结束
 
-                        if (growtoday * 100.0M > 4.0M
-                            && max20down * 100.0M < -3.0M
-                            && rows[0].Field<bool?>("issuppose") == false
-                            )
-                        {
-                            rows[0].SetField<bool?>("issuppose", true);
 
-
-
-
-                            SendText.Add(rows[0].Field<String>("stockname")
-                                + "[" + rows[0].Field<String>("codevalue") + "] "
-                                + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
-                                  + "[" + rows[0].Field<decimal?>("Max20Down").Value.ToString("0.00%") + "] "
-                                );
-
-
-                        }
                     }//下载的分钟时间与之前记录的部一样
 
                     #region
+                    if (
+    //growtoday * 100.0M >= 4.0M
+    //&& max20down * 100.0M <= -3.0M
+    //   && max20down * 100.0M >= -18.0M
+    ytdprice <= (avg3minytd * 1.02M)
+    && nowprice >= avg3min
+    && rows[0].Field<bool?>("issuppose") == false
+    )
+                    {
+                        rows[0].SetField<bool?>("issuppose", true);
 
+
+
+
+                        SendText.Add(rows[0].Field<String>("stockname")
+                            + "[" + rows[0].Field<String>("codevalue") + "] "
+                            + rows[0].Field<decimal?>("growtoday").Value.ToString("0.00%")
+                              + "[" + rows[0].Field<decimal?>("Max20Down").Value.ToString("0.00%") + "] "
+                            );
+
+
+                    }
                     #endregion
                     rows[0].SetField<DateTime>("nowtime", lasttime);
 
@@ -518,110 +570,132 @@ namespace StockLib
         private void SetDayGrow(DataRow item)
         {
             Decimal? max20growday = 0;
+            Decimal? max20growday_15avg = 0;
             decimal? test20growday = item.Field<decimal?>("growday01");
             if (test20growday > max20growday || max20growday == null)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day01_15avg");
             }
 
             test20growday = item.Field<decimal?>("growday02");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day02_15avg");
             }
             test20growday = item.Field<decimal?>("growday03");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day03_15avg");
             }
             test20growday = item.Field<decimal?>("growday04");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day04_15avg");
             }
             test20growday = item.Field<decimal?>("growday05");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day05_15avg");
             }
             test20growday = item.Field<decimal?>("growday06");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day06_15avg");
             }
             test20growday = item.Field<decimal?>("growday07");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day07_15avg");
             }
             test20growday = item.Field<decimal?>("growday08");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day08_15avg");
             }
             test20growday = item.Field<decimal?>("growday09");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day09_15avg");
             }
             test20growday = item.Field<decimal?>("growday10");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day10_15avg");
             }
             test20growday = item.Field<decimal?>("growday11");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day11_15avg");
             }
             test20growday = item.Field<decimal?>("growday12");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day12_15avg");
             }
             test20growday = item.Field<decimal?>("growday13");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day13_15avg");
             }
             test20growday = item.Field<decimal?>("growday14");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day14_15avg");
             }
             test20growday = item.Field<decimal?>("growday15");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day15_15avg");
             }
             test20growday = item.Field<decimal?>("growday16");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day16_15avg");
             }
             test20growday = item.Field<decimal?>("growday17");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day17_15avg");
             }
             test20growday = item.Field<decimal?>("growday18");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day18_15avg");
             }
             test20growday = item.Field<decimal?>("growday19");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day19_15avg");
             }
             test20growday = item.Field<decimal?>("growday20");
             if (test20growday > max20growday)
             {
                 max20growday = test20growday;
+                max20growday_15avg = item.Field<decimal?>("day20_15avg");
             }
 
 
             item.SetField<decimal?>("max20growday", max20growday);
+            item.SetField<decimal?>("max20growday_avg15", max20growday);
             ss_mian_label.Text = "正在更新Max20growDay" + item.Field<string>("stockname");
             SetMax20Down(item);
         }
@@ -1082,7 +1156,9 @@ namespace StockLib
                                     + (tb_PriceFrom.Text == "" ? "" : " and nowprice>= " + tb_PriceFrom.Text + " ")
                                       + (tb_PriceTo.Text == "" ? "" : " and nowprice<= " + tb_PriceTo.Text + " ")
                                     + (tb_max20growup.Text == "" ? "" : " and max20growday <= " + tb_max20growup.Text + "/100.0 ")
-                               + (tb_max20down.Text == "" ? "" : " and max20down <= " + tb_max20down.Text + "/100.0 ");
+                               + (tb_max20downto.Text == "" ? "" : " and max20down <= " + tb_max20downto.Text + "/100.0 ")
+                                 + (tb_max20downfrom.Text == "" ? "" : " and max20down >= " + tb_max20downfrom.Text + "/100.0 ")
+                               ;
                 }
 
                 sf.bs_sub.Filter = bs_main.Filter;
@@ -1217,6 +1293,77 @@ namespace StockLib
         private void tb_max20down_TextChanged(object sender, EventArgs e)
         {
             ReloadFilter();
+        }
+
+        private void cb_showjpg_CheckedChanged(object sender, EventArgs e)
+        {
+            if (gv_list.SelectedRows.Count > 0 && cb_showjpg.Checked == true)
+            {
+                DataGridViewRow sr = gv_list.SelectedRows[0];
+                string Code = sr.Cells["codetype"].Value.ToString() + sr.Cells["codevalue"].Value.ToString();
+                try
+                {
+                    if (cb_showjpg.Checked == true)
+                    {
+                        pic_day.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/daily/n/" + Code + ".gif").GetResponse().GetResponseStream());
+                        pic_minute.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/min/n/" + Code + ".gif").GetResponse().GetResponseStream());
+
+                    }
+
+                }
+                catch (Exception anyerror)
+                {
+
+                    ss_mian_label.Text = anyerror.Message;
+                }
+            }
+            else
+            {
+                pic_day.Image = null;
+                pic_minute.Image = null;
+            }
+            //rowqty
+        }
+
+        private void tb_max20downfrom_TextChanged(object sender, EventArgs e)
+        {
+            ReloadFilter();
+        }
+
+        private void Test_Restore_Click(object sender, EventArgs e)
+        {
+            //listsource.Columns.Add("avg3min", typeof(decimal));
+            //listsource.Columns.Add("avg3minytd", typeof(decimal));
+            foreach (DataRow item in listsource.Rows)
+            {
+                item.SetField("issuppose", false);
+            }
+
+        }
+
+        private void gv_main_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (gv_main.SelectedRows.Count > 0)
+            {
+                DataGridViewRow sr = gv_main.SelectedRows[0];
+                string Code = sr.Cells["codetype2"].Value.ToString() + sr.Cells["codevalue2"].Value.ToString();
+                try
+                {
+                    if (cb_showjpg.Checked == true)
+                    {
+                        pic_day.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/daily/n/" + Code + ".gif").GetResponse().GetResponseStream());
+                        pic_minute.Image = Image.FromStream(System.Net.WebRequest.Create("http://image.sinajs.cn/newchart/min/n/" + Code + ".gif").GetResponse().GetResponseStream());
+
+                    }
+
+                }
+                catch (Exception anyerror)
+                {
+
+                    ss_mian_label.Text = anyerror.Message;
+                }
+            }//rowqty
         }
     }//class
 }//namespace
