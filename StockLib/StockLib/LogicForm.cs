@@ -146,10 +146,28 @@ namespace StockLib
 
                     lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
-                    decimal? avg3min = (rows[0].Field<decimal?>("lday02_min") + rows[0].Field<decimal?>("lday01_min") + rows[0].Field<decimal?>("minprice")) / 3;
-                    decimal? avg3minytd = (rows[0].Field<decimal?>("lday01_min") + rows[0].Field<decimal?>("lday02_min") + rows[0].Field<decimal?>("lday03_min")) / 3;
+                    decimal? avg3min = (rows[0].Field<decimal?>("lday04_min")
+                        + rows[0].Field<decimal?>("lday03_min")
+                        + rows[0].Field<decimal?>("lday02_min")
+                        + rows[0].Field<decimal?>("lday01_min")
+                        + rows[0].Field<decimal?>("minprice")
+                        ) / 5;
+                    decimal? avg3minytd = (rows[0].Field<decimal?>("lday01_min")
+                        + rows[0].Field<decimal?>("lday02_min")
+                        + rows[0].Field<decimal?>("lday03_min")
+                        + rows[0].Field<decimal?>("lday04_min")
+                        + rows[0].Field<decimal?>("lday05_min")) / 5;
+
+                    decimal? avg3minytdbef =
+                       rows[0].Field<decimal?>("lday02_min")
+                      + rows[0].Field<decimal?>("lday03_min")
+                      + rows[0].Field<decimal?>("lday04_min")
+                      + rows[0].Field<decimal?>("lday05_min")
+                      +(rows[0].Field<decimal?>("lday06_min")) / 5;
+
                     decimal? nowprice = rows[0].Field<decimal?>("nowprice");
                     decimal? ytdprice = rows[0].Field<decimal?>("ytdprice");
+                    decimal? growtoday = rows[0].Field<decimal?>("growtoday");
                     //SetMax20Down(rows[0]);
                     rows[0].SetField<Decimal?>("avg3min", avg3min);
                     rows[0].SetField<Decimal?>("avg3minytd", avg3minytd);
@@ -189,12 +207,8 @@ namespace StockLib
                             max10growmin = 0;
                             rows[0].SetField<decimal?>("max10growmin", max10growmin);
                         }
-                        decimal? growtoday = rows[0].Field<decimal?>("growtoday");
-                        if (growtoday == null)
-                        {
-                            growtoday = 0;
-                            rows[0].SetField<decimal?>("growtoday", max10growmin);
-                        }
+
+
                         decimal? max20down = rows[0].Field<decimal?>("Max20Down");
                         if (max20down == null)
                         {
@@ -327,10 +341,12 @@ namespace StockLib
 
                     #region
                     if (
-    //growtoday * 100.0M >= 4.0M
+    //growtoday * 100.0M >= 3.5M
     //&& max20down * 100.0M <= -3.0M
     //   && max20down * 100.0M >= -18.0M
-    ytdprice <= (avg3minytd * 1.02M)
+    avg3minytdbef>=avg3minytd
+    &&avg3min>=avg3minytd
+    && ytdprice <= avg3minytd
     && nowprice >= avg3min
     && rows[0].Field<bool?>("issuppose") == false
     )

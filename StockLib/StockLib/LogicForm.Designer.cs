@@ -106,7 +106,7 @@
             this.codetype2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codevalue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.growtoday2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.大20天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
@@ -432,14 +432,14 @@
             // Test_SetSuppose
             // 
             this.Test_SetSuppose.Name = "Test_SetSuppose";
-            this.Test_SetSuppose.Size = new System.Drawing.Size(180, 22);
+            this.Test_SetSuppose.Size = new System.Drawing.Size(174, 22);
             this.Test_SetSuppose.Text = "Test_SetSuppose";
             this.Test_SetSuppose.Click += new System.EventHandler(this.Test_SetSuppose_Click);
             // 
             // Test_Restore
             // 
             this.Test_Restore.Name = "Test_Restore";
-            this.Test_Restore.Size = new System.Drawing.Size(180, 22);
+            this.Test_Restore.Size = new System.Drawing.Size(174, 22);
             this.Test_Restore.Text = "Test_Restore";
             this.Test_Restore.Click += new System.EventHandler(this.Test_Restore_Click);
             // 
@@ -705,7 +705,7 @@
             this.codetype2,
             this.codevalue2,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
+            this.growtoday2,
             this.dataGridViewTextBoxColumn5,
             this.大20天});
             this.gv_main.DataSource = this.bs_sub;
@@ -771,15 +771,15 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 80;
             // 
-            // dataGridViewTextBoxColumn4
+            // growtoday2
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "growtoday";
+            this.growtoday2.DataPropertyName = "growtoday";
             dataGridViewCellStyle7.Format = "0.00%";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn4.HeaderText = "涨跌";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 50;
+            this.growtoday2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.growtoday2.HeaderText = "反弹";
+            this.growtoday2.Name = "growtoday2";
+            this.growtoday2.ReadOnly = true;
+            this.growtoday2.Width = 50;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -911,7 +911,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codetype2;
         private System.Windows.Forms.DataGridViewTextBoxColumn codevalue2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn growtoday2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn 大20天;
     }
