@@ -1408,7 +1408,8 @@ namespace StockLib
             //return;
             foreach (DataRow item in listsource.Rows)
             {
-                item.SetField("issuppose", false);
+                //item.SetField("issuppose", false);
+                item.SetField("supposename","");
             }
 
         }
