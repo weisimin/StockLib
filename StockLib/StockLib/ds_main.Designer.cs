@@ -489,6 +489,8 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnmax20growday_avg15;
             
+            private global::System.Data.DataColumn columnsupposename;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_newsDataTable() {
@@ -1364,6 +1366,14 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn supposenameColumn {
+                get {
+                    return this.columnsupposename;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1504,7 +1514,8 @@ namespace StockLib {
                         decimal day18_15avg, 
                         decimal day19_15avg, 
                         decimal day20_15avg, 
-                        decimal max20growday_avg15) {
+                        decimal max20growday_avg15, 
+                        string supposename) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1611,7 +1622,8 @@ namespace StockLib {
                         day18_15avg,
                         day19_15avg,
                         day20_15avg,
-                        max20growday_avg15};
+                        max20growday_avg15,
+                        supposename};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -1747,6 +1759,7 @@ namespace StockLib {
                 this.columnday19_15avg = base.Columns["day19_15avg"];
                 this.columnday20_15avg = base.Columns["day20_15avg"];
                 this.columnmax20growday_avg15 = base.Columns["max20growday_avg15"];
+                this.columnsupposename = base.Columns["supposename"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1962,6 +1975,8 @@ namespace StockLib {
                 base.Columns.Add(this.columnday20_15avg);
                 this.columnmax20growday_avg15 = new global::System.Data.DataColumn("max20growday_avg15", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmax20growday_avg15);
+                this.columnsupposename = new global::System.Data.DataColumn("supposename", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupposename);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -3779,6 +3794,22 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string supposename {
+                get {
+                    try {
+                        return ((string)(this[this.tabledt_news.supposenameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“supposename”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.supposenameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -5011,6 +5042,18 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setmax20growday_avg15Null() {
                 this[this.tabledt_news.max20growday_avg15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IssupposenameNull() {
+                return this.IsNull(this.tabledt_news.supposenameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetsupposenameNull() {
+                this[this.tabledt_news.supposenameColumn] = global::System.Convert.DBNull;
             }
         }
         

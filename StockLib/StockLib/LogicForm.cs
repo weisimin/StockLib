@@ -142,38 +142,67 @@ namespace StockLib
                     rows[0].SetField<Decimal?>("ytdprice", Convert.ToDecimal(infs[2]));
 
 
-                    rows[0].SetField<Decimal?>("growtoday", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("ytdprice")));
+                    rows[0].SetField<Decimal?>("updown", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("ytdprice")));
+                    rows[0].SetField<Decimal?>("growtoday", CaculateGrowUp(rows[0].Field<Decimal>("nowprice"), rows[0].Field<Decimal>("minprice")));
 
                     lasttime = Convert.ToDateTime(infs[30] + " " + infs[31]);
 
-                    decimal? avg3min = (rows[0].Field<decimal?>("lday04_min")
-                        + rows[0].Field<decimal?>("lday03_min")
-                        + rows[0].Field<decimal?>("lday02_min")
-                        + rows[0].Field<decimal?>("lday01_min")
-                        + rows[0].Field<decimal?>("minprice")
+                    decimal? avg3min = (rows[0].Field<decimal?>("nowprice")
+                        + rows[0].Field<decimal?>("lday03_end")
+                        + rows[0].Field<decimal?>("lday02_end")
+                        + rows[0].Field<decimal?>("lday01_end")
+                        + rows[0].Field<decimal?>("lday04_end")
                         ) / 5;
-                    decimal? avg3minytd = (rows[0].Field<decimal?>("lday01_min")
-                        + rows[0].Field<decimal?>("lday02_min")
-                        + rows[0].Field<decimal?>("lday03_min")
-                        + rows[0].Field<decimal?>("lday04_min")
-                        + rows[0].Field<decimal?>("lday05_min")) / 5;
+                    decimal? avg3minytd = (rows[0].Field<decimal?>("lday01_end")
+                        + rows[0].Field<decimal?>("lday02_end")
+                        + rows[0].Field<decimal?>("lday03_end")
+                        + rows[0].Field<decimal?>("lday04_end")
+                        + rows[0].Field<decimal?>("lday05_end")) / 5;
 
-                    decimal? avg3minytdbef =
-                       rows[0].Field<decimal?>("lday02_min")
-                      + rows[0].Field<decimal?>("lday03_min")
-                      + rows[0].Field<decimal?>("lday04_min")
-                      + rows[0].Field<decimal?>("lday05_min")
-                      +(rows[0].Field<decimal?>("lday06_min")) / 5;
+                    decimal? avg3minytdbef = (
+                       rows[0].Field<decimal?>("lday02_end")
+                      + rows[0].Field<decimal?>("lday03_end")
+                      + rows[0].Field<decimal?>("lday04_end")
+                      + rows[0].Field<decimal?>("lday05_end")
+                      + rows[0].Field<decimal?>("lday06_end")) / 5;
+
+                    decimal? avg20 = (
+                       rows[0].Field<decimal?>("lday01_end")
+                      + rows[0].Field<decimal?>("lday02_end")
+                      + rows[0].Field<decimal?>("lday03_end")
+                      + rows[0].Field<decimal?>("lday04_end")
+                      + rows[0].Field<decimal?>("lday05_end")
+                       + rows[0].Field<decimal?>("lday06_end")
+                      + rows[0].Field<decimal?>("lday07_end")
+                      + rows[0].Field<decimal?>("lday08_end")
+                      + rows[0].Field<decimal?>("lday09_end")
+                      + rows[0].Field<decimal?>("lday10_end")
+                       + rows[0].Field<decimal?>("lday11_end")
+                      + rows[0].Field<decimal?>("lday12_end")
+                      + rows[0].Field<decimal?>("lday13_end")
+                      + rows[0].Field<decimal?>("lday14_end")
+                      + rows[0].Field<decimal?>("lday15_end")
+                       + rows[0].Field<decimal?>("lday16_end")
+                      + rows[0].Field<decimal?>("lday17_end")
+                      + rows[0].Field<decimal?>("lday18_end")
+                      + rows[0].Field<decimal?>("lday19_end")
+                      + rows[0].Field<decimal?>("lday20_end")
+
+                      ) / 20;
 
                     decimal? nowprice = rows[0].Field<decimal?>("nowprice");
                     decimal? ytdprice = rows[0].Field<decimal?>("ytdprice");
                     decimal? growtoday = rows[0].Field<decimal?>("growtoday");
+                    decimal? minprice = rows[0].Field<decimal?>("minprice");
+                    decimal? lday01_min = rows[0].Field<decimal?>("lday01_min");
+                    decimal? lday01_end = rows[0].Field<decimal?>("lday01_end");
                     //SetMax20Down(rows[0]);
                     rows[0].SetField<Decimal?>("avg3min", avg3min);
                     rows[0].SetField<Decimal?>("avg3minytd", avg3minytd);
-
+                    rows[0].SetField<Decimal?>("avg20", avg20);
                     rowtime = rows[0].Field<DateTime?>("nowtime");
                     SetMinGrow(rows[0]);
+                    #region 阶段更新
                     if (rowtime == null)
                     {
                         rows[0].SetField<DateTime>("nowtime", Convert.ToDateTime(infs[30] + " " + infs[31]));
@@ -338,16 +367,42 @@ namespace StockLib
 
 
                     }//下载的分钟时间与之前记录的部一样
-
-                    #region
+                    #endregion
+                    #region 实时更新
+                    //string Codet = rows[0].Field<String>("codevalue");
                     if (
-    //growtoday * 100.0M >= 3.5M
-    //&& max20down * 100.0M <= -3.0M
-    //   && max20down * 100.0M >= -18.0M
-    avg3minytdbef>=avg3minytd
-    &&avg3min>=avg3minytd
-    && ytdprice <= avg3minytd
-    && nowprice >= avg3min
+                        avg3minytd >= lday01_end
+                        && avg3min <= nowprice
+                        &&avg20>= lday01_end
+                        )
+                    {
+                        rows[0].SetField<string>("supposename", "买入");
+                    }
+                    else if (
+                      avg3minytd <= lday01_end
+                      && avg3min >= nowprice
+                      && avg20 <= lday01_end
+                      )
+                    {
+                        rows[0].SetField<string>("supposename", "卖出");
+                    }
+                    else
+                    {
+                        if (rows[0].Field<string>("supposename").Contains("观望") == false)
+                        { 
+                           rows[0].SetField<string>("supposename", rows[0].Field<string>("supposename")+"观望");
+                        }
+                     
+                    }
+
+
+                    if (
+                          avg20 >= lday01_end
+                        //&& max20down * 100.0M <= -3.0M
+                        //&& max20down * 100.0M >= -18.0M
+                        && avg3minytd >= lday01_end
+                        && avg3min <= nowprice
+
     && rows[0].Field<bool?>("issuppose") == false
     )
                     {
@@ -1348,8 +1403,9 @@ namespace StockLib
 
         private void Test_Restore_Click(object sender, EventArgs e)
         {
-            //listsource.Columns.Add("avg3min", typeof(decimal));
-            //listsource.Columns.Add("avg3minytd", typeof(decimal));
+
+            //listsource.Columns.Add("avg20", typeof(decimal));
+            //return;
             foreach (DataRow item in listsource.Rows)
             {
                 item.SetField("issuppose", false);
@@ -1359,6 +1415,7 @@ namespace StockLib
 
         private void gv_main_SelectionChanged(object sender, EventArgs e)
         {
+
 
             if (gv_main.SelectedRows.Count > 0)
             {

@@ -12,7 +12,7 @@
   <xs:element name="ds_main" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_main" msprop:Generator_UserDSName="ds_main">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dt_news" msprop:Generator_TableClassName="dt_newsDataTable" msprop:Generator_TableVarName="tabledt_news" msprop:Generator_RowChangedName="dt_newsRowChanged" msprop:Generator_TablePropName="dt_news" msprop:Generator_RowDeletingName="dt_newsRowDeleting" msprop:Generator_RowChangingName="dt_newsRowChanging" msprop:Generator_RowEvHandlerName="dt_newsRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_newsRowDeleted" msprop:Generator_RowClassName="dt_newsRow" msprop:Generator_UserTableName="dt_news" msprop:Generator_RowEvArgName="dt_newsRowChangeEvent">
+        <xs:element name="dt_news" msprop:Generator_TableClassName="dt_newsDataTable" msprop:Generator_TableVarName="tabledt_news" msprop:Generator_TablePropName="dt_news" msprop:Generator_RowDeletingName="dt_newsRowDeleting" msprop:Generator_RowChangingName="dt_newsRowChanging" msprop:Generator_RowEvHandlerName="dt_newsRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_newsRowDeleted" msprop:Generator_UserTableName="dt_news" msprop:Generator_RowChangedName="dt_newsRowChanged" msprop:Generator_RowEvArgName="dt_newsRowChangeEvent" msprop:Generator_RowClassName="dt_newsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codetype" msprop:Generator_ColumnVarNameInTable="columncodetype" msprop:Generator_ColumnPropNameInRow="codetype" msprop:Generator_ColumnPropNameInTable="codetypeColumn" msprop:Generator_UserColumnName="codetype" type="xs:string" />
@@ -120,6 +120,7 @@
               <xs:element name="day19_15avg" msprop:Generator_ColumnVarNameInTable="columnday19_15avg" msprop:Generator_ColumnPropNameInRow="day19_15avg" msprop:Generator_ColumnPropNameInTable="day19_15avgColumn" msprop:Generator_UserColumnName="day19_15avg" type="xs:decimal" minOccurs="0" />
               <xs:element name="day20_15avg" msprop:Generator_ColumnVarNameInTable="columnday20_15avg" msprop:Generator_ColumnPropNameInRow="day20_15avg" msprop:Generator_ColumnPropNameInTable="day20_15avgColumn" msprop:Generator_UserColumnName="day20_15avg" type="xs:decimal" minOccurs="0" />
               <xs:element name="max20growday_avg15" msprop:Generator_ColumnVarNameInTable="columnmax20growday_avg15" msprop:Generator_ColumnPropNameInRow="max20growday_avg15" msprop:Generator_ColumnPropNameInTable="max20growday_avg15Column" msprop:Generator_UserColumnName="max20growday_avg15" type="xs:decimal" minOccurs="0" />
+              <xs:element name="supposename" msprop:Generator_ColumnVarNameInTable="columnsupposename" msprop:Generator_ColumnPropNameInRow="supposename" msprop:Generator_ColumnPropNameInTable="supposenameColumn" msprop:Generator_UserColumnName="supposename" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
