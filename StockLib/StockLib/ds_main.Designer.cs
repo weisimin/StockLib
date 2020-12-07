@@ -491,6 +491,46 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnsupposename;
             
+            private global::System.Data.DataColumn columnlday01_high;
+            
+            private global::System.Data.DataColumn columnlday02_high;
+            
+            private global::System.Data.DataColumn columnlday03_high;
+            
+            private global::System.Data.DataColumn columnlday04_high;
+            
+            private global::System.Data.DataColumn columnlday05_high;
+            
+            private global::System.Data.DataColumn columnlday06_high;
+            
+            private global::System.Data.DataColumn columnlday07_high;
+            
+            private global::System.Data.DataColumn columnlday08_high;
+            
+            private global::System.Data.DataColumn columnlday09_high;
+            
+            private global::System.Data.DataColumn columnlday10_high;
+            
+            private global::System.Data.DataColumn columnlday11_high;
+            
+            private global::System.Data.DataColumn columnlday12_high;
+            
+            private global::System.Data.DataColumn columnlday13_high;
+            
+            private global::System.Data.DataColumn columnlday14_high;
+            
+            private global::System.Data.DataColumn columnlday15_high;
+            
+            private global::System.Data.DataColumn columnlday16_high;
+            
+            private global::System.Data.DataColumn columnlday17_high;
+            
+            private global::System.Data.DataColumn columnlday18_high;
+            
+            private global::System.Data.DataColumn columnlday19_high;
+            
+            private global::System.Data.DataColumn columnlday20_high;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_newsDataTable() {
@@ -1374,6 +1414,166 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday01_highColumn {
+                get {
+                    return this.columnlday01_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday02_highColumn {
+                get {
+                    return this.columnlday02_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday03_highColumn {
+                get {
+                    return this.columnlday03_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday04_highColumn {
+                get {
+                    return this.columnlday04_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday05_highColumn {
+                get {
+                    return this.columnlday05_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday06_highColumn {
+                get {
+                    return this.columnlday06_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday07_highColumn {
+                get {
+                    return this.columnlday07_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday08_highColumn {
+                get {
+                    return this.columnlday08_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday09_highColumn {
+                get {
+                    return this.columnlday09_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday10_highColumn {
+                get {
+                    return this.columnlday10_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday11_highColumn {
+                get {
+                    return this.columnlday11_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday12_highColumn {
+                get {
+                    return this.columnlday12_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday13_highColumn {
+                get {
+                    return this.columnlday13_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday14_highColumn {
+                get {
+                    return this.columnlday14_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday15_highColumn {
+                get {
+                    return this.columnlday15_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday16_highColumn {
+                get {
+                    return this.columnlday16_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday17_highColumn {
+                get {
+                    return this.columnlday17_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday18_highColumn {
+                get {
+                    return this.columnlday18_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday19_highColumn {
+                get {
+                    return this.columnlday19_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn lday20_highColumn {
+                get {
+                    return this.columnlday20_high;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1515,7 +1715,27 @@ namespace StockLib {
                         decimal day19_15avg, 
                         decimal day20_15avg, 
                         decimal max20growday_avg15, 
-                        string supposename) {
+                        string supposename, 
+                        decimal lday01_high, 
+                        decimal lday02_high, 
+                        decimal lday03_high, 
+                        decimal lday04_high, 
+                        decimal lday05_high, 
+                        decimal lday06_high, 
+                        decimal lday07_high, 
+                        decimal lday08_high, 
+                        decimal lday09_high, 
+                        decimal lday10_high, 
+                        decimal lday11_high, 
+                        decimal lday12_high, 
+                        decimal lday13_high, 
+                        decimal lday14_high, 
+                        decimal lday15_high, 
+                        decimal lday16_high, 
+                        decimal lday17_high, 
+                        decimal lday18_high, 
+                        decimal lday19_high, 
+                        decimal lday20_high) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1623,7 +1843,27 @@ namespace StockLib {
                         day19_15avg,
                         day20_15avg,
                         max20growday_avg15,
-                        supposename};
+                        supposename,
+                        lday01_high,
+                        lday02_high,
+                        lday03_high,
+                        lday04_high,
+                        lday05_high,
+                        lday06_high,
+                        lday07_high,
+                        lday08_high,
+                        lday09_high,
+                        lday10_high,
+                        lday11_high,
+                        lday12_high,
+                        lday13_high,
+                        lday14_high,
+                        lday15_high,
+                        lday16_high,
+                        lday17_high,
+                        lday18_high,
+                        lday19_high,
+                        lday20_high};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -1760,6 +2000,26 @@ namespace StockLib {
                 this.columnday20_15avg = base.Columns["day20_15avg"];
                 this.columnmax20growday_avg15 = base.Columns["max20growday_avg15"];
                 this.columnsupposename = base.Columns["supposename"];
+                this.columnlday01_high = base.Columns["lday01_high"];
+                this.columnlday02_high = base.Columns["lday02_high"];
+                this.columnlday03_high = base.Columns["lday03_high"];
+                this.columnlday04_high = base.Columns["lday04_high"];
+                this.columnlday05_high = base.Columns["lday05_high"];
+                this.columnlday06_high = base.Columns["lday06_high"];
+                this.columnlday07_high = base.Columns["lday07_high"];
+                this.columnlday08_high = base.Columns["lday08_high"];
+                this.columnlday09_high = base.Columns["lday09_high"];
+                this.columnlday10_high = base.Columns["lday10_high"];
+                this.columnlday11_high = base.Columns["lday11_high"];
+                this.columnlday12_high = base.Columns["lday12_high"];
+                this.columnlday13_high = base.Columns["lday13_high"];
+                this.columnlday14_high = base.Columns["lday14_high"];
+                this.columnlday15_high = base.Columns["lday15_high"];
+                this.columnlday16_high = base.Columns["lday16_high"];
+                this.columnlday17_high = base.Columns["lday17_high"];
+                this.columnlday18_high = base.Columns["lday18_high"];
+                this.columnlday19_high = base.Columns["lday19_high"];
+                this.columnlday20_high = base.Columns["lday20_high"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1977,6 +2237,46 @@ namespace StockLib {
                 base.Columns.Add(this.columnmax20growday_avg15);
                 this.columnsupposename = new global::System.Data.DataColumn("supposename", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsupposename);
+                this.columnlday01_high = new global::System.Data.DataColumn("lday01_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday01_high);
+                this.columnlday02_high = new global::System.Data.DataColumn("lday02_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday02_high);
+                this.columnlday03_high = new global::System.Data.DataColumn("lday03_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday03_high);
+                this.columnlday04_high = new global::System.Data.DataColumn("lday04_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday04_high);
+                this.columnlday05_high = new global::System.Data.DataColumn("lday05_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday05_high);
+                this.columnlday06_high = new global::System.Data.DataColumn("lday06_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday06_high);
+                this.columnlday07_high = new global::System.Data.DataColumn("lday07_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday07_high);
+                this.columnlday08_high = new global::System.Data.DataColumn("lday08_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday08_high);
+                this.columnlday09_high = new global::System.Data.DataColumn("lday09_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday09_high);
+                this.columnlday10_high = new global::System.Data.DataColumn("lday10_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday10_high);
+                this.columnlday11_high = new global::System.Data.DataColumn("lday11_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday11_high);
+                this.columnlday12_high = new global::System.Data.DataColumn("lday12_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday12_high);
+                this.columnlday13_high = new global::System.Data.DataColumn("lday13_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday13_high);
+                this.columnlday14_high = new global::System.Data.DataColumn("lday14_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday14_high);
+                this.columnlday15_high = new global::System.Data.DataColumn("lday15_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday15_high);
+                this.columnlday16_high = new global::System.Data.DataColumn("lday16_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday16_high);
+                this.columnlday17_high = new global::System.Data.DataColumn("lday17_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday17_high);
+                this.columnlday18_high = new global::System.Data.DataColumn("lday18_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday18_high);
+                this.columnlday19_high = new global::System.Data.DataColumn("lday19_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday19_high);
+                this.columnlday20_high = new global::System.Data.DataColumn("lday20_high", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlday20_high);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -3810,6 +4110,326 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday01_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday01_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday01_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday01_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday02_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday02_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday02_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday02_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday03_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday03_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday03_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday03_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday04_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday04_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday04_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday04_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday05_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday05_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday05_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday05_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday06_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday06_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday06_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday06_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday07_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday07_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday07_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday07_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday08_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday08_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday08_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday08_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday09_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday09_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday09_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday09_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday10_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday10_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday10_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday10_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday11_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday11_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday11_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday11_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday12_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday12_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday12_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday12_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday13_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday13_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday13_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday13_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday14_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday14_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday14_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday14_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday15_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday15_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday15_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday15_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday16_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday16_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday16_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday16_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday17_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday17_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday17_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday17_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday18_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday18_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday18_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday18_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday19_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday19_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday19_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday19_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal lday20_high {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.lday20_highColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“lday20_high”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.lday20_highColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -5054,6 +5674,246 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetsupposenameNull() {
                 this[this.tabledt_news.supposenameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday01_highNull() {
+                return this.IsNull(this.tabledt_news.lday01_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday01_highNull() {
+                this[this.tabledt_news.lday01_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday02_highNull() {
+                return this.IsNull(this.tabledt_news.lday02_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday02_highNull() {
+                this[this.tabledt_news.lday02_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday03_highNull() {
+                return this.IsNull(this.tabledt_news.lday03_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday03_highNull() {
+                this[this.tabledt_news.lday03_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday04_highNull() {
+                return this.IsNull(this.tabledt_news.lday04_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday04_highNull() {
+                this[this.tabledt_news.lday04_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday05_highNull() {
+                return this.IsNull(this.tabledt_news.lday05_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday05_highNull() {
+                this[this.tabledt_news.lday05_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday06_highNull() {
+                return this.IsNull(this.tabledt_news.lday06_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday06_highNull() {
+                this[this.tabledt_news.lday06_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday07_highNull() {
+                return this.IsNull(this.tabledt_news.lday07_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday07_highNull() {
+                this[this.tabledt_news.lday07_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday08_highNull() {
+                return this.IsNull(this.tabledt_news.lday08_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday08_highNull() {
+                this[this.tabledt_news.lday08_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday09_highNull() {
+                return this.IsNull(this.tabledt_news.lday09_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday09_highNull() {
+                this[this.tabledt_news.lday09_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday10_highNull() {
+                return this.IsNull(this.tabledt_news.lday10_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday10_highNull() {
+                this[this.tabledt_news.lday10_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday11_highNull() {
+                return this.IsNull(this.tabledt_news.lday11_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday11_highNull() {
+                this[this.tabledt_news.lday11_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday12_highNull() {
+                return this.IsNull(this.tabledt_news.lday12_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday12_highNull() {
+                this[this.tabledt_news.lday12_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday13_highNull() {
+                return this.IsNull(this.tabledt_news.lday13_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday13_highNull() {
+                this[this.tabledt_news.lday13_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday14_highNull() {
+                return this.IsNull(this.tabledt_news.lday14_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday14_highNull() {
+                this[this.tabledt_news.lday14_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday15_highNull() {
+                return this.IsNull(this.tabledt_news.lday15_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday15_highNull() {
+                this[this.tabledt_news.lday15_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday16_highNull() {
+                return this.IsNull(this.tabledt_news.lday16_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday16_highNull() {
+                this[this.tabledt_news.lday16_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday17_highNull() {
+                return this.IsNull(this.tabledt_news.lday17_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday17_highNull() {
+                this[this.tabledt_news.lday17_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday18_highNull() {
+                return this.IsNull(this.tabledt_news.lday18_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday18_highNull() {
+                this[this.tabledt_news.lday18_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday19_highNull() {
+                return this.IsNull(this.tabledt_news.lday19_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday19_highNull() {
+                this[this.tabledt_news.lday19_highColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Islday20_highNull() {
+                return this.IsNull(this.tabledt_news.lday20_highColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setlday20_highNull() {
+                this[this.tabledt_news.lday20_highColumn] = global::System.Convert.DBNull;
             }
         }
         
