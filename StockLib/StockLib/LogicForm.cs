@@ -365,8 +365,8 @@ namespace StockLib
 
                        //lday01_vol != 0 && max20growday * 100 >= 4.0M && volumn / lday01_vol >= 1.0M
 
-                       (max20growday * 100 >=3.5M)
-                       &&(max20growday!=0)
+                       (max20growday * 100 >= 3.5M)
+                       && (max20growday != 0)
                            && rows[0].Field<bool?>("issuppose") == false
 
                         )
@@ -1116,14 +1116,14 @@ namespace StockLib
 
 
 
-            item.SetField<decimal?>("max20growday", (max20min == 0 || max20min_day == 0|| max20min_day>=3) ? 0 : ((max20high / max20min - 1) ));
+            item.SetField<decimal?>("max20growday", (max20min == 0 || max20min_day == 0 || max20min_day >= 3) ? 0 : ((max20high / max20min - 1)));
             item.SetField<decimal?>("max20growday_avg15", max20min_day);
         }
 
         private void SetDayGrowThreeDayJump(DataRow item)
         {
-            decimal? ThreeDayJump = ((item.Field<decimal?>("nowprice") == 0|| item.Field<decimal?>("highprice")==0) ? 0 : (item.Field<decimal?>("highprice") / item.Field<decimal?>("nowprice") - 1))
-                +( (item.Field<decimal?>("lday01_end") == 0 || item.Field<decimal?>("lday01_high") == 0) ? 0 : (item.Field<decimal?>("lday01_high") / item.Field<decimal?>("lday01_end") - 1))
+            decimal? ThreeDayJump = ((item.Field<decimal?>("nowprice") == 0 || item.Field<decimal?>("highprice") == 0) ? 0 : (item.Field<decimal?>("highprice") / item.Field<decimal?>("nowprice") - 1))
+                + ((item.Field<decimal?>("lday01_end") == 0 || item.Field<decimal?>("lday01_high") == 0) ? 0 : (item.Field<decimal?>("lday01_high") / item.Field<decimal?>("lday01_end") - 1))
                   + ((item.Field<decimal?>("lday02_end") == 0 || item.Field<decimal?>("lday02_high") == 0) ? 0 : (item.Field<decimal?>("lday02_high") / item.Field<decimal?>("lday02_end") - 1))
                     + ((item.Field<decimal?>("lday03_end") == 0 || item.Field<decimal?>("lday03_high") == 0) ? 0 : (item.Field<decimal?>("lday03_high") / item.Field<decimal?>("lday03_end") - 1))
                 ;
@@ -1687,13 +1687,28 @@ namespace StockLib
                 max20high = test20high;
             }
 
-            item.SetField<decimal?>("max20growday",
-                (
-                (lday01_high < max20high)
+            if ((lday01_high < max20high)
                 && (highprice > max20high)
-                &&(lday01_end!=0)
-                ) ? (nowprice/lday01_end-1) : 0
-                );
+                && (lday01_end != 0))
+            {
+                item.SetField<decimal?>("max20growday",
+                   (nowprice / lday01_end - 1)
+                   );
+                DateTime? breakday1 = item.Field<DateTime?>("breakday1");
+                if (breakday1!=DateTime.Today)
+                {
+                    item.SetField<DateTime?>("breakday2", breakday1);
+                    item.SetField<DateTime?>("breakday1",DateTime.Today);
+                }
+         
+            }
+            else
+            {
+                item.SetField<decimal?>("max20growday",
+                     0
+                      );
+            }
+
 
             //item.SetField<decimal?>("max20growday_avg15", max20high_day);
         }
@@ -2436,7 +2451,7 @@ namespace StockLib
         private void SetDayGrowYtdSuper(DataRow item)
         {
 
-           
+
 
 
             decimal? lday01_end = item.Field<decimal?>("lday01_end");
@@ -2450,7 +2465,7 @@ namespace StockLib
             decimal? highprice = item.Field<decimal?>("highprice");
 
             decimal? testprice = highprice;
-            if (testprice<= lday01_high)
+            if (testprice <= lday01_high)
             {
                 testprice = lday01_high;
             }
@@ -2459,7 +2474,7 @@ namespace StockLib
 
             if (
                 (lday01_end != 0)
-                &&(lday02_end != 0)
+                && (lday02_end != 0)
                 && (nowprice != 0)
                 && (lday01_end / lday02_end >= 1.035M)
                 && (highprice >= lday01_high)
@@ -2498,10 +2513,10 @@ namespace StockLib
 
 
             if (
-                lday01_vol!=0&& lday01_end!=0 && nowprice/ lday02_end>=1.03M
+                lday01_vol != 0 && lday01_end != 0 && nowprice / lday02_end >= 1.03M
                 )
             {
-                item.SetField<decimal?>("max20growday", nowprice / lday02_end* lday02_vol / volumn-1);
+                item.SetField<decimal?>("max20growday", nowprice / lday02_end * lday02_vol / volumn - 1);
             }
             else
             {
@@ -3844,8 +3859,8 @@ namespace StockLib
         private void Test_Restore_Click(object sender, EventArgs e)
         {
 
-            //listsource.Columns.Add("logprice", typeof(decimal));
-            //listsource.Columns.Add("logbreakqty", typeof(decimal));
+            //listsource.Columns.Add("breakday1", typeof(DateTime));
+            //listsource.Columns.Add("breakday2", typeof(DateTime));
             //listsource.Columns.Add("lday02_open", typeof(decimal));
             //listsource.Columns.Add("lday03_open", typeof(decimal));
             //listsource.Columns.Add("lday04_open", typeof(decimal));
