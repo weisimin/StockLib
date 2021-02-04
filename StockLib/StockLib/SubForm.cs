@@ -21,6 +21,7 @@ namespace StockLib
         {
             // bs_sub.Filter = "issuppose='true'";
             gv_main.AutoGenerateColumns = true;
+            gv_history.AutoGenerateColumns = true;
         }
 
         private void MI_ExportToExcel_Click(object sender, EventArgs e)

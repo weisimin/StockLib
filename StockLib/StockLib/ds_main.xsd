@@ -144,12 +144,32 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dt_history" msprop:Generator_TableClassName="dt_historyDataTable" msprop:Generator_TableVarName="tabledt_history" msprop:Generator_TablePropName="dt_history" msprop:Generator_RowDeletingName="dt_historyRowDeleting" msprop:Generator_RowChangingName="dt_historyRowChanging" msprop:Generator_RowEvHandlerName="dt_historyRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_historyRowDeleted" msprop:Generator_UserTableName="dt_history" msprop:Generator_RowChangedName="dt_historyRowChanged" msprop:Generator_RowEvArgName="dt_historyRowChangeEvent" msprop:Generator_RowClassName="dt_historyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codetype" msprop:Generator_ColumnVarNameInTable="columncodetype" msprop:Generator_ColumnPropNameInRow="codetype" msprop:Generator_ColumnPropNameInTable="codetypeColumn" msprop:Generator_UserColumnName="codetype" type="xs:string" />
+              <xs:element name="codevalue" msprop:Generator_ColumnVarNameInTable="columncodevalue" msprop:Generator_ColumnPropNameInRow="codevalue" msprop:Generator_ColumnPropNameInTable="codevalueColumn" msprop:Generator_UserColumnName="codevalue" type="xs:string" />
+              <xs:element name="transday" msprop:Generator_ColumnVarNameInTable="columntransday" msprop:Generator_ColumnPropNameInRow="transday" msprop:Generator_ColumnPropNameInTable="transdayColumn" msprop:Generator_UserColumnName="transday" type="xs:dateTime" />
+              <xs:element name="open" msprop:Generator_ColumnVarNameInTable="columnopen" msprop:Generator_ColumnPropNameInRow="open" msprop:Generator_ColumnPropNameInTable="openColumn" msprop:Generator_UserColumnName="open" type="xs:decimal" minOccurs="0" />
+              <xs:element name="high" msprop:Generator_ColumnVarNameInTable="columnhigh" msprop:Generator_ColumnPropNameInRow="high" msprop:Generator_ColumnPropNameInTable="highColumn" msprop:Generator_UserColumnName="high" type="xs:decimal" minOccurs="0" />
+              <xs:element name="min" msprop:Generator_ColumnVarNameInTable="columnmin" msprop:Generator_ColumnPropNameInRow="min" msprop:Generator_ColumnPropNameInTable="minColumn" msprop:Generator_UserColumnName="min" type="xs:decimal" minOccurs="0" />
+              <xs:element name="close" msprop:Generator_ColumnVarNameInTable="columnclose" msprop:Generator_ColumnPropNameInRow="close" msprop:Generator_ColumnPropNameInTable="closeColumn" msprop:Generator_UserColumnName="close" type="xs:decimal" minOccurs="0" />
+              <xs:element name="volumn" msprop:Generator_ColumnVarNameInTable="columnvolumn" msprop:Generator_ColumnPropNameInRow="volumn" msprop:Generator_ColumnPropNameInTable="volumnColumn" msprop:Generator_UserColumnName="volumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="dt_news_pk" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:dt_news" />
       <xs:field xpath="mstns:codetype" />
       <xs:field xpath="mstns:codevalue" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dt_history" />
+      <xs:field xpath="mstns:codetype" />
+      <xs:field xpath="mstns:codevalue" />
+      <xs:field xpath="mstns:transday" />
     </xs:unique>
   </xs:element>
 </xs:schema>

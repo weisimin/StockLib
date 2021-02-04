@@ -34,9 +34,13 @@
             this.MsMain = new System.Windows.Forms.MenuStrip();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MI_ExportToExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.gv_history = new System.Windows.Forms.DataGridView();
+            this.bs_history = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bs_sub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.MsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_history)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_history)).BeginInit();
             this.SuspendLayout();
             // 
             // gv_main
@@ -47,14 +51,14 @@
             this.gv_main.ColumnHeadersHeight = 25;
             this.gv_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gv_main.DataSource = this.bs_sub;
-            this.gv_main.Location = new System.Drawing.Point(0, 40);
+            this.gv_main.Location = new System.Drawing.Point(0, 47);
             this.gv_main.Margin = new System.Windows.Forms.Padding(2);
             this.gv_main.Name = "gv_main";
             this.gv_main.ReadOnly = true;
             this.gv_main.RowHeadersVisible = false;
             this.gv_main.RowTemplate.Height = 27;
             this.gv_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gv_main.Size = new System.Drawing.Size(1144, 222);
+            this.gv_main.Size = new System.Drawing.Size(805, 222);
             this.gv_main.TabIndex = 0;
             // 
             // MsMain
@@ -63,7 +67,7 @@
             this.工具ToolStripMenuItem});
             this.MsMain.Location = new System.Drawing.Point(0, 0);
             this.MsMain.Name = "MsMain";
-            this.MsMain.Size = new System.Drawing.Size(1155, 25);
+            this.MsMain.Size = new System.Drawing.Size(826, 25);
             this.MsMain.TabIndex = 1;
             this.MsMain.Text = "menuStrip1";
             // 
@@ -78,15 +82,34 @@
             // MI_ExportToExcel
             // 
             this.MI_ExportToExcel.Name = "MI_ExportToExcel";
-            this.MI_ExportToExcel.Size = new System.Drawing.Size(180, 22);
+            this.MI_ExportToExcel.Size = new System.Drawing.Size(129, 22);
             this.MI_ExportToExcel.Text = "导出Excel";
             this.MI_ExportToExcel.Click += new System.EventHandler(this.MI_ExportToExcel_Click);
+            // 
+            // gv_history
+            // 
+            this.gv_history.AllowUserToAddRows = false;
+            this.gv_history.AllowUserToDeleteRows = false;
+            this.gv_history.AutoGenerateColumns = false;
+            this.gv_history.ColumnHeadersHeight = 25;
+            this.gv_history.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gv_history.DataSource = this.bs_history;
+            this.gv_history.Location = new System.Drawing.Point(0, 290);
+            this.gv_history.Margin = new System.Windows.Forms.Padding(2);
+            this.gv_history.Name = "gv_history";
+            this.gv_history.ReadOnly = true;
+            this.gv_history.RowHeadersVisible = false;
+            this.gv_history.RowTemplate.Height = 27;
+            this.gv_history.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gv_history.Size = new System.Drawing.Size(805, 222);
+            this.gv_history.TabIndex = 2;
             // 
             // SubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 271);
+            this.ClientSize = new System.Drawing.Size(826, 559);
+            this.Controls.Add(this.gv_history);
             this.Controls.Add(this.gv_main);
             this.Controls.Add(this.MsMain);
             this.MainMenuStrip = this.MsMain;
@@ -98,6 +121,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();
             this.MsMain.ResumeLayout(false);
             this.MsMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_history)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_history)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +134,7 @@
         private System.Windows.Forms.MenuStrip MsMain;
         private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MI_ExportToExcel;
+        private System.Windows.Forms.DataGridView gv_history;
+        public System.Windows.Forms.BindingSource bs_history;
     }
 }
