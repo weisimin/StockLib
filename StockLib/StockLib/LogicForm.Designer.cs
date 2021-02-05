@@ -43,8 +43,34 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bs_main = new System.Windows.Forms.BindingSource(this.components);
             this.gv_list = new System.Windows.Forms.DataGridView();
+            this.codetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isfocus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.反弹 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updown = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.最近 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.上次 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max20growday_avg15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.突破 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShortLow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.跌20天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.max10growmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lmin01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lmin02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lmin03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday01_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday01_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday02_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday02_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday03_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lday03_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Menu_Main = new System.Windows.Forms.MenuStrip();
             this.MI_System = new System.Windows.Forms.ToolStripMenuItem();
             this.Download_History = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,31 +124,6 @@
             this.lbl_watch = new System.Windows.Forms.Label();
             this.pic_day = new System.Windows.Forms.PictureBox();
             this.pic_minute = new System.Windows.Forms.PictureBox();
-            this.codetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nowprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isfocus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.反弹 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updown = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.最近 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.上次 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max20growday_avg15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.突破 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShortLow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.跌20天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.max10growmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nowtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lmin01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lmin02 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lmin03 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday01_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday01_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday02_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday02_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday03_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lday03_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_codetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,6 +193,234 @@
             this.gv_list.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gv_list_CellMouseUp);
             this.gv_list.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_list_RowEnter);
             this.gv_list.SelectionChanged += new System.EventHandler(this.gv_list_SelectionChanged);
+            // 
+            // codetype
+            // 
+            this.codetype.DataPropertyName = "codetype";
+            this.codetype.Frozen = true;
+            this.codetype.HeaderText = "codetype";
+            this.codetype.Name = "codetype";
+            this.codetype.ReadOnly = true;
+            this.codetype.Visible = false;
+            // 
+            // codevalue
+            // 
+            this.codevalue.DataPropertyName = "codevalue";
+            this.codevalue.Frozen = true;
+            this.codevalue.HeaderText = "代码";
+            this.codevalue.Name = "codevalue";
+            this.codevalue.ReadOnly = true;
+            this.codevalue.Width = 50;
+            // 
+            // stockname
+            // 
+            this.stockname.DataPropertyName = "stockname";
+            this.stockname.Frozen = true;
+            this.stockname.HeaderText = "名称";
+            this.stockname.Name = "stockname";
+            this.stockname.ReadOnly = true;
+            this.stockname.Width = 60;
+            // 
+            // nowprice
+            // 
+            this.nowprice.DataPropertyName = "nowprice";
+            this.nowprice.Frozen = true;
+            this.nowprice.HeaderText = "价格";
+            this.nowprice.Name = "nowprice";
+            this.nowprice.ReadOnly = true;
+            this.nowprice.Width = 50;
+            // 
+            // isfocus
+            // 
+            this.isfocus.DataPropertyName = "isfocus";
+            this.isfocus.HeaderText = "关注";
+            this.isfocus.Name = "isfocus";
+            this.isfocus.ReadOnly = true;
+            this.isfocus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isfocus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isfocus.Width = 50;
+            // 
+            // 反弹
+            // 
+            this.反弹.DataPropertyName = "growtoday";
+            dataGridViewCellStyle1.Format = "0.00%";
+            this.反弹.DefaultCellStyle = dataGridViewCellStyle1;
+            this.反弹.HeaderText = "反弹";
+            this.反弹.Name = "反弹";
+            this.反弹.ReadOnly = true;
+            this.反弹.Width = 50;
+            // 
+            // updown
+            // 
+            this.updown.DataPropertyName = "updown";
+            dataGridViewCellStyle2.Format = "0.00%";
+            this.updown.DefaultCellStyle = dataGridViewCellStyle2;
+            this.updown.HeaderText = "涨跌";
+            this.updown.Name = "updown";
+            this.updown.ReadOnly = true;
+            this.updown.Width = 50;
+            // 
+            // 最近
+            // 
+            this.最近.DataPropertyName = "breakday1";
+            dataGridViewCellStyle3.Format = "MM-dd";
+            this.最近.DefaultCellStyle = dataGridViewCellStyle3;
+            this.最近.HeaderText = "最近";
+            this.最近.Name = "最近";
+            this.最近.ReadOnly = true;
+            this.最近.Width = 50;
+            // 
+            // 上次
+            // 
+            this.上次.DataPropertyName = "breakday2";
+            dataGridViewCellStyle4.Format = "MM-dd";
+            this.上次.DefaultCellStyle = dataGridViewCellStyle4;
+            this.上次.HeaderText = "上次";
+            this.上次.Name = "上次";
+            this.上次.ReadOnly = true;
+            this.上次.Width = 50;
+            // 
+            // max20growday
+            // 
+            this.max20growday.DataPropertyName = "max20growday";
+            dataGridViewCellStyle5.Format = "0.00%";
+            this.max20growday.DefaultCellStyle = dataGridViewCellStyle5;
+            this.max20growday.HeaderText = "大20天";
+            this.max20growday.Name = "max20growday";
+            this.max20growday.ReadOnly = true;
+            this.max20growday.Width = 70;
+            // 
+            // max20growday_avg15
+            // 
+            this.max20growday_avg15.DataPropertyName = "max20growday_avg15";
+            dataGridViewCellStyle6.Format = "0.00%";
+            this.max20growday_avg15.DefaultCellStyle = dataGridViewCellStyle6;
+            this.max20growday_avg15.HeaderText = "大回调";
+            this.max20growday_avg15.Name = "max20growday_avg15";
+            this.max20growday_avg15.ReadOnly = true;
+            this.max20growday_avg15.Width = 50;
+            // 
+            // 突破
+            // 
+            this.突破.DataPropertyName = "logbreakqty";
+            dataGridViewCellStyle7.Format = "0.00%";
+            this.突破.DefaultCellStyle = dataGridViewCellStyle7;
+            this.突破.HeaderText = "突破";
+            this.突破.Name = "突破";
+            this.突破.ReadOnly = true;
+            this.突破.Width = 50;
+            // 
+            // ShortLow
+            // 
+            this.ShortLow.DataPropertyName = "ShortLow";
+            this.ShortLow.HeaderText = "短";
+            this.ShortLow.Name = "ShortLow";
+            this.ShortLow.ReadOnly = true;
+            this.ShortLow.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ShortLow.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ShortLow.Width = 50;
+            // 
+            // 跌20天
+            // 
+            this.跌20天.DataPropertyName = "Max20Down";
+            dataGridViewCellStyle8.Format = "0.00%";
+            this.跌20天.DefaultCellStyle = dataGridViewCellStyle8;
+            this.跌20天.HeaderText = "跌20天";
+            this.跌20天.Name = "跌20天";
+            this.跌20天.ReadOnly = true;
+            this.跌20天.Width = 50;
+            // 
+            // max10growmin
+            // 
+            this.max10growmin.DataPropertyName = "max10growmin";
+            dataGridViewCellStyle9.Format = "0.00%";
+            this.max10growmin.DefaultCellStyle = dataGridViewCellStyle9;
+            this.max10growmin.HeaderText = "大10分";
+            this.max10growmin.Name = "max10growmin";
+            this.max10growmin.ReadOnly = true;
+            this.max10growmin.Width = 70;
+            // 
+            // nowtime
+            // 
+            this.nowtime.DataPropertyName = "nowtime";
+            dataGridViewCellStyle10.Format = "HH:mm";
+            this.nowtime.DefaultCellStyle = dataGridViewCellStyle10;
+            this.nowtime.HeaderText = "时间";
+            this.nowtime.Name = "nowtime";
+            this.nowtime.ReadOnly = true;
+            this.nowtime.Width = 50;
+            // 
+            // lmin01
+            // 
+            this.lmin01.DataPropertyName = "lmin01";
+            this.lmin01.HeaderText = "分1";
+            this.lmin01.Name = "lmin01";
+            this.lmin01.ReadOnly = true;
+            this.lmin01.Width = 50;
+            // 
+            // lmin02
+            // 
+            this.lmin02.DataPropertyName = "lmin02";
+            this.lmin02.HeaderText = "分2";
+            this.lmin02.Name = "lmin02";
+            this.lmin02.ReadOnly = true;
+            this.lmin02.Width = 50;
+            // 
+            // lmin03
+            // 
+            this.lmin03.DataPropertyName = "lmin03";
+            this.lmin03.HeaderText = "分3";
+            this.lmin03.Name = "lmin03";
+            this.lmin03.ReadOnly = true;
+            this.lmin03.Width = 50;
+            // 
+            // lday01_min
+            // 
+            this.lday01_min.DataPropertyName = "lday01_min";
+            this.lday01_min.HeaderText = "日1小";
+            this.lday01_min.Name = "lday01_min";
+            this.lday01_min.ReadOnly = true;
+            this.lday01_min.Width = 80;
+            // 
+            // lday01_end
+            // 
+            this.lday01_end.DataPropertyName = "lday01_end";
+            this.lday01_end.HeaderText = "日1终";
+            this.lday01_end.Name = "lday01_end";
+            this.lday01_end.ReadOnly = true;
+            this.lday01_end.Width = 80;
+            // 
+            // lday02_min
+            // 
+            this.lday02_min.DataPropertyName = "lday02_min";
+            this.lday02_min.HeaderText = "日2小";
+            this.lday02_min.Name = "lday02_min";
+            this.lday02_min.ReadOnly = true;
+            this.lday02_min.Width = 80;
+            // 
+            // lday02_end
+            // 
+            this.lday02_end.DataPropertyName = "lday02_end";
+            this.lday02_end.HeaderText = "日2终";
+            this.lday02_end.Name = "lday02_end";
+            this.lday02_end.ReadOnly = true;
+            this.lday02_end.Width = 80;
+            // 
+            // lday03_min
+            // 
+            this.lday03_min.DataPropertyName = "lday03_min";
+            this.lday03_min.HeaderText = "日3小";
+            this.lday03_min.Name = "lday03_min";
+            this.lday03_min.ReadOnly = true;
+            this.lday03_min.Width = 80;
+            // 
+            // lday03_end
+            // 
+            this.lday03_end.DataPropertyName = "lday03_end";
+            this.lday03_end.HeaderText = "日3终";
+            this.lday03_end.Name = "lday03_end";
+            this.lday03_end.ReadOnly = true;
+            this.lday03_end.Width = 80;
             // 
             // Menu_Main
             // 
@@ -282,14 +511,14 @@
             // Test_SetSuppose
             // 
             this.Test_SetSuppose.Name = "Test_SetSuppose";
-            this.Test_SetSuppose.Size = new System.Drawing.Size(180, 22);
+            this.Test_SetSuppose.Size = new System.Drawing.Size(174, 22);
             this.Test_SetSuppose.Text = "Test_SetSuppose";
             this.Test_SetSuppose.Click += new System.EventHandler(this.Test_SetSuppose_Click);
             // 
             // Test_Restore
             // 
             this.Test_Restore.Name = "Test_Restore";
-            this.Test_Restore.Size = new System.Drawing.Size(180, 22);
+            this.Test_Restore.Size = new System.Drawing.Size(174, 22);
             this.Test_Restore.Text = "Test_Restore";
             this.Test_Restore.Click += new System.EventHandler(this.Test_Restore_Click);
             // 
@@ -694,234 +923,6 @@
             this.pic_minute.TabStop = false;
             this.pic_minute.Visible = false;
             // 
-            // codetype
-            // 
-            this.codetype.DataPropertyName = "codetype";
-            this.codetype.Frozen = true;
-            this.codetype.HeaderText = "codetype";
-            this.codetype.Name = "codetype";
-            this.codetype.ReadOnly = true;
-            this.codetype.Visible = false;
-            // 
-            // codevalue
-            // 
-            this.codevalue.DataPropertyName = "codevalue";
-            this.codevalue.Frozen = true;
-            this.codevalue.HeaderText = "代码";
-            this.codevalue.Name = "codevalue";
-            this.codevalue.ReadOnly = true;
-            this.codevalue.Width = 50;
-            // 
-            // stockname
-            // 
-            this.stockname.DataPropertyName = "stockname";
-            this.stockname.Frozen = true;
-            this.stockname.HeaderText = "名称";
-            this.stockname.Name = "stockname";
-            this.stockname.ReadOnly = true;
-            this.stockname.Width = 60;
-            // 
-            // nowprice
-            // 
-            this.nowprice.DataPropertyName = "nowprice";
-            this.nowprice.Frozen = true;
-            this.nowprice.HeaderText = "价格";
-            this.nowprice.Name = "nowprice";
-            this.nowprice.ReadOnly = true;
-            this.nowprice.Width = 50;
-            // 
-            // isfocus
-            // 
-            this.isfocus.DataPropertyName = "isfocus";
-            this.isfocus.HeaderText = "关注";
-            this.isfocus.Name = "isfocus";
-            this.isfocus.ReadOnly = true;
-            this.isfocus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isfocus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.isfocus.Width = 50;
-            // 
-            // 反弹
-            // 
-            this.反弹.DataPropertyName = "growtoday";
-            dataGridViewCellStyle1.Format = "0.00%";
-            this.反弹.DefaultCellStyle = dataGridViewCellStyle1;
-            this.反弹.HeaderText = "反弹";
-            this.反弹.Name = "反弹";
-            this.反弹.ReadOnly = true;
-            this.反弹.Width = 50;
-            // 
-            // updown
-            // 
-            this.updown.DataPropertyName = "updown";
-            dataGridViewCellStyle2.Format = "0.00%";
-            this.updown.DefaultCellStyle = dataGridViewCellStyle2;
-            this.updown.HeaderText = "涨跌";
-            this.updown.Name = "updown";
-            this.updown.ReadOnly = true;
-            this.updown.Width = 50;
-            // 
-            // 最近
-            // 
-            this.最近.DataPropertyName = "breakday1";
-            dataGridViewCellStyle3.Format = "MM-dd";
-            this.最近.DefaultCellStyle = dataGridViewCellStyle3;
-            this.最近.HeaderText = "最近";
-            this.最近.Name = "最近";
-            this.最近.ReadOnly = true;
-            this.最近.Width = 50;
-            // 
-            // 上次
-            // 
-            this.上次.DataPropertyName = "breakday2";
-            dataGridViewCellStyle4.Format = "MM-dd";
-            this.上次.DefaultCellStyle = dataGridViewCellStyle4;
-            this.上次.HeaderText = "上次";
-            this.上次.Name = "上次";
-            this.上次.ReadOnly = true;
-            this.上次.Width = 50;
-            // 
-            // max20growday
-            // 
-            this.max20growday.DataPropertyName = "max20growday";
-            dataGridViewCellStyle5.Format = "0.00%";
-            this.max20growday.DefaultCellStyle = dataGridViewCellStyle5;
-            this.max20growday.HeaderText = "大20天";
-            this.max20growday.Name = "max20growday";
-            this.max20growday.ReadOnly = true;
-            this.max20growday.Width = 70;
-            // 
-            // max20growday_avg15
-            // 
-            this.max20growday_avg15.DataPropertyName = "max20growday_avg15";
-            dataGridViewCellStyle6.Format = "0.00%";
-            this.max20growday_avg15.DefaultCellStyle = dataGridViewCellStyle6;
-            this.max20growday_avg15.HeaderText = "大回调";
-            this.max20growday_avg15.Name = "max20growday_avg15";
-            this.max20growday_avg15.ReadOnly = true;
-            this.max20growday_avg15.Width = 50;
-            // 
-            // 突破
-            // 
-            this.突破.DataPropertyName = "logbreakqty";
-            dataGridViewCellStyle7.Format = "0.00%";
-            this.突破.DefaultCellStyle = dataGridViewCellStyle7;
-            this.突破.HeaderText = "突破";
-            this.突破.Name = "突破";
-            this.突破.ReadOnly = true;
-            this.突破.Width = 50;
-            // 
-            // ShortLow
-            // 
-            this.ShortLow.DataPropertyName = "ShortLow";
-            this.ShortLow.HeaderText = "短";
-            this.ShortLow.Name = "ShortLow";
-            this.ShortLow.ReadOnly = true;
-            this.ShortLow.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ShortLow.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ShortLow.Width = 50;
-            // 
-            // 跌20天
-            // 
-            this.跌20天.DataPropertyName = "Max20Down";
-            dataGridViewCellStyle8.Format = "0.00%";
-            this.跌20天.DefaultCellStyle = dataGridViewCellStyle8;
-            this.跌20天.HeaderText = "跌20天";
-            this.跌20天.Name = "跌20天";
-            this.跌20天.ReadOnly = true;
-            this.跌20天.Width = 50;
-            // 
-            // max10growmin
-            // 
-            this.max10growmin.DataPropertyName = "max10growmin";
-            dataGridViewCellStyle9.Format = "0.00%";
-            this.max10growmin.DefaultCellStyle = dataGridViewCellStyle9;
-            this.max10growmin.HeaderText = "大10分";
-            this.max10growmin.Name = "max10growmin";
-            this.max10growmin.ReadOnly = true;
-            this.max10growmin.Width = 70;
-            // 
-            // nowtime
-            // 
-            this.nowtime.DataPropertyName = "nowtime";
-            dataGridViewCellStyle10.Format = "HH:mm";
-            this.nowtime.DefaultCellStyle = dataGridViewCellStyle10;
-            this.nowtime.HeaderText = "时间";
-            this.nowtime.Name = "nowtime";
-            this.nowtime.ReadOnly = true;
-            this.nowtime.Width = 50;
-            // 
-            // lmin01
-            // 
-            this.lmin01.DataPropertyName = "lmin01";
-            this.lmin01.HeaderText = "分1";
-            this.lmin01.Name = "lmin01";
-            this.lmin01.ReadOnly = true;
-            this.lmin01.Width = 50;
-            // 
-            // lmin02
-            // 
-            this.lmin02.DataPropertyName = "lmin02";
-            this.lmin02.HeaderText = "分2";
-            this.lmin02.Name = "lmin02";
-            this.lmin02.ReadOnly = true;
-            this.lmin02.Width = 50;
-            // 
-            // lmin03
-            // 
-            this.lmin03.DataPropertyName = "lmin03";
-            this.lmin03.HeaderText = "分3";
-            this.lmin03.Name = "lmin03";
-            this.lmin03.ReadOnly = true;
-            this.lmin03.Width = 50;
-            // 
-            // lday01_min
-            // 
-            this.lday01_min.DataPropertyName = "lday01_min";
-            this.lday01_min.HeaderText = "日1小";
-            this.lday01_min.Name = "lday01_min";
-            this.lday01_min.ReadOnly = true;
-            this.lday01_min.Width = 80;
-            // 
-            // lday01_end
-            // 
-            this.lday01_end.DataPropertyName = "lday01_end";
-            this.lday01_end.HeaderText = "日1终";
-            this.lday01_end.Name = "lday01_end";
-            this.lday01_end.ReadOnly = true;
-            this.lday01_end.Width = 80;
-            // 
-            // lday02_min
-            // 
-            this.lday02_min.DataPropertyName = "lday02_min";
-            this.lday02_min.HeaderText = "日2小";
-            this.lday02_min.Name = "lday02_min";
-            this.lday02_min.ReadOnly = true;
-            this.lday02_min.Width = 80;
-            // 
-            // lday02_end
-            // 
-            this.lday02_end.DataPropertyName = "lday02_end";
-            this.lday02_end.HeaderText = "日2终";
-            this.lday02_end.Name = "lday02_end";
-            this.lday02_end.ReadOnly = true;
-            this.lday02_end.Width = 80;
-            // 
-            // lday03_min
-            // 
-            this.lday03_min.DataPropertyName = "lday03_min";
-            this.lday03_min.HeaderText = "日3小";
-            this.lday03_min.Name = "lday03_min";
-            this.lday03_min.ReadOnly = true;
-            this.lday03_min.Width = 80;
-            // 
-            // lday03_end
-            // 
-            this.lday03_end.DataPropertyName = "lday03_end";
-            this.lday03_end.HeaderText = "日3终";
-            this.lday03_end.Name = "lday03_end";
-            this.lday03_end.ReadOnly = true;
-            this.lday03_end.Width = 80;
-            // 
             // b_codetype
             // 
             this.b_codetype.DataPropertyName = "codetype";
@@ -959,6 +960,8 @@
             // 最近2
             // 
             this.最近2.DataPropertyName = "breakday1";
+            dataGridViewCellStyle12.Format = "MM-dd";
+            this.最近2.DefaultCellStyle = dataGridViewCellStyle12;
             this.最近2.HeaderText = "最近";
             this.最近2.Name = "最近2";
             this.最近2.ReadOnly = true;
@@ -967,8 +970,8 @@
             // 上次2
             // 
             this.上次2.DataPropertyName = "breakday2";
-            dataGridViewCellStyle12.Format = "MM-dd";
-            this.上次2.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Format = "MM-dd";
+            this.上次2.DefaultCellStyle = dataGridViewCellStyle13;
             this.上次2.HeaderText = "上次";
             this.上次2.Name = "上次2";
             this.上次2.ReadOnly = true;
@@ -985,8 +988,8 @@
             // b_max20growday
             // 
             this.b_max20growday.DataPropertyName = "max20growday";
-            dataGridViewCellStyle13.Format = "0.00%";
-            this.b_max20growday.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Format = "0.00%";
+            this.b_max20growday.DefaultCellStyle = dataGridViewCellStyle14;
             this.b_max20growday.HeaderText = "大20天";
             this.b_max20growday.Name = "b_max20growday";
             this.b_max20growday.ReadOnly = true;
@@ -995,8 +998,8 @@
             // b_supposename
             // 
             this.b_supposename.DataPropertyName = "supposename";
-            dataGridViewCellStyle14.Format = "0.00%";
-            this.b_supposename.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle15.Format = "0.00%";
+            this.b_supposename.DefaultCellStyle = dataGridViewCellStyle15;
             this.b_supposename.HeaderText = "建议";
             this.b_supposename.Name = "b_supposename";
             this.b_supposename.ReadOnly = true;

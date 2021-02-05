@@ -365,7 +365,7 @@ namespace StockLib
 
                        //lday01_vol != 0 && max20growday * 100 >= 4.0M && volumn / lday01_vol >= 1.0M
 
-                       (max20growday * 100 >= 5.0M)
+                       (max20growday * 100 >= 4.5M)
                        && (max20growday != 0)
                            && rows[0].Field<bool?>("issuppose") == false
 
@@ -643,7 +643,25 @@ namespace StockLib
             public List<WetchatJob> SendText { get; set; }
         }
 
+        private Boolean HaveBreak(Decimal?[] EndArray, int StartIndex, decimal scaler = 1.0M)
+        {
+            if (StartIndex >= EndArray.Length - 2)
+            {
+                return false;
+            }
+            decimal? StartPrice = EndArray[StartIndex];
+            for (int i = StartIndex + 2; i < EndArray.Length; i++)
+            {
+                if (EndArray[i] / scaler > StartPrice)
+                {
+                    return false;
+                }
 
+            }
+            return true;
+
+
+        }
 
         private decimal? CaculateGrowUp(decimal? Now, Decimal? minprice)
         {
@@ -1577,130 +1595,48 @@ namespace StockLib
             decimal? openprice = item.Field<decimal?>("openprice");
             decimal? highprice = item.Field<decimal?>("highprice");
 
-            Decimal? max20high = 0;
-            decimal? test20high = item.Field<decimal?>("lday02_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
+            List<decimal?> TestPrice = new List<decimal?>();
+            TestPrice.Add(item.Field<decimal?>("highprice"));
+            TestPrice.Add(item.Field<decimal?>("lday01_high"));
+            TestPrice.Add(item.Field<decimal?>("lday02_high"));
+            TestPrice.Add(item.Field<decimal?>("lday03_high"));
+            TestPrice.Add(item.Field<decimal?>("lday04_high"));
+            TestPrice.Add(item.Field<decimal?>("lday05_high"));
+            TestPrice.Add(item.Field<decimal?>("lday06_high"));
+            TestPrice.Add(item.Field<decimal?>("lday07_high"));
+            TestPrice.Add(item.Field<decimal?>("lday08_high"));
+            TestPrice.Add(item.Field<decimal?>("lday09_high"));
+            TestPrice.Add(item.Field<decimal?>("lday10_high"));
+            TestPrice.Add(item.Field<decimal?>("lday11_high"));
+            TestPrice.Add(item.Field<decimal?>("lday12_high"));
+            TestPrice.Add(item.Field<decimal?>("lday13_high"));
+            TestPrice.Add(item.Field<decimal?>("lday14_high"));
+            TestPrice.Add(item.Field<decimal?>("lday15_high"));
+            TestPrice.Add(item.Field<decimal?>("lday16_high"));
+            TestPrice.Add(item.Field<decimal?>("lday17_high"));
+            //TestPrice.Add(item.Field<decimal?>("lday18_high"));
+            //TestPrice.Add(item.Field<decimal?>("lday19_high"));
+            //TestPrice.Add(item.Field<decimal?>("lday20_high"));
+            //TestPrice.Add(item.Field<decimal?>("lday02_high"));
+            decimal?[] p_test = TestPrice.ToArray();
 
-            }
-            test20high = item.Field<decimal?>("lday03_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
 
-            }
-            test20high = item.Field<decimal?>("lday04_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday05_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday06_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday07_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday08_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday09_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday10_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday11_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday12_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday13_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday14_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-
-            }
-            test20high = item.Field<decimal?>("lday15_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-            test20high = item.Field<decimal?>("lday16_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-            test20high = item.Field<decimal?>("lday17_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-            test20high = item.Field<decimal?>("lday18_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-            test20high = item.Field<decimal?>("lday19_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-            test20high = item.Field<decimal?>("lday20_high");
-            if (test20high > max20high)
-            {
-                max20high = test20high;
-            }
-
-            if ((lday01_high < max20high)
-                && (highprice > max20high)
+            if (HaveBreak(p_test, 0, 1.035M)
+                && (HaveBreak(p_test, 1) == false)
+                && (HaveBreak(p_test, 2) == false)
+                && (HaveBreak(p_test, 3) == false)
                 && (lday01_end != 0))
             {
                 item.SetField<decimal?>("max20growday",
                    (nowprice / lday01_end - 1)
                    );
                 DateTime? breakday1 = item.Field<DateTime?>("breakday1");
-                if (breakday1!=DateTime.Today)
+                if (breakday1 != DateTime.Today)
                 {
                     item.SetField<DateTime?>("breakday2", breakday1);
-                    item.SetField<DateTime?>("breakday1",DateTime.Today);
+                    item.SetField<DateTime?>("breakday1", DateTime.Today);
                 }
-         
+
             }
             else
             {
