@@ -365,7 +365,7 @@ namespace StockLib
 
                        //lday01_vol != 0 && max20growday * 100 >= 4.0M && volumn / lday01_vol >= 1.0M
 
-                       (max20growday * 100 >= 3.5M)
+                       (max20growday * 100 >= 5.0M)
                        && (max20growday != 0)
                            && rows[0].Field<bool?>("issuppose") == false
 
