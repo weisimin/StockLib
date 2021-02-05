@@ -649,18 +649,25 @@ namespace StockLib
             {
                 return false;
             }
-            decimal? StartPrice = EndArray[StartIndex];
+            decimal? Highprice = 0;
             for (int i = StartIndex + 2; i < EndArray.Length; i++)
             {
-                if (EndArray[i] / scaler > StartPrice)
+                if (EndArray[i] > Highprice)
                 {
-                    return false;
+                    Highprice = EndArray[i];
                 }
-
             }
-            return true;
-
-
+            if (
+                Highprice < EndArray[StartIndex] * scaler
+               && Highprice > EndArray[StartIndex + 1] * scaler
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private decimal? CaculateGrowUp(decimal? Now, Decimal? minprice)
