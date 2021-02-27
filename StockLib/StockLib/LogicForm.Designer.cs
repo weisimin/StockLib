@@ -120,10 +120,6 @@
             this.cb_showjpg = new System.Windows.Forms.CheckBox();
             this.con_cb_wechat = new System.Windows.Forms.CheckBox();
             this.gv_main = new System.Windows.Forms.DataGridView();
-            this.bs_sub = new System.Windows.Forms.BindingSource(this.components);
-            this.lbl_watch = new System.Windows.Forms.Label();
-            this.pic_day = new System.Windows.Forms.PictureBox();
-            this.pic_minute = new System.Windows.Forms.PictureBox();
             this.b_codetype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_codevalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_stockname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,6 +129,12 @@
             this.b_max20growday_avg15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_supposename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bs_sub = new System.Windows.Forms.BindingSource(this.components);
+            this.lbl_watch = new System.Windows.Forms.Label();
+            this.pic_day = new System.Windows.Forms.PictureBox();
+            this.pic_minute = new System.Windows.Forms.PictureBox();
+            this.rebuildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rebuildMA5CrossMA15ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).BeginInit();
             this.Menu_Main.SuspendLayout();
@@ -427,7 +429,8 @@
             this.Menu_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MI_System,
-            this.Test_Func});
+            this.Test_Func,
+            this.rebuildToolStripMenuItem});
             this.Menu_Main.Location = new System.Drawing.Point(0, 0);
             this.Menu_Main.Name = "Menu_Main";
             this.Menu_Main.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -511,14 +514,14 @@
             // Test_SetSuppose
             // 
             this.Test_SetSuppose.Name = "Test_SetSuppose";
-            this.Test_SetSuppose.Size = new System.Drawing.Size(174, 22);
+            this.Test_SetSuppose.Size = new System.Drawing.Size(180, 22);
             this.Test_SetSuppose.Text = "Test_SetSuppose";
             this.Test_SetSuppose.Click += new System.EventHandler(this.Test_SetSuppose_Click);
             // 
             // Test_Restore
             // 
             this.Test_Restore.Name = "Test_Restore";
-            this.Test_Restore.Size = new System.Drawing.Size(174, 22);
+            this.Test_Restore.Size = new System.Drawing.Size(180, 22);
             this.Test_Restore.Text = "Test_Restore";
             this.Test_Restore.Click += new System.EventHandler(this.Test_Restore_Click);
             // 
@@ -669,9 +672,9 @@
             // 
             // tb_max20downfrom
             // 
-            this.tb_max20downfrom.Location = new System.Drawing.Point(347, 31);
+            this.tb_max20downfrom.Location = new System.Drawing.Point(365, 31);
             this.tb_max20downfrom.Name = "tb_max20downfrom";
-            this.tb_max20downfrom.Size = new System.Drawing.Size(40, 21);
+            this.tb_max20downfrom.Size = new System.Drawing.Size(23, 21);
             this.tb_max20downfrom.TabIndex = 25;
             this.tb_max20downfrom.TextChanged += new System.EventHandler(this.tb_max20downfrom_TextChanged);
             // 
@@ -679,14 +682,14 @@
             // 
             this.tb_max20downto.Location = new System.Drawing.Point(404, 32);
             this.tb_max20downto.Name = "tb_max20downto";
-            this.tb_max20downto.Size = new System.Drawing.Size(40, 21);
+            this.tb_max20downto.Size = new System.Drawing.Size(24, 21);
             this.tb_max20downto.TabIndex = 24;
             this.tb_max20downto.TextChanged += new System.EventHandler(this.tb_max20down_TextChanged);
             // 
             // lbl_max20down
             // 
             this.lbl_max20down.AutoSize = true;
-            this.lbl_max20down.Location = new System.Drawing.Point(312, 36);
+            this.lbl_max20down.Location = new System.Drawing.Point(330, 35);
             this.lbl_max20down.Name = "lbl_max20down";
             this.lbl_max20down.Size = new System.Drawing.Size(29, 12);
             this.lbl_max20down.TabIndex = 23;
@@ -696,7 +699,7 @@
             // 
             this.tb_max20growup.Location = new System.Drawing.Point(270, 31);
             this.tb_max20growup.Name = "tb_max20growup";
-            this.tb_max20growup.Size = new System.Drawing.Size(40, 21);
+            this.tb_max20growup.Size = new System.Drawing.Size(26, 21);
             this.tb_max20growup.TabIndex = 22;
             this.tb_max20growup.TextChanged += new System.EventHandler(this.tb_max20growup_TextChanged);
             // 
@@ -894,35 +897,6 @@
             this.gv_main.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gv_main_CellMouseUp);
             this.gv_main.SelectionChanged += new System.EventHandler(this.gv_main_SelectionChanged);
             // 
-            // lbl_watch
-            // 
-            this.lbl_watch.AutoSize = true;
-            this.lbl_watch.Location = new System.Drawing.Point(12, 29);
-            this.lbl_watch.Name = "lbl_watch";
-            this.lbl_watch.Size = new System.Drawing.Size(35, 12);
-            this.lbl_watch.TabIndex = 13;
-            this.lbl_watch.Text = "监控:";
-            // 
-            // pic_day
-            // 
-            this.pic_day.Location = new System.Drawing.Point(14, 226);
-            this.pic_day.Name = "pic_day";
-            this.pic_day.Size = new System.Drawing.Size(308, 223);
-            this.pic_day.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_day.TabIndex = 15;
-            this.pic_day.TabStop = false;
-            this.pic_day.Visible = false;
-            // 
-            // pic_minute
-            // 
-            this.pic_minute.Location = new System.Drawing.Point(326, 226);
-            this.pic_minute.Name = "pic_minute";
-            this.pic_minute.Size = new System.Drawing.Size(269, 223);
-            this.pic_minute.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_minute.TabIndex = 16;
-            this.pic_minute.TabStop = false;
-            this.pic_minute.Visible = false;
-            // 
             // b_codetype
             // 
             this.b_codetype.DataPropertyName = "codetype";
@@ -1004,6 +978,50 @@
             this.b_supposename.Name = "b_supposename";
             this.b_supposename.ReadOnly = true;
             this.b_supposename.Width = 60;
+            // 
+            // lbl_watch
+            // 
+            this.lbl_watch.AutoSize = true;
+            this.lbl_watch.Location = new System.Drawing.Point(12, 29);
+            this.lbl_watch.Name = "lbl_watch";
+            this.lbl_watch.Size = new System.Drawing.Size(35, 12);
+            this.lbl_watch.TabIndex = 13;
+            this.lbl_watch.Text = "监控:";
+            // 
+            // pic_day
+            // 
+            this.pic_day.Location = new System.Drawing.Point(14, 226);
+            this.pic_day.Name = "pic_day";
+            this.pic_day.Size = new System.Drawing.Size(308, 223);
+            this.pic_day.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_day.TabIndex = 15;
+            this.pic_day.TabStop = false;
+            this.pic_day.Visible = false;
+            // 
+            // pic_minute
+            // 
+            this.pic_minute.Location = new System.Drawing.Point(326, 226);
+            this.pic_minute.Name = "pic_minute";
+            this.pic_minute.Size = new System.Drawing.Size(269, 223);
+            this.pic_minute.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_minute.TabIndex = 16;
+            this.pic_minute.TabStop = false;
+            this.pic_minute.Visible = false;
+            // 
+            // rebuildToolStripMenuItem
+            // 
+            this.rebuildToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rebuildMA5CrossMA15ToolStripMenuItem});
+            this.rebuildToolStripMenuItem.Name = "rebuildToolStripMenuItem";
+            this.rebuildToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
+            this.rebuildToolStripMenuItem.Text = "Rebuild";
+            // 
+            // rebuildMA5CrossMA15ToolStripMenuItem
+            // 
+            this.rebuildMA5CrossMA15ToolStripMenuItem.Name = "rebuildMA5CrossMA15ToolStripMenuItem";
+            this.rebuildMA5CrossMA15ToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.rebuildMA5CrossMA15ToolStripMenuItem.Text = "RebuildMA5CrossMA15";
+            this.rebuildMA5CrossMA15ToolStripMenuItem.Click += new System.EventHandler(this.rebuildMA5CrossMA15ToolStripMenuItem_Click);
             // 
             // LogicForm
             // 
@@ -1137,6 +1155,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday_avg15;
         private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday;
         private System.Windows.Forms.DataGridViewTextBoxColumn b_supposename;
+        private System.Windows.Forms.ToolStripMenuItem rebuildToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rebuildMA5CrossMA15ToolStripMenuItem;
     }
 }
 
