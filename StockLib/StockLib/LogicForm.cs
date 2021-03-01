@@ -309,6 +309,13 @@ namespace StockLib
                     */
                     #endregion
 
+                    Decimal? logprice = rows[0].Field<decimal?>("logprice");
+
+                    if (nowprice > logprice)
+                    {
+                        rows[0].SetField<decimal?>("logprice", nowprice);
+                        rows[0].SetField<decimal?>("logbreakqty", rows[0].Field<decimal?>("logbreakqty") + 1);
+                    }
 
                     gv_list.FirstDisplayedScrollingRowIndex = befpos;
 
@@ -440,13 +447,7 @@ namespace StockLib
                         rows[0].SetField<decimal?>("lmin02", rows[0].Field<decimal?>("lmin01"));
                         rows[0].SetField<decimal?>("lmin01", Convert.ToDecimal(infs[3]));
 
-                        Decimal? logprice = rows[0].Field<decimal?>("logprice");
-
-                        //if (nowprice > logprice)
-                        //{
-                        //    rows[0].SetField<decimal?>("logprice", nowprice);
-                        //    rows[0].SetField<decimal?>("logbreakqty", rows[0].Field<decimal?>("logbreakqty") + 1);
-                        //}
+                       
 
 
                         //decimal? max20growday = rows[0].Field<decimal?>("max20growday");
@@ -1813,7 +1814,7 @@ namespace StockLib
             decimal? MA5Bef = item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end");
             MA5Bef = MA5Bef / 5;
 
-            DateTime? lday_time = item.Field<DateTime?>("lday_time");
+            DateTime? nowtime = item.Field<DateTime?>("nowtime");
 
             decimal? maxhighprice = item.Field<decimal?>("highprice");
             if (maxhighprice < item.Field<decimal?>("lday01_high"))
@@ -1841,10 +1842,10 @@ namespace StockLib
             if (MA5Bef <= MA15Bef && MA5 >= MA15)
             {
                 DateTime? breakday1 = item.Field<DateTime?>("breakday1");
-                if (breakday1 != lday_time)
+                if (breakday1 != (nowtime.HasValue? nowtime.Value.Date: nowtime))
                 {
                     item.SetField<DateTime?>("breakday2", breakday1);
-                    item.SetField<DateTime?>("breakday1", lday_time);
+                    item.SetField<DateTime?>("breakday1", nowtime.Value.Date);
                 }
             }
 
@@ -4191,7 +4192,7 @@ namespace StockLib
                             {
                                 breakday2 = transday;
                                 item.SetField<DateTime?>("breakday2", breakday2);
-                                item.SetField<Decimal?>("logbreakqty", Convert.ToDecimal((breakday2 - breakday1).Value.TotalDays));
+                                //item.SetField<Decimal?>("logbreakqty", Convert.ToDecimal((breakday2 - breakday1).Value.TotalDays));
                             }
                             if (breakday1 == null)
                             {
