@@ -292,7 +292,7 @@ namespace StockLib
                     //SetDayGrowDeltaMaDif(rows[0]);
                     // SetDayGrowDoubleSuper(rows[0]);
 
-                    CloseCrossMA3(rows[0]);
+                    YTDSuperAndNow(rows[0]);
 
                     #region Better is  better
                     /*
@@ -316,8 +316,16 @@ namespace StockLib
                         rows[0].SetField<decimal?>("logprice", nowprice);
                         rows[0].SetField<decimal?>("logbreakqty", rows[0].Field<decimal?>("logbreakqty") + 1);
                     }
+                    try
+                    {
+                        gv_list.FirstDisplayedScrollingRowIndex = befpos;
+                    }
+                    catch (Exception)
+                    {
 
-                    gv_list.FirstDisplayedScrollingRowIndex = befpos;
+
+                    }
+
 
 
                     decimal? max20growday = rows[0].Field<decimal?>("max20growday");
@@ -327,7 +335,7 @@ namespace StockLib
                     decimal? growytd = (lday01_min == 0 ? 0 : (lday01_end / lday01_min - 1));
                     decimal? lmin01 = rows[0].Field<decimal?>("lmin01");
 
-
+                    rows[0].SetField<decimal?>("Max20Down", lday01_vol == 0 ? 0 : (volumn / lday01_vol));
 
 
 
@@ -371,29 +379,33 @@ namespace StockLib
 
                     //decimal? max10growmin = rows[0].Field<decimal?>("max10growmin");
                     rows[0].SetField<string>("strong", strstrong);
+
+                    DateTime? breakday1 = rows[0].Field<DateTime?>("breakday1");
                     if (
-                       //lday01_end != 0 && lday02_end != 0 && nowprice != 0 &&
-                       //(
-                       // lday01_high / lday01_end <= 1.0075M
-                       // && lday02_high / lday02_end <= 1.0075M
-                       //  && highprice / nowprice <= 1.0075M
-                       //  && growtoday * 100 >= 3.5M
-                       // && rows[0].Field<bool?>("issuppose") == false
-                       //)
+                    //lday01_end != 0 && lday02_end != 0 && nowprice != 0 &&
+                    //(
+                    // lday01_high / lday01_end <= 1.0075M
+                    // && lday02_high / lday02_end <= 1.0075M
+                    //  && highprice / nowprice <= 1.0075M
+                    //  && growtoday * 100 >= 3.5M
+                    // && rows[0].Field<bool?>("issuppose") == false
+                    //)
 
-                       /*( strytdstrong==""|| strytdstrong.Contains("弱"))
-                        && strstrong.Contains("强") && updown * 100 >= 3.0M&&growtoday*100>=3.0M
+                    /*( strytdstrong==""|| strytdstrong.Contains("弱"))
+                     && strstrong.Contains("强") && updown * 100 >= 3.0M&&growtoday*100>=3.0M
 
-                        )*/
+                     )*/
 
-                       /* max20growday*100>3.5M&& max10growmin*100 >= 3.5M*/
+                    /* max20growday*100>3.5M&& max10growmin*100 >= 3.5M*/
 
-                       //lday01_vol != 0 && max20growday * 100 >= 4.0M && volumn / lday01_vol >= 1.0M
+                    //lday01_vol != 0 && max20growday * 100 >= 4.0M && volumn / lday01_vol >= 1.0M
 
-                       (max20growday * 100 <= 99M) && (max20growday * 100 >= -99M)
-                            && (false)
-                           && rows[0].Field<bool?>("issuppose") == false
 
+
+                    //(breakday1 == rowtime.Value.Date)
+                    //&& 
+                    (max20growday*100 >= 5M)
+                    && rows[0].Field<bool?>("issuppose") == false
                         )
 
                     {
@@ -447,7 +459,7 @@ namespace StockLib
                         rows[0].SetField<decimal?>("lmin02", rows[0].Field<decimal?>("lmin01"));
                         rows[0].SetField<decimal?>("lmin01", Convert.ToDecimal(infs[3]));
 
-                       
+
 
 
                         //decimal? max20growday = rows[0].Field<decimal?>("max20growday");
@@ -898,7 +910,7 @@ namespace StockLib
 
 
                 }//日K线循环结束
-                CloseCrossMA3(item);
+                YTDSuperAndNow(item);
                 //SetDayGrowDoubleSuper(item);
                 //SetDayGrowTwoDaySuper(item);
                 Application.DoEvents();
@@ -1794,9 +1806,14 @@ namespace StockLib
             decimal? MA3 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end");
             MA3 = MA3 / 3;
             decimal? nowprice = item.Field<decimal?>("nowprice");
+            decimal? minprice = item.Field<decimal?>("minprice");
+            decimal? lday01_end = item.Field<decimal?>("lday01_end");
+            decimal? volumn = item.Field<decimal?>("volumn");
+            decimal? lday01_vol = item.Field<decimal?>("lday01_vol");
 
             decimal? MA3bef = item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end");
             MA3bef = MA3bef / 3;
+
             decimal? nowpricebef = item.Field<decimal?>("lday01_end");
 
             decimal? MA15 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end")
@@ -1813,6 +1830,31 @@ namespace StockLib
             MA5 = MA5 / 5;
             decimal? MA5Bef = item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end");
             MA5Bef = MA5Bef / 5;
+
+
+            decimal? MA9 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end")
+                + item.Field<decimal?>("lday05_end") + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end")
+                + item.Field<decimal?>("lday08_end") + item.Field<decimal?>("lday09_end")
+                ;
+
+            MA9 = MA9 / 9;
+            decimal? MA9Bef = item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end")
+                 + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end") + item.Field<decimal?>("lday08_end")
+                 + item.Field<decimal?>("lday09_end") + item.Field<decimal?>("lday10_end");
+            ;
+            MA9Bef = MA9Bef / 9;
+
+            decimal? MA10 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end")
+               + item.Field<decimal?>("lday05_end") + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end")
+               + item.Field<decimal?>("lday08_end") + item.Field<decimal?>("lday09_end")
+               ;
+
+            MA10 = MA10 / 10;
+            decimal? MA10Bef = item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end")
+                 + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end") + item.Field<decimal?>("lday08_end")
+                 + item.Field<decimal?>("lday09_end") + item.Field<decimal?>("lday10_end");
+            ;
+            MA10Bef = MA10Bef / 10;
 
             DateTime? nowtime = item.Field<DateTime?>("nowtime");
 
@@ -1842,23 +1884,24 @@ namespace StockLib
             if (MA5Bef <= MA15Bef && MA5 >= MA15)
             {
                 DateTime? breakday1 = item.Field<DateTime?>("breakday1");
-                if (breakday1 != (nowtime.HasValue? nowtime.Value.Date: nowtime))
+                if (breakday1 != (nowtime.HasValue ? nowtime.Value.Date : nowtime))
                 {
                     item.SetField<DateTime?>("breakday2", breakday1);
                     item.SetField<DateTime?>("breakday1", nowtime.Value.Date);
                 }
             }
 
-            if (nowpricebef <= MA3bef && nowprice >= MA3)
+            if (lday01_end <= MA10Bef && nowprice >= MA10)
             {
 
                 item.SetField<decimal?>("max20growday",
-                      (nowprice == 0 ? 0 : (
-                      (nowprice - MA3)
-                      / nowprice))
+                  (lday01_vol == 0 ? 0 : volumn / lday01_vol)
+                        //(minprice == 0 ? 0 : (
+                        //(nowprice - minprice)
+                        /// minprice))
                         //MA3bef==0?0:(((MA3- nowprice) - (MA3bef - nowpricebef))/ MA3bef)
                         );
-                
+
             }
             else
             {
@@ -1867,6 +1910,366 @@ namespace StockLib
             }
 
         }
+
+        private void GrowDivousMA1To10(DataRow item)
+        {
+
+            decimal? nowprice = item.Field<decimal?>("nowprice");
+            decimal? lday01_End = item.Field<decimal?>("lday01_end");
+
+
+            decimal? MA10 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end")
+                 + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end") + item.Field<decimal?>("lday08_end")
+                 + item.Field<decimal?>("lday09_end");
+            ;
+            MA10 = MA10 / 10;
+
+            decimal? nowgrow = item.Field<decimal?>("openprice") == 0 ? 0 : (item.Field<decimal?>("nowprice") / item.Field<decimal?>("openprice") - 1);
+            decimal? lday01grow = item.Field<decimal?>("lday01_open") == 0 ? 0 : (item.Field<decimal?>("lday01_end") / item.Field<decimal?>("lday01_open") - 1);
+            decimal? lday02grow = item.Field<decimal?>("lday02_open") == 0 ? 0 : (item.Field<decimal?>("lday02_end") / item.Field<decimal?>("lday02_open") - 1);
+            decimal? lday03grow = item.Field<decimal?>("lday03_open") == 0 ? 0 : (item.Field<decimal?>("lday03_end") / item.Field<decimal?>("lday03_open") - 1);
+            decimal? lday04grow = item.Field<decimal?>("lday04_open") == 0 ? 0 : (item.Field<decimal?>("lday04_end") / item.Field<decimal?>("lday04_open") - 1);
+            decimal? lday05grow = item.Field<decimal?>("lday05_open") == 0 ? 0 : (item.Field<decimal?>("lday05_end") / item.Field<decimal?>("lday05_open") - 1);
+            decimal? lday06grow = item.Field<decimal?>("lday06_open") == 0 ? 0 : (item.Field<decimal?>("lday06_end") / item.Field<decimal?>("lday06_open") - 1);
+            decimal? lday07grow = item.Field<decimal?>("lday07_open") == 0 ? 0 : (item.Field<decimal?>("lday07_end") / item.Field<decimal?>("lday07_open") - 1);
+            decimal? lday08grow = item.Field<decimal?>("lday08_open") == 0 ? 0 : (item.Field<decimal?>("lday08_end") / item.Field<decimal?>("lday08_open") - 1);
+            decimal? lday09grow = item.Field<decimal?>("lday09_open") == 0 ? 0 : (item.Field<decimal?>("lday09_end") / item.Field<decimal?>("lday09_open") - 1);
+            decimal? lday10grow = item.Field<decimal?>("lday10_open") == 0 ? 0 : (item.Field<decimal?>("lday10_end") / item.Field<decimal?>("lday10_open") - 1);
+            decimal? lday11grow = item.Field<decimal?>("lday11_open") == 0 ? 0 : (item.Field<decimal?>("lday11_end") / item.Field<decimal?>("lday11_open") - 1);
+            decimal? lday12grow = item.Field<decimal?>("lday12_open") == 0 ? 0 : (item.Field<decimal?>("lday12_end") / item.Field<decimal?>("lday12_open") - 1);
+            decimal? lday13grow = item.Field<decimal?>("lday13_open") == 0 ? 0 : (item.Field<decimal?>("lday13_end") / item.Field<decimal?>("lday13_open") - 1);
+            decimal? lday14grow = item.Field<decimal?>("lday14_open") == 0 ? 0 : (item.Field<decimal?>("lday14_end") / item.Field<decimal?>("lday14_open") - 1);
+
+            decimal? lday01_vol = item.Field<decimal?>("lday01_vol");
+            decimal? volumn = item.Field<decimal?>("volumn");
+
+
+
+            decimal? magrow = nowprice / MA10 - 1;
+            if (magrow.HasValue == false)
+            {
+                magrow = 0;
+            }
+            if (nowgrow > lday01grow
+                && nowgrow > lday02grow
+                && nowgrow > lday03grow
+                && nowgrow > lday04grow
+                && nowgrow > lday05grow
+                && nowgrow > lday06grow
+                && nowgrow > lday07grow
+                && nowgrow > lday08grow
+                && nowgrow > lday09grow
+                && nowgrow > lday10grow
+                && nowgrow > lday11grow
+                && nowgrow > lday12grow
+                && nowgrow > lday13grow
+                && nowgrow > lday14grow
+                )
+            {
+                item.SetField<decimal?>("max20growday", nowgrow);
+                item.SetField<decimal?>("max20growday_avg15", volumn/ lday01_vol);
+            }
+            else
+            {
+                item.SetField<decimal?>("max20growday", -99.0M);
+                item.SetField<decimal?>("max20growday_avg15", 0);
+            }
+        }
+
+        private void YTDSuperAndNow(DataRow item)
+        {
+
+            decimal? nowprice = item.Field<decimal?>("nowprice");
+            decimal? lday01_End = item.Field<decimal?>("lday01_end");
+
+
+            decimal? MA10 = item.Field<decimal?>("nowprice") + item.Field<decimal?>("lday01_end") + item.Field<decimal?>("lday02_end") + item.Field<decimal?>("lday03_end") + item.Field<decimal?>("lday04_end") + item.Field<decimal?>("lday05_end")
+                 + item.Field<decimal?>("lday06_end") + item.Field<decimal?>("lday07_end") + item.Field<decimal?>("lday08_end")
+                 + item.Field<decimal?>("lday09_end");
+            ;
+            MA10 = MA10 / 10;
+
+            decimal? nowgrow = item.Field<decimal?>("openprice") == 0 ? 0 : (item.Field<decimal?>("nowprice") / item.Field<decimal?>("openprice") - 1);
+            decimal? lday01grow = item.Field<decimal?>("lday01_open") == 0 ? 0 : (item.Field<decimal?>("lday01_end") / item.Field<decimal?>("lday01_open") - 1);
+            decimal? lday02grow = item.Field<decimal?>("lday02_open") == 0 ? 0 : (item.Field<decimal?>("lday02_end") / item.Field<decimal?>("lday02_open") - 1);
+            decimal? lday03grow = item.Field<decimal?>("lday03_open") == 0 ? 0 : (item.Field<decimal?>("lday03_end") / item.Field<decimal?>("lday03_open") - 1);
+            decimal? lday04grow = item.Field<decimal?>("lday04_open") == 0 ? 0 : (item.Field<decimal?>("lday04_end") / item.Field<decimal?>("lday04_open") - 1);
+            decimal? lday05grow = item.Field<decimal?>("lday05_open") == 0 ? 0 : (item.Field<decimal?>("lday05_end") / item.Field<decimal?>("lday05_open") - 1);
+            decimal? lday06grow = item.Field<decimal?>("lday06_open") == 0 ? 0 : (item.Field<decimal?>("lday06_end") / item.Field<decimal?>("lday06_open") - 1);
+            decimal? lday07grow = item.Field<decimal?>("lday07_open") == 0 ? 0 : (item.Field<decimal?>("lday07_end") / item.Field<decimal?>("lday07_open") - 1);
+            decimal? lday08grow = item.Field<decimal?>("lday08_open") == 0 ? 0 : (item.Field<decimal?>("lday08_end") / item.Field<decimal?>("lday08_open") - 1);
+            decimal? lday09grow = item.Field<decimal?>("lday09_open") == 0 ? 0 : (item.Field<decimal?>("lday09_end") / item.Field<decimal?>("lday09_open") - 1);
+            decimal? lday10grow = item.Field<decimal?>("lday10_open") == 0 ? 0 : (item.Field<decimal?>("lday10_end") / item.Field<decimal?>("lday10_open") - 1);
+            decimal? lday11grow = item.Field<decimal?>("lday11_open") == 0 ? 0 : (item.Field<decimal?>("lday11_end") / item.Field<decimal?>("lday11_open") - 1);
+            decimal? lday12grow = item.Field<decimal?>("lday12_open") == 0 ? 0 : (item.Field<decimal?>("lday12_end") / item.Field<decimal?>("lday12_open") - 1);
+            decimal? lday13grow = item.Field<decimal?>("lday13_open") == 0 ? 0 : (item.Field<decimal?>("lday13_end") / item.Field<decimal?>("lday13_open") - 1);
+            decimal? lday14grow = item.Field<decimal?>("lday14_open") == 0 ? 0 : (item.Field<decimal?>("lday14_end") / item.Field<decimal?>("lday14_open") - 1);
+
+            decimal? lday01_vol = item.Field<decimal?>("lday01_vol");
+            decimal? volumn = item.Field<decimal?>("volumn");
+
+
+
+            decimal? magrow = nowprice / MA10 - 1;
+            if (magrow.HasValue == false)
+            {
+                magrow = 0;
+            }
+            if (nowgrow > 0.03M
+                && lday01grow > 0.03M
+                && lday02grow < 0.015M
+                              )
+            {
+                item.SetField<decimal?>("max20growday", nowgrow);
+                item.SetField<decimal?>("max20growday_avg15", volumn / lday01_vol);
+            }
+            else
+            {
+                item.SetField<decimal?>("max20growday", -99.0M);
+                item.SetField<decimal?>("max20growday_avg15", 0);
+            }
+        }
+        private void BrwakDayDif(DataRow item)
+        {
+
+            decimal? nowprice = item.Field<decimal?>("highprice");
+            decimal? minprice = item.Field<decimal?>("minprice");
+            decimal? lday01_end = item.Field<decimal?>("lday01_high");
+            Int32 nowbreak = 0;
+            Int32 lday01break = 0;
+            if (nowprice >= item.Field<decimal?>("lday01_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday02_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday03_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday04_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday05_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday06_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday07_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday08_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday09_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+            if (nowprice >= item.Field<decimal?>("lday10_high"))
+            {
+                nowbreak += 1;
+            }
+            else
+            {
+
+            }
+
+
+            if (lday01_end >= item.Field<decimal?>("lday02_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday03_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday04_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday05_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday06_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday07_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday08_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday09_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+            if (lday01_end >= item.Field<decimal?>("lday10_high"))
+            {
+                lday01break += 1;
+            }
+            else
+            {
+
+            }
+
+
+
+
+            item.SetField<decimal?>("max20growday",
+                 nowbreak - lday01break
+                    //MA3bef==0?0:(((MA3- nowprice) - (MA3bef - nowpricebef))/ MA3bef)
+                    );
+
+            item.SetField<decimal?>("max20growday_avg15", nowbreak);
+
+        }
+
+
+
+        private void TodayReboundDivousHistory(DataRow item)
+        {
+            decimal? historyminprice = item.Field<decimal?>("minprice");
+            decimal? minprice = item.Field<decimal?>("minprice");
+            decimal? nowprice = item.Field<decimal?>("nowprice");
+
+            decimal? todaygrow = (minprice == 0 ? 0 : (nowprice / minprice - 1));
+
+            if (historyminprice > item.Field<decimal?>("lday01_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday01_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday02_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday02_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday03_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday03_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday04_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday04_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday05_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday05_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday06_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday06_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday07_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday07_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday08_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday08_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday09_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday09_min");
+            }
+            if (historyminprice > item.Field<decimal?>("lday10_min"))
+            {
+                historyminprice = item.Field<decimal?>("lday10_min");
+            }
+
+            decimal? historygrow = (historyminprice == 0 ? 0 : (nowprice / historyminprice - 1));
+
+            decimal? highprice = item.Field<decimal?>("highprice");
+
+            decimal? highjump = (nowprice == 0 ? 0 : (highprice / nowprice - 1));
+
+            item.SetField<decimal?>("max20growday",
+                     todaygrow - historygrow
+                        );
+
+            item.SetField<decimal?>("max20growday_avg15",
+                   highjump
+                      );
+        }
+
 
         private void SetDayGrowVEverHigh(DataRow item)
         {
@@ -4129,6 +4532,12 @@ namespace StockLib
                         continue;
                     }
                     DateTime? transday = itemhistory[i].Field<DateTime?>("transday");
+                    if (i < 20)
+                    {
+                        item.SetField<decimal?>("lday" + (i + 1).ToString("00") + "_end", itemhistory[i].Field<decimal?>("close"));
+                        item.SetField<decimal?>("lday" + (i + 1).ToString("00") + "_vol", itemhistory[i].Field<decimal?>("volumn"));
+                    }
+
                     if (breakday1 != null && breakday2 != null)
                     {
                         break;
@@ -4209,6 +4618,11 @@ namespace StockLib
 
             }
             ss_mian_label.Text = "正在更新breakday完成";
+        }
+
+        private void rebuildLday01To20ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }//class
     public class DayInfo
