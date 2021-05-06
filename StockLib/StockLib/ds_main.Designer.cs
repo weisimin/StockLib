@@ -566,6 +566,20 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnlday20_high;
             
+            private global::System.Data.DataColumn columnbuyin;
+            
+            private global::System.Data.DataColumn columnSuperLarge;
+            
+            private global::System.Data.DataColumn columnLarge;
+            
+            private global::System.Data.DataColumn columnMiddle;
+            
+            private global::System.Data.DataColumn columnSmall;
+            
+            private global::System.Data.DataColumn columnFiveDayGoIn;
+            
+            private global::System.Data.DataColumn columnThreeDayGoIn;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_newsDataTable() {
@@ -1609,6 +1623,62 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn buyinColumn {
+                get {
+                    return this.columnbuyin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SuperLargeColumn {
+                get {
+                    return this.columnSuperLarge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn LargeColumn {
+                get {
+                    return this.columnLarge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MiddleColumn {
+                get {
+                    return this.columnMiddle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SmallColumn {
+                get {
+                    return this.columnSmall;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FiveDayGoInColumn {
+                get {
+                    return this.columnFiveDayGoIn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ThreeDayGoInColumn {
+                get {
+                    return this.columnThreeDayGoIn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1770,7 +1840,14 @@ namespace StockLib {
                         decimal lday17_high, 
                         decimal lday18_high, 
                         decimal lday19_high, 
-                        decimal lday20_high) {
+                        decimal lday20_high, 
+                        decimal buyin, 
+                        decimal SuperLarge, 
+                        decimal Large, 
+                        decimal Middle, 
+                        decimal Small, 
+                        decimal FiveDayGoIn, 
+                        decimal ThreeDayGoIn) {
                 dt_newsRow rowdt_newsRow = ((dt_newsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -1898,7 +1975,14 @@ namespace StockLib {
                         lday17_high,
                         lday18_high,
                         lday19_high,
-                        lday20_high};
+                        lday20_high,
+                        buyin,
+                        SuperLarge,
+                        Large,
+                        Middle,
+                        Small,
+                        FiveDayGoIn,
+                        ThreeDayGoIn};
                 rowdt_newsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_newsRow);
                 return rowdt_newsRow;
@@ -2055,6 +2139,13 @@ namespace StockLib {
                 this.columnlday18_high = base.Columns["lday18_high"];
                 this.columnlday19_high = base.Columns["lday19_high"];
                 this.columnlday20_high = base.Columns["lday20_high"];
+                this.columnbuyin = base.Columns["buyin"];
+                this.columnSuperLarge = base.Columns["SuperLarge"];
+                this.columnLarge = base.Columns["Large"];
+                this.columnMiddle = base.Columns["Middle"];
+                this.columnSmall = base.Columns["Small"];
+                this.columnFiveDayGoIn = base.Columns["FiveDayGoIn"];
+                this.columnThreeDayGoIn = base.Columns["ThreeDayGoIn"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2312,6 +2403,20 @@ namespace StockLib {
                 base.Columns.Add(this.columnlday19_high);
                 this.columnlday20_high = new global::System.Data.DataColumn("lday20_high", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlday20_high);
+                this.columnbuyin = new global::System.Data.DataColumn("buyin", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbuyin);
+                this.columnSuperLarge = new global::System.Data.DataColumn("SuperLarge", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuperLarge);
+                this.columnLarge = new global::System.Data.DataColumn("Large", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLarge);
+                this.columnMiddle = new global::System.Data.DataColumn("Middle", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMiddle);
+                this.columnSmall = new global::System.Data.DataColumn("Small", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSmall);
+                this.columnFiveDayGoIn = new global::System.Data.DataColumn("FiveDayGoIn", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFiveDayGoIn);
+                this.columnThreeDayGoIn = new global::System.Data.DataColumn("ThreeDayGoIn", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnThreeDayGoIn);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("dt_news_pk", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue}, true));
@@ -2466,6 +2571,16 @@ namespace StockLib {
             
             private global::System.Data.DataColumn columnvolumn;
             
+            private global::System.Data.DataColumn columnMainBuyIn;
+            
+            private global::System.Data.DataColumn columnSuperLarge;
+            
+            private global::System.Data.DataColumn columnLarge;
+            
+            private global::System.Data.DataColumn columnMiddle;
+            
+            private global::System.Data.DataColumn columnSmall;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dt_historyDataTable() {
@@ -2565,6 +2680,46 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MainBuyInColumn {
+                get {
+                    return this.columnMainBuyIn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SuperLargeColumn {
+                get {
+                    return this.columnSuperLarge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn LargeColumn {
+                get {
+                    return this.columnLarge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MiddleColumn {
+                get {
+                    return this.columnMiddle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SmallColumn {
+                get {
+                    return this.columnSmall;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2600,7 +2755,7 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dt_historyRow Adddt_historyRow(string codetype, string codevalue, System.DateTime transday, decimal open, decimal high, decimal min, decimal close, decimal volumn) {
+            public dt_historyRow Adddt_historyRow(string codetype, string codevalue, System.DateTime transday, decimal open, decimal high, decimal min, decimal close, decimal volumn, decimal MainBuyIn, decimal SuperLarge, decimal Large, decimal Middle, decimal Small) {
                 dt_historyRow rowdt_historyRow = ((dt_historyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codetype,
@@ -2610,7 +2765,12 @@ namespace StockLib {
                         high,
                         min,
                         close,
-                        volumn};
+                        volumn,
+                        MainBuyIn,
+                        SuperLarge,
+                        Large,
+                        Middle,
+                        Small};
                 rowdt_historyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdt_historyRow);
                 return rowdt_historyRow;
@@ -2650,6 +2810,11 @@ namespace StockLib {
                 this.columnmin = base.Columns["min"];
                 this.columnclose = base.Columns["close"];
                 this.columnvolumn = base.Columns["volumn"];
+                this.columnMainBuyIn = base.Columns["MainBuyIn"];
+                this.columnSuperLarge = base.Columns["SuperLarge"];
+                this.columnLarge = base.Columns["Large"];
+                this.columnMiddle = base.Columns["Middle"];
+                this.columnSmall = base.Columns["Small"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2671,6 +2836,16 @@ namespace StockLib {
                 base.Columns.Add(this.columnclose);
                 this.columnvolumn = new global::System.Data.DataColumn("volumn", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvolumn);
+                this.columnMainBuyIn = new global::System.Data.DataColumn("MainBuyIn", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMainBuyIn);
+                this.columnSuperLarge = new global::System.Data.DataColumn("SuperLarge", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuperLarge);
+                this.columnLarge = new global::System.Data.DataColumn("Large", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLarge);
+                this.columnMiddle = new global::System.Data.DataColumn("Middle", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMiddle);
+                this.columnSmall = new global::System.Data.DataColumn("Small", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSmall);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncodetype,
                                 this.columncodevalue,
@@ -4826,6 +5001,118 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal buyin {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.buyinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“buyin”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.buyinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal SuperLarge {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.SuperLargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“SuperLarge”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.SuperLargeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Large {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.LargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“Large”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.LargeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Middle {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.MiddleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“Middle”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.MiddleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Small {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.SmallColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“Small”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.SmallColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal FiveDayGoIn {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.FiveDayGoInColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“FiveDayGoIn”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.FiveDayGoInColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal ThreeDayGoIn {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_news.ThreeDayGoInColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_news”中列“ThreeDayGoIn”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_news.ThreeDayGoInColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstocknameNull() {
                 return this.IsNull(this.tabledt_news.stocknameColumn);
             }
@@ -6311,6 +6598,90 @@ namespace StockLib {
             public void Setlday20_highNull() {
                 this[this.tabledt_news.lday20_highColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsbuyinNull() {
+                return this.IsNull(this.tabledt_news.buyinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetbuyinNull() {
+                this[this.tabledt_news.buyinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSuperLargeNull() {
+                return this.IsNull(this.tabledt_news.SuperLargeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSuperLargeNull() {
+                this[this.tabledt_news.SuperLargeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLargeNull() {
+                return this.IsNull(this.tabledt_news.LargeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetLargeNull() {
+                this[this.tabledt_news.LargeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMiddleNull() {
+                return this.IsNull(this.tabledt_news.MiddleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMiddleNull() {
+                this[this.tabledt_news.MiddleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSmallNull() {
+                return this.IsNull(this.tabledt_news.SmallColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSmallNull() {
+                this[this.tabledt_news.SmallColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFiveDayGoInNull() {
+                return this.IsNull(this.tabledt_news.FiveDayGoInColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFiveDayGoInNull() {
+                this[this.tabledt_news.FiveDayGoInColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsThreeDayGoInNull() {
+                return this.IsNull(this.tabledt_news.ThreeDayGoInColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetThreeDayGoInNull() {
+                this[this.tabledt_news.ThreeDayGoInColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -6442,6 +6813,86 @@ namespace StockLib {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal MainBuyIn {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_history.MainBuyInColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_history”中列“MainBuyIn”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_history.MainBuyInColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal SuperLarge {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_history.SuperLargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_history”中列“SuperLarge”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_history.SuperLargeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Large {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_history.LargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_history”中列“Large”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_history.LargeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Middle {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_history.MiddleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_history”中列“Middle”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_history.MiddleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Small {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledt_history.SmallColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dt_history”中列“Small”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledt_history.SmallColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsopenNull() {
                 return this.IsNull(this.tabledt_history.openColumn);
             }
@@ -6498,6 +6949,66 @@ namespace StockLib {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetvolumnNull() {
                 this[this.tabledt_history.volumnColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMainBuyInNull() {
+                return this.IsNull(this.tabledt_history.MainBuyInColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMainBuyInNull() {
+                this[this.tabledt_history.MainBuyInColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSuperLargeNull() {
+                return this.IsNull(this.tabledt_history.SuperLargeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSuperLargeNull() {
+                this[this.tabledt_history.SuperLargeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLargeNull() {
+                return this.IsNull(this.tabledt_history.LargeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetLargeNull() {
+                this[this.tabledt_history.LargeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMiddleNull() {
+                return this.IsNull(this.tabledt_history.MiddleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMiddleNull() {
+                this[this.tabledt_history.MiddleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSmallNull() {
+                return this.IsNull(this.tabledt_history.SmallColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSmallNull() {
+                this[this.tabledt_history.SmallColumn] = global::System.Convert.DBNull;
             }
         }
         

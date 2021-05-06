@@ -56,8 +56,8 @@
             this.上次 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.max20growday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.max20growday_avg15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.流入 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.交比 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.突破 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShortLow = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.max10growmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nowtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,9 +82,11 @@
             this.Test_Func = new System.Windows.Forms.ToolStripMenuItem();
             this.Test_SetSuppose = new System.Windows.Forms.ToolStripMenuItem();
             this.Test_Restore = new System.Windows.Forms.ToolStripMenuItem();
+            this.testDownLoadBuyInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rebuildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rebuildMA5CrossMA15ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rebuildLday01To20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rebuildGOIn3And5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ss_main = new System.Windows.Forms.StatusStrip();
             this.ss_mian_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.sl_diff = new System.Windows.Forms.ToolStripStatusLabel();
@@ -136,6 +138,7 @@
             this.lbl_watch = new System.Windows.Forms.Label();
             this.pic_day = new System.Windows.Forms.PictureBox();
             this.pic_minute = new System.Windows.Forms.PictureBox();
+            this.deleteYtdHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bs_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_list)).BeginInit();
             this.Menu_Main.SuspendLayout();
@@ -169,8 +172,8 @@
             this.上次,
             this.max20growday,
             this.max20growday_avg15,
+            this.流入,
             this.交比,
-            this.突破,
             this.ShortLow,
             this.max10growmin,
             this.nowtime,
@@ -303,6 +306,14 @@
             this.max20growday_avg15.ReadOnly = true;
             this.max20growday_avg15.Width = 50;
             // 
+            // 流入
+            // 
+            this.流入.DataPropertyName = "buyin";
+            this.流入.HeaderText = "流入";
+            this.流入.Name = "流入";
+            this.流入.ReadOnly = true;
+            this.流入.Width = 80;
+            // 
             // 交比
             // 
             this.交比.DataPropertyName = "Max20Down";
@@ -310,14 +321,6 @@
             this.交比.Name = "交比";
             this.交比.ReadOnly = true;
             this.交比.Width = 50;
-            // 
-            // 突破
-            // 
-            this.突破.DataPropertyName = "logbreakqty";
-            this.突破.HeaderText = "突破";
-            this.突破.Name = "突破";
-            this.突破.ReadOnly = true;
-            this.突破.Width = 50;
             // 
             // ShortLow
             // 
@@ -503,7 +506,8 @@
             // 
             this.Test_Func.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Test_SetSuppose,
-            this.Test_Restore});
+            this.Test_Restore,
+            this.testDownLoadBuyInToolStripMenuItem});
             this.Test_Func.Name = "Test_Func";
             this.Test_Func.Size = new System.Drawing.Size(75, 21);
             this.Test_Func.Text = "Test_Func";
@@ -511,22 +515,31 @@
             // Test_SetSuppose
             // 
             this.Test_SetSuppose.Name = "Test_SetSuppose";
-            this.Test_SetSuppose.Size = new System.Drawing.Size(174, 22);
+            this.Test_SetSuppose.Size = new System.Drawing.Size(199, 22);
             this.Test_SetSuppose.Text = "Test_SetSuppose";
             this.Test_SetSuppose.Click += new System.EventHandler(this.Test_SetSuppose_Click);
             // 
             // Test_Restore
             // 
             this.Test_Restore.Name = "Test_Restore";
-            this.Test_Restore.Size = new System.Drawing.Size(174, 22);
+            this.Test_Restore.Size = new System.Drawing.Size(199, 22);
             this.Test_Restore.Text = "Test_Restore";
             this.Test_Restore.Click += new System.EventHandler(this.Test_Restore_Click);
+            // 
+            // testDownLoadBuyInToolStripMenuItem
+            // 
+            this.testDownLoadBuyInToolStripMenuItem.Name = "testDownLoadBuyInToolStripMenuItem";
+            this.testDownLoadBuyInToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.testDownLoadBuyInToolStripMenuItem.Text = "Test_DownLoadBuyIn";
+            this.testDownLoadBuyInToolStripMenuItem.Click += new System.EventHandler(this.testDownLoadBuyInToolStripMenuItem_Click);
             // 
             // rebuildToolStripMenuItem
             // 
             this.rebuildToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rebuildMA5CrossMA15ToolStripMenuItem,
-            this.rebuildLday01To20ToolStripMenuItem});
+            this.rebuildLday01To20ToolStripMenuItem,
+            this.rebuildGOIn3And5ToolStripMenuItem,
+            this.deleteYtdHistoryToolStripMenuItem});
             this.rebuildToolStripMenuItem.Name = "rebuildToolStripMenuItem";
             this.rebuildToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.rebuildToolStripMenuItem.Text = "Rebuild";
@@ -544,6 +557,13 @@
             this.rebuildLday01To20ToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.rebuildLday01To20ToolStripMenuItem.Text = "RebuildLday01To20";
             this.rebuildLday01To20ToolStripMenuItem.Click += new System.EventHandler(this.rebuildLday01To20ToolStripMenuItem_Click);
+            // 
+            // rebuildGOIn3And5ToolStripMenuItem
+            // 
+            this.rebuildGOIn3And5ToolStripMenuItem.Name = "rebuildGOIn3And5ToolStripMenuItem";
+            this.rebuildGOIn3And5ToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.rebuildGOIn3And5ToolStripMenuItem.Text = "RebuildGOIn3And5";
+            this.rebuildGOIn3And5ToolStripMenuItem.Click += new System.EventHandler(this.rebuildGOIn3And5ToolStripMenuItem_Click);
             // 
             // ss_main
             // 
@@ -629,6 +649,7 @@
             this.tb_updownmax.Size = new System.Drawing.Size(40, 21);
             this.tb_updownmax.TabIndex = 33;
             this.tb_updownmax.Tag = "";
+            this.tb_updownmax.Text = "9.9";
             this.tb_updownmax.TextChanged += new System.EventHandler(this.tb_updownmax_TextChanged);
             // 
             // label2
@@ -722,7 +743,7 @@
             this.tb_max20growup.Name = "tb_max20growup";
             this.tb_max20growup.Size = new System.Drawing.Size(26, 21);
             this.tb_max20growup.TabIndex = 22;
-            this.tb_max20growup.Text = "5";
+            this.tb_max20growup.Text = "3";
             this.tb_max20growup.TextChanged += new System.EventHandler(this.tb_max20growup_TextChanged);
             // 
             // lbl_max20growup
@@ -775,6 +796,7 @@
             this.tb_updownmin.Name = "tb_updownmin";
             this.tb_updownmin.Size = new System.Drawing.Size(40, 21);
             this.tb_updownmin.TabIndex = 16;
+            this.tb_updownmin.Text = "3";
             this.tb_updownmin.TextChanged += new System.EventHandler(this.tb_rerise_TextChanged);
             // 
             // lbl_updown
@@ -1041,6 +1063,13 @@
             this.pic_minute.TabStop = false;
             this.pic_minute.Visible = false;
             // 
+            // deleteYtdHistoryToolStripMenuItem
+            // 
+            this.deleteYtdHistoryToolStripMenuItem.Name = "deleteYtdHistoryToolStripMenuItem";
+            this.deleteYtdHistoryToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.deleteYtdHistoryToolStripMenuItem.Text = "DeleteYtdHistory";
+            this.deleteYtdHistoryToolStripMenuItem.Click += new System.EventHandler(this.deleteYtdHistoryToolStripMenuItem_Click);
+            // 
             // LogicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1141,6 +1170,18 @@
         private System.Windows.Forms.TextBox tb_updownmax;
         private System.Windows.Forms.ToolStripMenuItem rebuildToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rebuildMA5CrossMA15ToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 通知;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_codetype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_codevalue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_stockname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 涨跌;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 最近2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 上次2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday_avg15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn b_supposename;
+        private System.Windows.Forms.ToolStripMenuItem rebuildLday01To20ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testDownLoadBuyInToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn codetype;
         private System.Windows.Forms.DataGridViewTextBoxColumn codevalue;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockname;
@@ -1152,8 +1193,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 上次;
         private System.Windows.Forms.DataGridViewTextBoxColumn max20growday;
         private System.Windows.Forms.DataGridViewTextBoxColumn max20growday_avg15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 流入;
         private System.Windows.Forms.DataGridViewTextBoxColumn 交比;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 突破;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ShortLow;
         private System.Windows.Forms.DataGridViewTextBoxColumn max10growmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn nowtime;
@@ -1166,17 +1207,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lday02_end;
         private System.Windows.Forms.DataGridViewTextBoxColumn lday03_min;
         private System.Windows.Forms.DataGridViewTextBoxColumn lday03_end;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 通知;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_codetype;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_codevalue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_stockname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 涨跌;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 最近2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 上次2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday_avg15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_max20growday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn b_supposename;
-        private System.Windows.Forms.ToolStripMenuItem rebuildLday01To20ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rebuildGOIn3And5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteYtdHistoryToolStripMenuItem;
     }
 }
 
